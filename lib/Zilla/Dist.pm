@@ -31,18 +31,30 @@ Run: `make upgrade`.
 ...
 }
 
-sub do_env {
+sub do_sharedir {
     my ($self, @args) = @_;
-    my $makefile_name = $self->find_makefile;
-    print <<"..."
-PERL_ZILLA_DIST_MAKEFILE=$makefile_name
-...
+    print $self->find_sharedir . "\n";
+}
+
+sub find_sharedir {
+    my ($self, @args) = @_;
+    return File::Share::dist_dir('Zilla-Dist');
 }
 
 sub find_makefile {
-    my $makefile = File::Share::dist_dir('Zilla-Dist') . '/Makefile';
+    my ($self, @args) = @_;
+    my $makefile = $self->do_sharedir . '/Makefile';
     -e $makefile or die "Can't find Zilla::Dist Makefile";
     return $makefile;
+}
+
+sub usage {
+    die <<'...';
+Usage:
+
+    zild makefile       # Create a new Zilla::Dist Makefile
+    zild sharedir       # Print the location of the Zilla::Dist share dir
+...
 }
 
 1;

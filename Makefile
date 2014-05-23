@@ -1,3 +1,10 @@
+# DO NOT EDIT.
+#
+# This Makefile came from Zilla::Dist. To upgrade it, run:
+#
+#   > make upgrade
+#
+
 .PHONY: cpan doc test
 
 NAME := $(shell grep '^name: ' Meta 2>/dev/null | cut -d' ' -f2)
@@ -38,7 +45,7 @@ doc:
 	kwim --pod-cpan doc/$(NAMEPATH).kwim > ReadMe.pod
 
 cpan:
-	./.pkg/bin/make-cpan
+	zild-make-cpan
 
 dist: clean cpan
 	(cd cpan; dzil build)
@@ -70,14 +77,8 @@ clean purge:
 	rm -fr cpan .build $(DIST) $(DISTDIR)
 
 upgrade:
-	(PKGREPO=$(PWD) make -C ../perl5-pkg do-upgrade)
+	cp `zild sharedir`/Makefile ./
 
 #------------------------------------------------------------------------------
 check-release:
-	./.pkg/bin/check-release
-
-do-upgrade:
-	mkdir -p $(PKGREPO)/.pkg/bin
-	cp Makefile $(PKGREPO)/Makefile
-	cp dist.ini $(PKGREPO)/.pkg/
-	cp -r bin/* $(PKGREPO)/.pkg/bin/
+	zild-check-release
