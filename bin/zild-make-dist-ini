@@ -1,6 +1,10 @@
 #!/usr/bin/env perl
 
 use strict;
+use Cwd;
+use FindBin;
+use lib Cwd::abs_path "$FindBin::Bin/../lib";
+use Zilla::Dist;
 use File::Share;
 use YAML::XS;
 use Template::Toolkit::Simple;
@@ -11,8 +15,9 @@ my $meta = Load io->file('Meta')->all;
 my $cpan = delete($meta->{'=cpan'}) || {};
 my $data = merge($cpan, $meta);
 ($data->{namepath} = $meta->{name}) =~ s/-/\//g;
+$data->{sharedir} = 1 if -d 'share';
 
 print tt
-    ->path([File::Share::dist_dir('Zilla::Dist')])
+    ->path([File::Share::dist_dir('Zilla-Dist')])
     ->data($data)
     ->render('dist.ini');

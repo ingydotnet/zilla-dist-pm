@@ -1,3 +1,4 @@
+# ABSTRACT: Dist::Zilla Bashed Inside Out
 use strict;
 package Zilla::Dist;
 
