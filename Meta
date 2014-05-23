@@ -1,0 +1,28 @@
+=meta: 0.0.1
+
+name: Zilla-Dist
+version: 0.0.1
+abstract: Dist::Zilla Bashed Inside Out
+homepage: http://pegex.org
+
+license: perl
+copyright: 2014. Ingy döt Net.
+author:
+  name: Ingy döt Net
+  email: ingy@cpan.org
+  github: ingydotnet
+  twitter: ingydotnet
+  freenode: ingy
+  homepage: http://ingy.net
+
+requires:
+  perl: 5.8.1
+  YAML::XS: 0
+  Template::Toolkit::Simple: 0
+
+devel:
+  git: git@github.org/ingydotnet/pegex-pm
+  irc: irc.freenode.net/pegex
+  bug: https://github.com/ingydotnet/pegex-pm/issues/
+
+=travis: perl

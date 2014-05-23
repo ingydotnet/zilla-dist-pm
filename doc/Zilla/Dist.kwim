@@ -1,0 +1,139 @@
+Zilla::Dist
+===========
+
+[Dist::Zilla] */Bash/*ed Inside Out!
+
+= Synopsis
+
+  > zild setup
+  > zild upgrade
+  > # hack hack hack
+  > make publish
+
+= Description
+
+This module is a formalization of a Perl module / package repository layout
+and release process that I have been evolving for some time. I use the same
+layout for Bash, Ruby, Python and Node.js package publishing.
+
+A fully stacked top level might look like this:
+
+  Changes         # History in YAML
+  Meta            # Meta info for all needs (including dzil)
+  Makefile        # Automation of test, dist, publish, etc
+  ReadMe.pod      # Generated from `doc/Module.kwim`
+  bin/            # Scripts
+  doc/            # Kwim docs
+  eg/             # Examples
+  lib/            # Perl `.pm` code
+  share/          # Shared files
+  test/           # Test suite
+
+Note a few things:
+
+* Sane / readable names
+* Directories are lowercase / never plural
+* Files are TitleCase
+* No file extensions (if possible)
+* No extra meta files like `dist.ini`, `.travis.yml`, `bower.json` etc
+
+These are the /bost of/ from all the package systems I've used. They make me
+happy, and not tied to legacy bad ideas.
+
+The Makefile has these targets:
+
+- `make test`
+
+  Use `prove -lv test`
+
+- `make install`
+
+  Do a `dzil` install.
+
+- `make doc`
+
+  Make the `ReadMe.pod` and other stuff.
+
+- `make cpan`
+
+  Turn repo into a `Dist::Zilla` ready subdirectory called `./cpan/`. This
+  directory has a `dist.ini` file.
+
+- `make dist`
+
+  Basically the same as `make cpan; cd cpan; dzil build`.
+
+- `make distdir`
+
+  Unzip the dist, for inspection.
+
+- `make publish`
+
+  Have `dzil` build a dist, then `cpan-upload` it.
+
+- `make publish-dryrun`
+
+  Yep.
+
+- `make upgrade`
+
+  Upgrade the [Zilla::Dist] packaging files. (Makefile etc)
+
+= Rationale Ranting
+
+I've published a lot of /packages/ in a lot of programming languages. I like
+taking the best ideas and spreading them around. I like reusing ideas and code
+and tools as much as possible between these packages.
+
+I trust dzil to DTRT with regard to the CPAN release process. I use almost the
+exact same `dist.ini` for some 20 CPAN packages that I've converted to date.
+
+I don't like cluttered repos and adding new /metadata/ files for each new tool
+that needs one. The `dist.ini` file is not bad, but I can generate it from
+metadata easily. So I did.
+
+As much as I differ from the norm here, I want my CPAN publishings to be
+normal to normal mongers (if there's such a thing). The `make publish` process
+does just that. End users would have to look hard to know this wasn't a
+"normal" dzil release.
+
+I'm packaging this packaging process as [Zilla::Dist] for others to use. It's
+also a decent example of a CPAN package packaged with itself.
+
+= Notes
+
+Some of the tools in here are Bash, some are Perl. I'm doing a lot in the area
+of Bash Package packaging. See [http://bpan.org].
+
+I use the term `Package` where CPAN people have used the term `Distribution`.
+Perl is the only language (in my packaging experience to do so).
+
+The name `t/` is another outlier. The most common is `test` followed by
+`tests`.
+
+I don't like plural directory names. Try singular. I think you'll like it too.
+
+ALLCAPSFILENAMES ARE TOO LOUD! ChillOut.
+
+= See Also
+
+* [Dist::Zilla]
+
+== Modules Published to CPAN w/ `zild`
+
+* https://github.com/ingydotnet/pegex-pm
+* https://github.com/ingydotnet/testml-pm
+* https://github.com/ingydotnet/kwim-pm
+
+= Author
+
+Ingy döt Net <ingy@cpan.org>
+
+= Copyright and License
+
+Copyright (c) 2014. Ingy döt Net.
+
+This program is free software; you can redistribute it and/or modify it under
+the same terms as Perl itself.
+
+See http://www.perl.com/perl/misc/Artistic.html
