@@ -18,7 +18,7 @@ sub run {
     $self->$method(@args);
 }
 
-sub do_setup {
+sub do_makefile {
     my ($self, @args) = @_;
 
     my $makefile_content = io->file($self->find_makefile)->all;
