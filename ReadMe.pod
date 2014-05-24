@@ -13,21 +13,23 @@ Zilla::Dist - Dist::Zilla Bashed Inside Out
 =head1 SYNOPSIS
 
     > zild setup
-    > zild upgrade
-    > # hack hack hack
+    > # Edit the Meta file.
     > make publish
 
 =head1 DESCRIPTION
 
 This module is a formalization of a Perl module / package repository layout
 and release process that I have been evolving for some time. I use the same
-layout for Bash, Ruby, Python and Node.js package publishing.
+layout for Bash, Ruby, Python and Node.js package publishing. Under the
+hood C<zild> generates everything that Dist::Zilla wants and lets C<dzil>
+do the heavy lifting, but you never need to interact with C<Dist::Zilla>
+stuff directly.
 
-A fully stacked top level might look like this:
+A fully stacked top level CPAN package repository might look like this:
 
     Changes         # History in YAML
-    Meta            # Meta info for all needs (including dzil)
     Makefile        # Automation of test, dist, publish, etc
+    Meta            # Meta info for all needs (including dzil)
     ReadMe.pod      # Generated from `doc/Module.kwim`
     bin/            # Scripts
     doc/            # Kwim docs
@@ -52,7 +54,7 @@ Note a few things:
 
 =back
 
-These are the I<bost of> from all the package systems I've used. They make me
+These are the I<best of> from all the package systems I've used. They make me
 happy, and not tied to legacy bad ideas.
 
 The Makefile has these targets:
@@ -109,7 +111,7 @@ taking the best ideas and spreading them around. I like reusing ideas and code
 and tools as much as possible between these packages.
 
 I trust dzil to DTRT with regard to the CPAN release process. I use almost the
-exact same C<dist.ini> for some 20 CPAN packages that I've converted to date.
+exact same C<dist.ini> for some 20 CPAN packages that I've converted so far.
 
 I don't like cluttered repos and adding new I<metadata> files for each new
 tool that needs one. The C<dist.ini> file is not bad, but I can generate it
@@ -129,11 +131,11 @@ Some of the tools in here are Bash, some are Perl. I'm doing a lot in the area
 of Bash Package packaging. See L<http://bpan.org>.
 
 I use the term C<Package> where CPAN people have used the term
-C<Distribution>. Perl is the only language (in my packaging experience
-to do so).
+C<Distribution>. Perl is the only language (in my packaging experience) to do
+so.
 
-The name C<t/> is another outlier. The most common is C<test> followed
-by C<tests>.
+The name C<t/> is another outlier. The most common is C<test/> followed by
+C<tests/>.
 
 I don't like plural directory names. Try singular. I think you'll like it too.
 
@@ -151,11 +153,15 @@ ALLCAPSFILENAMES ARE TOO LOUD! ChillOut.
 
 =over
 
+=item * L<https://github.com/ingydotnet/zilla-dist-pm> !!
+
 =item * L<https://github.com/ingydotnet/pegex-pm>
 
 =item * L<https://github.com/ingydotnet/testml-pm>
 
 =item * L<https://github.com/ingydotnet/kwim-pm>
+
+=item * L<https://github.com/ingydotnet/file-share-pm>
 
 =back
 

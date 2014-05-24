@@ -19,16 +19,19 @@ sub run {
     $self->$method(@args);
 }
 
-sub do_makefile {
+sub do_setup {
     my ($self, @args) = @_;
 
-    my $makefile_content = io->file($self->find_makefile)->all;
+    my $sharedir = $self->find_sharedir;
+
+    my $makefile_content = io->file("$sharedir/Makefile")->all;
     io->file('Makefile')->print($makefile_content);
 
-    print <<'...';
-Created Zilla::Dist Makefile.
+    my $meta_content = io->file("$sharedir/Meta")->all;
+    io->file('Meta')->print($meta_content);
 
-Run: `make upgrade`.
+    print <<'...';
+Zilla::Dist created files: Makefile and Meta.
 ...
 }
 
@@ -39,21 +42,16 @@ sub do_sharedir {
 
 sub find_sharedir {
     my ($self, @args) = @_;
-    return File::Share::dist_dir('Zilla-Dist');
-}
-
-sub find_makefile {
-    my ($self, @args) = @_;
-    my $makefile = $self->do_sharedir . '/Makefile';
-    -e $makefile or die "Can't find Zilla::Dist Makefile";
-    return $makefile;
+    my $sharedir = File::Share::dist_dir('Zilla-Dist');
+    -d $sharedir or die "Can't find Zilla::Dist share dir";
+    return $sharedir;
 }
 
 sub usage {
     die <<'...';
 Usage:
 
-    zild makefile       # Create a new Zilla::Dist Makefile
+    zild setup          # Create a new Zilla::Dist Makefile and Meta
     zild sharedir       # Print the location of the Zilla::Dist share dir
 ...
 }

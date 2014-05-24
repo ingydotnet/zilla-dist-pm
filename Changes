@@ -1,4 +1,11 @@
 ---
+version: 0.0.3
+date:    Fri May 23 18:15:19 PDT 2014
+changes:
+- Doc corrections
+- Fixed little nits
+- Added example Meta file for `zild setup`
+---
 version: 0.0.2
 date:    Fri May 23 17:14:39 PDT 2014
 changes:
