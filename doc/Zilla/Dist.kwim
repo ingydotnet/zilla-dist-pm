@@ -11,17 +11,23 @@ Dist::Zilla Bashed Inside Out
 
 = Description
 
-This module is a formalization of a Perl module / package repository layout and
-release process that I have been evolving for some time. I use the same layout
-for Bash, Ruby, Python and Node.js package publishing. Under the hood `zild`
-generates everything that Dist::Zilla wants and lets `dzil` do the heavy
-lifting, but you never need to interact with `Dist::Zilla` stuff directly.
+This module is a formalization of a Perl package directory layout and release
+process that I have been evolving for some time. I use the same layout for
+Bash, Ruby, Python and Node.js package publishing.
+
+Zilla::Dist provides a Makefile and set of scripts that take a modern code
+layout and transform it into something that looks like a standard old Perl
+distribution.  Under the hood `zild` generates everything that Dist::Zilla
+wants and lets `dzil` do the heavy lifting, but you never need to interact with
+`Dist::Zilla` stuff directly.
+
+== Directory Layout
 
 A fully stacked top level CPAN package repository might look like this:
 
   Changes         # History in YAML
   Makefile        # Automation of test, dist, publish, etc
-  Meta            # Meta info for all needs (including dzil)
+  Meta            # Meta info for all metadata needs (including dzil)
   ReadMe.pod      # Generated from `doc/Module.kwim`
   bin/            # Scripts
   doc/            # Kwim docs
@@ -39,7 +45,17 @@ Note a few things:
 * No extra meta files like `dist.ini`, `.travis.yml`, `bower.json` etc
 
 These are the /best of/ from all the package systems I've used. They make me
-happy, and not tied to legacy bad ideas.
+happy, and not tied to poor legacy standards.
+
+== Zilla::Dist
+
+Zilla::Dist provides a Makefile to do everything. You get a new Makefile with:
+
+  > zild setup
+
+And you can refresh it later with:
+
+  > make update
 
 The Makefile has these targets:
 
@@ -78,7 +94,7 @@ The Makefile has these targets:
 
 - `make upgrade`
 
-  Upgrade the [Zilla::Dist] packaging files. (Makefile etc)
+  Upgrade the [Zilla::Dist] `Makefile`.
 
 = Rationale Ranting
 
@@ -91,20 +107,47 @@ exact same `dist.ini` for some 20 CPAN packages that I've converted so far.
 
 I don't like cluttered repos and adding new /metadata/ files for each new tool
 that needs one. The `dist.ini` file is not bad, but I can generate it from
-metadata easily. So I did.
+metadata easily. So I do.
 
-As much as I differ from the norm here, I want my CPAN publishings to be
-normal to normal mongers (if there's such a thing). The `make publish` process
-does just that. End users would have to look hard to know this wasn't a
-"normal" dzil release.
+As much as these great new ideas differ from the norm, I want my CPAN
+publishings to be normal to normal mongers (if there's such a thing). The `make
+publish` process does just that. End users would have to look hard to know this
+wasn't a "normal" dzil release.
 
 I'm packaging this packaging process as [Zilla::Dist] for others to use. It's
 also a decent example of a CPAN package packaged with itself.
 
+= Usage
+
+Start by running:
+
+  zild setup
+
+and you'll get a `Makefile` and a `Meta` file template. You need to customize
+the `Meta` file and leave the `Makefile` alone.
+
+To do a release, just set the `version` in the Meta file and add a `Changes`
+section using the same version. Then run:
+
+  make publish
+
+This will:
+
+* Make sure things are ready for release.
+* Make a dzil ready directory of your stuff called `./cpan/`.
+* Call `dzil build`.
+* Call `cpan-upload` to send the dist to CPAN.
+* Tag the git repo with the version string.
+* `git push` the repo and tag upstream.
+
 = Notes
 
-Some of the tools in here are Bash, some are Perl. I'm doing a lot in the area
-of Bash Package packaging. See [http://bpan.org].
+Unlike `dzil`, the only `zild` command you ever use is `zild setup` to get the
+Zilla::Dist `Makefile`. After that, all Zilla::Dist commands are `make`
+targets.
+
+Some of the tools in Zilla::Dist are Bash, some are Perl. I'm doing a lot in
+the area of Bash Package packaging. See [http://bpan.org].
 
 I use the term `Package` where CPAN people have used the term `Distribution`.
 Perl is the only language (in my packaging experience) to do so.

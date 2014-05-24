@@ -1,7 +1,7 @@
 =meta: 0.0.1
 
 name: Zilla-Dist
-version: 0.0.3
+version: 0.0.4
 abstract: Dist::Zilla Bashed Inside Out
 homepage: http://pegex.org
 
@@ -17,8 +17,12 @@ author:
 
 requires:
   perl: 5.8.1
-  YAML::XS: 0
+  Dist::Zilla: 0
+  File::Share: 0
+  Hash::Merge: 0
+  IO::All: 0
   Template::Toolkit::Simple: 0
+  YAML::XS: 0
 
 devel:
   git: git@github.org/ingydotnet/pegex-pm

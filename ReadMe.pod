@@ -18,18 +18,23 @@ Zilla::Dist - Dist::Zilla Bashed Inside Out
 
 =head1 DESCRIPTION
 
-This module is a formalization of a Perl module / package repository layout
-and release process that I have been evolving for some time. I use the same
-layout for Bash, Ruby, Python and Node.js package publishing. Under the
-hood C<zild> generates everything that Dist::Zilla wants and lets C<dzil>
-do the heavy lifting, but you never need to interact with C<Dist::Zilla>
-stuff directly.
+This module is a formalization of a Perl package directory layout and release
+process that I have been evolving for some time. I use the same layout for
+Bash, Ruby, Python and Node.js package publishing.
+
+Zilla::Dist provides a Makefile and set of scripts that take a modern code
+layout and transform it into something that looks like a standard old Perl
+distribution. Under the hood C<zild> generates everything that Dist::Zilla
+wants and lets C<dzil> do the heavy lifting, but you never need to interact
+with C<Dist::Zilla> stuff directly.
+
+=head2 Directory Layout
 
 A fully stacked top level CPAN package repository might look like this:
 
     Changes         # History in YAML
     Makefile        # Automation of test, dist, publish, etc
-    Meta            # Meta info for all needs (including dzil)
+    Meta            # Meta info for all metadata needs (including dzil)
     ReadMe.pod      # Generated from `doc/Module.kwim`
     bin/            # Scripts
     doc/            # Kwim docs
@@ -55,7 +60,17 @@ Note a few things:
 =back
 
 These are the I<best of> from all the package systems I've used. They make me
-happy, and not tied to legacy bad ideas.
+happy, and not tied to poor legacy standards.
+
+=head2 Zilla::Dist
+
+Zilla::Dist provides a Makefile to do everything. You get a new Makefile with:
+
+    > zild setup
+
+And you can refresh it later with:
+
+    > make update
 
 The Makefile has these targets:
 
@@ -98,7 +113,7 @@ Yep.
 
 =item Upgrade the [Zilla
 
-Dist] packaging files. (Makefile etc)
+Dist] C<Makefile>.
 
 C<make upgrade>
 
@@ -115,20 +130,56 @@ exact same C<dist.ini> for some 20 CPAN packages that I've converted so far.
 
 I don't like cluttered repos and adding new I<metadata> files for each new
 tool that needs one. The C<dist.ini> file is not bad, but I can generate it
-from metadata easily. So I did.
+from metadata easily. So I do.
 
-As much as I differ from the norm here, I want my CPAN publishings to be
-normal to normal mongers (if there's such a thing). The C<make publish>
-process does just that. End users would have to look hard to know this wasn't
-a "normal" dzil release.
+As much as these great new ideas differ from the norm, I want my CPAN
+publishings to be normal to normal mongers (if there's such a thing). The
+C<make publish> process does just that. End users would have to look hard to
+know this wasn't a "normal" dzil release.
 
 I'm packaging this packaging process as L<Zilla::Dist> for others to use. It's
 also a decent example of a CPAN package packaged with itself.
 
+=head1 USAGE
+
+Start by running:
+
+    zild setup
+
+and you'll get a C<Makefile> and a C<Meta> file template. You need to
+customize the C<Meta> file and leave the C<Makefile> alone.
+
+To do a release, just set the C<version> in the Meta file and add a C<Changes>
+section using the same version. Then run:
+
+    make publish
+
+This will:
+
+=over
+
+=item * Make sure things are ready for release.
+
+=item * Make a dzil ready directory of your stuff called C<./cpan/>.
+
+=item * Call C<dzil build>.
+
+=item * Call C<cpan-upload> to send the dist to CPAN.
+
+=item * Tag the git repo with the version string.
+
+=item * C<git push> the repo and tag upstream.
+
+=back
+
 =head1 NOTES
 
-Some of the tools in here are Bash, some are Perl. I'm doing a lot in the area
-of Bash Package packaging. See L<http://bpan.org>.
+Unlike C<dzil>, the only C<zild> command you ever use is C<zild setup> to
+get the Zilla::Dist C<Makefile>. After that, all Zilla::Dist commands are
+C<make> targets.
+
+Some of the tools in Zilla::Dist are Bash, some are Perl. I'm doing a lot in
+the area of Bash Package packaging. See L<http://bpan.org>.
 
 I use the term C<Package> where CPAN people have used the term
 C<Distribution>. Perl is the only language (in my packaging experience) to do

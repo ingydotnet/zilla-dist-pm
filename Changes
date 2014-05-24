@@ -1,4 +1,9 @@
 ---
+version: 0.0.4
+date:    Fri May 23 23:01:07 PDT 2014
+changes:
+- More helpful doc
+---
 version: 0.0.3
 date:    Fri May 23 18:15:19 PDT 2014
 changes:

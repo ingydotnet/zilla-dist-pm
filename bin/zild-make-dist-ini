@@ -4,12 +4,12 @@ use strict;
 use Cwd;
 use FindBin;
 use lib Cwd::abs_path "$FindBin::Bin/../lib";
-use Zilla::Dist;
 use File::Share;
-use YAML::XS;
-use Template::Toolkit::Simple;
 use Hash::Merge 'merge';
 use IO::All;
+use Template::Toolkit::Simple;
+use YAML::XS;
+use Zilla::Dist;
 
 my $meta = Load io->file('Meta')->all;
 my $cpan = delete($meta->{'=cpan'}) || {};
