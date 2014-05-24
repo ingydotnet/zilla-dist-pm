@@ -2,6 +2,7 @@
 use strict;
 package Zilla::Dist;
 
+use YAML::XS;
 use File::Share;
 use IO::All;
 
@@ -12,7 +13,7 @@ sub new {
 
 sub run {
     my ($self, @args) = @_;
-    $self->usage unless @args == 1;
+    $self->usage unless @args >= 1;
     my $cmd = shift @args;
     my $method = "do_$cmd";
     $self->usage unless $self->can($method);
@@ -40,6 +41,12 @@ sub do_sharedir {
     print $self->find_sharedir . "\n";
 }
 
+sub do_meta {
+    my ($self, $key) = @_;
+    my $meta = YAML::XS::LoadFile('Meta');
+    print $meta->{$key} . "\n";
+}
+
 sub find_sharedir {
     my ($self, @args) = @_;
     my $sharedir = File::Share::dist_dir('Zilla-Dist');
@@ -50,9 +57,12 @@ sub find_sharedir {
 sub usage {
     die <<'...';
 Usage:
+        zild setup      # Create a new Zilla::Dist Makefile and Meta
 
-    zild setup          # Create a new Zilla::Dist Makefile and Meta
-    zild sharedir       # Print the location of the Zilla::Dist share dir
+Internal commands issued by the Makefile:
+
+        zild sharedir   # Print the location of the Zilla::Dist share dir
+        zild meta <key> # Print Meta value for a key
 ...
 }
 

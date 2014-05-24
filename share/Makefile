@@ -7,8 +7,8 @@
 
 .PHONY: cpan doc test
 
-NAME := $(shell grep '^name: ' Meta 2>/dev/null | cut -d' ' -f2)
-VERSION := $(shell grep '^version: ' Meta 2>/dev/null | cut -d' ' -f2)
+NAME := $(shell zild meta name)
+VERSION := $(shell zild meta version)
 DISTDIR := $(NAME)-$(VERSION)
 DIST := $(DISTDIR).tar.gz
 NAMEPATH := $(subst -,/,$(NAME))
@@ -28,7 +28,7 @@ help:
 	@echo '    make distdir   - Make CPAN distribution directory'
 	@echo '    make disttest  - Run the dist tests'
 	@echo '    make publish   - Publish the dist to CPAN'
-	@echo '    make preflight - Dryrun of publish
+	@echo '    make preflight - Dryrun of publish'
 	@echo ''
 	@echo '    make upgrade   - Upgrade the build system'
 	@echo '    make clean     - Clean up build files'
@@ -63,14 +63,16 @@ disttest: cpan
 
 publish release: check-release dist
 	cpan-upload $(DIST)
+	git push
 	git tag $(VERSION)
 	git push --tag
 	rm $(DIST)
 
 preflight: check-release dist
-	echo cpan-upload $(DIST)
-	echo git tag $(VERSION)
-	echo git push --tag
+	@echo cpan-upload $(DIST)
+	@echo git push
+	@echo git tag $(VERSION)
+	@echo git push --tag
 	rm $(DIST)
 
 clean purge:
