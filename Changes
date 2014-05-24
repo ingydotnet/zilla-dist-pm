@@ -1,4 +1,10 @@
 ---
+version: 0.0.2
+date:    Fri May 23 17:14:39 PDT 2014
+changes:
+- Fixed sharedir
+- Fixed doc bug
+---
 version: 0.0.1
 date:    Fri May 23 16:33:23 PDT 2014
 changes:

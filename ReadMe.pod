@@ -8,7 +8,7 @@ See http://github.com/ingydotnet/kwim-pm#readme
 
 =head1 NAME
 
-Zilla::Dist - HASH(0x2517e70)
+Zilla::Dist - Dist::Zilla Bashed Inside Out
 
 =head1 SYNOPSIS
 
