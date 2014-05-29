@@ -1,4 +1,9 @@
 ---
+version: 0.0.6
+date:    Thu May 29 00:41:51 EDT 2014
+changes:
+- Allow for per dist custom tool/make-cpan
+---
 version: 0.0.5
 date:    Fri May 23 23:28:41 PDT 2014
 changes:

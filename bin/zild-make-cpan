@@ -16,6 +16,7 @@ mkdir cpan
   rm -fr cpan/t/devel cpan/t/misc
   zild-make-dist-ini > cpan/dist.ini
 )
+[ -x tool/make-cpan ] && tool/make-cpan
 
 for kwim in $(find doc -type f -name '*.kwim'); do
   pod="${kwim/doc/cpan/lib}"
