@@ -1,4 +1,9 @@
 ---
+version: 0.0.8
+date:    Thu May 29 19:02:00 EDT 2014
+changes:
+- NYC.pm++
+---
 version: 0.0.7
 date:    Thu May 29 11:02:39 EDT 2014
 changes:
