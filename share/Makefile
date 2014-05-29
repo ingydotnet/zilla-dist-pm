@@ -24,8 +24,10 @@ help:
 	@echo '    make doc       - Make the docs'
 	@echo ''
 	@echo '    make cpan      - Make cpan/ dir with dist.ini'
+	@echo '    make cpan      - Open new shell into new cpan/'
 	@echo '    make dist      - Make CPAN distribution tarball'
 	@echo '    make distdir   - Make CPAN distribution directory'
+	@echo '    make distshell - Open new shell into new distdir'
 	@echo '    make disttest  - Run the dist tests'
 	@echo '    make publish   - Publish the dist to CPAN'
 	@echo '    make preflight - Dryrun of publish'
@@ -47,6 +49,10 @@ doc:
 cpan:
 	zild-make-cpan
 
+cpanshell: cpan
+	(cd cpan; $$SHELL)
+	rm -fr cpan
+
 dist: clean cpan
 	(cd cpan; dzil build)
 	mv cpan/$(DIST) .
@@ -57,6 +63,10 @@ distdir: clean cpan
 	mv cpan/$(DIST) .
 	tar xzf $(DIST)
 	rm -fr cpan $(DIST)
+
+distshell: distdir
+	(cd $(DISTDIR); $$SHELL)
+	rm -fr $(DISTDIR)
 
 disttest: cpan
 	(cd cpan; dzil test) && rm -fr cpan
