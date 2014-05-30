@@ -1,4 +1,4 @@
-# ABSTRACT: Dist::Zilla Bashed Inside Out
+# ABSTRACT: Dist::Zilla Mixed Up
 use strict;
 package Zilla::Dist;
 

@@ -8,7 +8,7 @@ See http://github.com/ingydotnet/kwim-pm#readme
 
 =head1 NAME
 
-Zilla::Dist - Dist::Zilla Bashed Inside Out
+Zilla::Dist - Dist::Zilla Mixed Up
 
 =head1 SYNOPSIS
 
@@ -88,11 +88,9 @@ Do a C<dzil> install.
 
 Make the C<ReadMe.pod> and other stuff.
 
-=item Turn repo into a `Dist
+=item C<make cpan>
 
-ZillaC< ready subdirectory called >.I<cpan>`. This
-
-C<make cpan>
+Turn repo into a C<Dist::Zilla> ready subdirectory called C<./cpan/>. This
 directory has a C<dist.ini> file.
 
 =item C<make dist>
@@ -111,11 +109,9 @@ Have C<dzil> build a dist, then C<cpan-upload> it.
 
 Yep.
 
-=item Upgrade the [Zilla
+=item C<make upgrade>
 
-Dist] C<Makefile>.
-
-C<make upgrade>
+Upgrade the L<Zilla::Dist> C<Makefile>.
 
 =back
 

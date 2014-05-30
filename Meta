@@ -1,8 +1,8 @@
 =meta: 0.0.1
 
 name: Zilla-Dist
-version: 0.0.8
-abstract: Dist::Zilla Bashed Inside Out
+version: 0.0.9
+abstract: Dist::Zilla Mixed Up
 homepage: http://pegex.org
 
 license: perl
