@@ -113,6 +113,10 @@ Yep.
 
 Upgrade the L<Zilla::Dist> C<Makefile>.
 
+=item C<make help>
+
+Show documentation for B<all> targets.
+
 =back
 
 =head1 RATIONALE RANTING
