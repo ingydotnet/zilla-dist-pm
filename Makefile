@@ -71,14 +71,16 @@ distshell: distdir
 disttest: cpan
 	(cd cpan; dzil test) && rm -fr cpan
 
-publish release: doc check-release dist
+publish release: doc test check-release disttest
+	make dist
 	cpan-upload $(DIST)
 	git push
 	git tag $(VERSION)
 	git push --tag
 	rm $(DIST)
 
-preflight: doc check-release dist
+preflight: doc test check-release disttest
+	make dist
 	@echo cpan-upload $(DIST)
 	@echo git push
 	@echo git tag $(VERSION)
