@@ -1,4 +1,3 @@
-# ABSTRACT: Dist::Zilla Mixed Up
 use strict;
 package Zilla::Dist;
 

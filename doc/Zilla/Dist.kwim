@@ -96,6 +96,10 @@ The Makefile has these targets:
 
   Upgrade the [Zilla::Dist] `Makefile`.
 
+- `make help`
+
+  Show documentation for *all* targets.
+
 = Rationale Ranting
 
 I've published a lot of /packages/ in a lot of programming languages. I like

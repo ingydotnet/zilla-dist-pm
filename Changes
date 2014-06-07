@@ -1,4 +1,9 @@
 ---
+version: 0.0.10
+date:    Sat Jun  7 08:39:48 PDT 2014
+changes:
+- Added 'abstract' support to dist.ini
+---
 version: 0.0.9
 date:    Thu May 29 19:02:00 EDT 2014
 changes:
