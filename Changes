@@ -1,4 +1,10 @@
 ---
+version: 0.0.11
+date:    Sat Jun  7 09:49:37 PDT 2014
+changes:
+- Make the share/Makefile be a symlink
+- Prompt to commit changes on release
+---
 version: 0.0.10
 date:    Sat Jun  7 08:39:48 PDT 2014
 changes:

@@ -8,8 +8,43 @@ error() {
   OK=1
 }
 
-[ -z "$(git status -s)" ] ||
-  error "Uncommited git changes"
+prompt() {
+  local msg answer default yn=false
+  case $# in
+    0) msg="${prompt_msg:-Press <ENTER> to continue, or <CTL>-C to exit.}" ;;
+    1)
+      msg="$1"
+      if [[ "$msg" =~ \[yN\] ]]; then
+        default=n
+        yn=true
+      elif [[ "$msg" =~ \[Yn\] ]]; then
+        default=y
+        yn=true
+      fi
+      ;;
+    2)
+      msg="$1"
+      default="$2"
+      ;;
+    *) die "Invalid usage of prompt" ;;
+  esac
+  while true; do
+    read -p "$msg" answer
+    [ $# -eq 0 ] && return 0
+    [ -n "$answer" -o -n "$default" ] && break
+  done
+  if "$yn"; then
+    [[ "$answer" =~ ^[yY] ]] && echo y && return 0
+    [[ "$answer" =~ ^[nN] ]] && echo n && return 0
+    echo "$default"
+    return 0
+  fi
+  if [ -n "$answer" ]; then
+    echo "$answer"
+  else
+    echo "$default"
+  fi
+}
 
 if ! (grep "^version: $VERSION" Changes &>/dev/null); then
   if ! (grep "^- $VERSION" Changes &>/dev/null); then
@@ -19,5 +54,20 @@ fi
 
 git tag | grep -E "^v?${VERSION//./\\.}$" &>/dev/null &&
   error "Version '$VERSION' already tagged as released"
+
+if [ -n "$(git status -s)" ]; then
+  git status
+  if [[ "$(git status)" =~ $'\n'\#\ Untracked ]]; then
+    error "Untracked files."
+  else
+    answer="$(prompt "Uncommitted changes. Commit them and continue? [yN] ")"
+    if [ "$answer" == y ]; then
+      git commit -a -m "$VERSION"
+    else
+      echo "Exiting." >&2
+      exit 1
+    fi
+  fi
+fi
 
 exit $OK
