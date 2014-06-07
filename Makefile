@@ -7,6 +7,10 @@
 
 .PHONY: cpan doc test
 
+ifeq (,$(shell which zild))
+    $(error "Error: 'zild' command not found. Please install Zilla::Dist from CPAN")
+endif
+
 NAME := $(shell zild meta name)
 VERSION := $(shell zild meta version)
 DISTDIR := $(NAME)-$(VERSION)

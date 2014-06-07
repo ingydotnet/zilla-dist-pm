@@ -1,4 +1,9 @@
 ---
+version: 0.0.13
+date:    Sat Jun  7 11:28:56 PDT 2014
+changes:
+- Carp in Makefile if Zilla::Dist is not installed.
+---
 version: 0.0.12
 date:    Sat Jun  7 10:39:27 PDT 2014
 changes:
