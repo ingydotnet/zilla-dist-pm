@@ -5,7 +5,7 @@
 #   > make upgrade
 #
 
-.PHONY: cpan doc test
+.PHONY: cpan test
 
 ifeq (,$(shell which zild))
     $(error "Error: 'zild' command not found. Please install Zilla::Dist from CPAN")
@@ -25,7 +25,7 @@ help:
 	@echo ''
 	@echo '    make test      - Run the repo tests'
 	@echo '    make install   - Install the repo'
-	@echo '    make doc       - Make documentation'
+	@echo '    make update    - Update generated files'
 	@echo ''
 	@echo '    make cpan      - Make cpan/ dir with dist.ini'
 	@echo '    make cpanshell - Open new shell into new cpan/'
@@ -53,7 +53,9 @@ install: distdir
 	(cd $(DISTDIR); perl Makefile.PL; make install)
 	make clean
 
-cpan: makefile readme travis
+update: makefile readme travis
+
+cpan:
 	zild-make-cpan
 
 cpanshell: cpan
@@ -81,7 +83,7 @@ distshell: distdir
 disttest: cpan
 	(cd cpan; dzil test) && make clean
 
-publish release: doc test check-release disttest
+publish release: update test check-release disttest
 	make dist
 	cpan-upload $(DIST)
 	git push
@@ -90,7 +92,7 @@ publish release: doc test check-release disttest
 	make clean
 	git status
 
-preflight: doc test check-release disttest
+preflight: update test check-release disttest
 	make dist
 	@echo cpan-upload $(DIST)
 	@echo git push

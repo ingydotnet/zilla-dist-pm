@@ -1,4 +1,9 @@
 ---
+version: 0.0.16
+date:    Sun Jun  8 13:04:14 PDT 2014
+changes:
+- Update files before commiting during `make release`
+---
 version: 0.0.15
 date:    Sun Jun  8 12:26:35 PDT 2014
 changes:
