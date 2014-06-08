@@ -1,0 +1,26 @@
+#!/usr/bin/env perl
+
+use strict;
+use Cwd;
+use FindBin;
+use lib Cwd::abs_path "$FindBin::Bin/../lib";
+use File::Share;
+use Hash::Merge 'merge';
+use IO::All;
+use Template::Toolkit::Simple;
+use YAML::XS;
+use Zilla::Dist;
+
+my $meta = Load io->file('Meta')->all;
+my $travis = delete($meta->{'=travis'}) or exit;
+$travis = { type => $travis } unless ref $travis;
+exit unless $travis->{type} eq 'perl';
+my $data = merge($travis, $meta);
+$data->{requires} ||= {};
+
+my $yaml = tt
+    ->path([File::Share::dist_dir('Zilla-Dist')])
+    ->data($data)
+    ->render('travis.yml');
+
+io->file('.travis.yml')->print($yaml);

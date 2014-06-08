@@ -3,6 +3,10 @@ Zilla::Dist
 
 Dist::Zilla Mixed Up
 
+<badge-travis ingydotnet/zilla-dist-pm>
+
+<badge-coveralls ingydotnet/zilla-dist-pm>
+
 = Synopsis
 
   > zild setup

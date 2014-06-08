@@ -1,4 +1,9 @@
 ---
+version: 0.0.15
+date:    Sun Jun  8 12:26:35 PDT 2014
+changes:
+- Add travis building support
+---
 version: 0.0.14
 date:    Sat Jun  7 12:32:30 PDT 2014
 changes:

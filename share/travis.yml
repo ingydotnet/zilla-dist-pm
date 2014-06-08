@@ -9,15 +9,19 @@ perl:
 - '5.8'
 
 install:
+[% IF testml -%]
+- git clone --depth=1
+  git://github.com/ingydotnet/testml-pm ../testml-pm
+- git clone --depth=1
+  git://github.com/ingydotnet/pegex-pm ../pegex-pm
+[% END -%]
 - cpanm --quiet --notest
   Devel::Cover::Report::Coveralls
-  Dist::Zilla
-  File::Share
-  Hash::Merge
-  IO::All
-  Kwim
-  Template::Toolkit::Simple
-  YAML::XS
+[% FOR module = requires.keys.sort -%]
+[% IF module != 'perl' -%]
+  [% module %]
+[% END -%]
+[% END -%]
 
 script:
 - PERL5OPT=-MDevel::Cover=-coverage,statement,branch,condition,path,subroutine
