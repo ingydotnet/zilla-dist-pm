@@ -16,7 +16,16 @@ my $travis = delete($meta->{'=travis'}) or exit;
 $travis = { type => $travis } unless ref $travis;
 exit unless $travis->{type} eq 'perl';
 my $data = merge($travis, $meta);
-$data->{requires} ||= {};
+$data->{RequiredModules} = [];
+if (my $r = $data->{requires}) {
+    push @{$data->{RequiredModules}}, keys %$r;
+}
+if (my $r = $data->{test}{requires}) {
+    push @{$data->{RequiredModules}}, keys %$r;
+}
+if (my $r = $data->{recommends}) {
+    push @{$data->{RequiredModules}}, keys %$r;
+}
 
 my $yaml = tt
     ->path([File::Share::dist_dir('Zilla-Dist')])

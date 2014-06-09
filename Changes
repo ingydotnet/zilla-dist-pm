@@ -1,4 +1,10 @@
 ---
+version: 0.0.17
+date:    Sun Jun  8 18:14:22 PDT 2014
+changes:
+- Add test.requires and recommends to travis.yml
+- Add irc motify support to travis.yml
+---
 version: 0.0.16
 date:    Sun Jun  8 13:04:14 PDT 2014
 changes:

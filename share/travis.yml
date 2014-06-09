@@ -17,7 +17,7 @@ install:
 [% END -%]
 - cpanm --quiet --notest
   Devel::Cover::Report::Coveralls
-[% FOR module = requires.keys.sort -%]
+[% FOR module = RequiredModules.sort -%]
 [% IF module != 'perl' -%]
   [% module %]
 [% END -%]
@@ -30,3 +30,12 @@ script:
 
 after_success:
 - cover -report coveralls
+
+[% IF irc -%]
+notifications:
+  irc:
+    channels:
+    - [% irc %]
+    on_success: change
+    on_failure: always
+[% END -%]
