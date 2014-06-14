@@ -1,4 +1,9 @@
 ---
+version: 0.0.18
+date:    Fri Jun 13 21:26:03 PDT 2014
+changes:
+- Add TestBase support (for YAML.pm mostly)
+---
 version: 0.0.17
 date:    Sun Jun  8 18:14:22 PDT 2014
 changes:

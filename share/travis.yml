@@ -9,6 +9,10 @@ perl:
 - '5.8'
 
 install:
+[% IF testbase -%]
+- git clone --depth=1
+  git://github.com/ingydotnet/test-base-pm ../test-base-pm
+[% END -%]
 [% IF testml -%]
 - git clone --depth=1
   git://github.com/ingydotnet/testml-pm ../testml-pm
@@ -25,6 +29,9 @@ install:
 
 script:
 - PERL5OPT=-MDevel::Cover=-coverage,statement,branch,condition,path,subroutine
+[% IF testbase -%]
+  PERL5LIB=../test-base-pm/lib
+[% END -%]
   prove -lv test/
 - cover
 
