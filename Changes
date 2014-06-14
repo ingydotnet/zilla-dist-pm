@@ -1,4 +1,9 @@
 ---
+version: 0.0.21
+date:    Sat Jun 14 12:47:03 PDT 2014
+changes:
+- Add 'recommends' support to dist.ini
+---
 version: 0.0.20
 date:    Sat Jun 14 12:23:44 PDT 2014
 changes:
