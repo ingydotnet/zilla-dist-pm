@@ -3,9 +3,7 @@ Zilla::Dist
 
 Dist::Zilla Mixed Up
 
-<badge-travis ingydotnet/zilla-dist-pm>
-
-<badge-coveralls ingydotnet/zilla-dist-pm>
+<badge travis coveralls ingydotnet/zilla-dist-pm>
 
 = Synopsis
 

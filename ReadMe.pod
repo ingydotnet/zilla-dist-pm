@@ -12,8 +12,6 @@ Zilla::Dist - Dist::Zilla Mixed Up
 
 =for html
 <a href="https://travis-ci.org/ingydotnet/zilla-dist-pm"><img src="https://travis-ci.org/ingydotnet/zilla-dist-pm.png" alt="zilla-dist-pm"></a>
-
-=for html
 <a href="https://coveralls.io/r/ingydotnet/zilla-dist-pm?branch=master"><img src="https://coveralls.io/repos/ingydotnet/zilla-dist-pm/badge.png" alt="zilla-dist-pm"></a>
 
 =head1 SYNOPSIS
