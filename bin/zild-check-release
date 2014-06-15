@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-VERSION="$(grep '^version: ' Meta | cut -d' ' -f2)"
+META_VERSION="$(grep '^version: ' Meta | cut -d' ' -f2)"
+CHANGES_VERSION="$(grep -E '^version:' Changes | head -n1 | cut -f2 -d' ')"
 OK=0
 
 error() {
@@ -46,14 +47,20 @@ prompt() {
   fi
 }
 
-if ! (grep "^version: $VERSION" Changes &>/dev/null); then
-  if ! (grep "^- $VERSION" Changes &>/dev/null); then
-    error "No Changes entry for version '$VERSION'"
+if ! (grep "^version: $META_VERSION" Changes &>/dev/null); then
+  if ! (grep "^- $META_VERSION" Changes &>/dev/null); then
+    error "No Changes entry for version '$META_VERSION'"
   fi
 fi
 
-git tag | grep -E "^v?${VERSION//./\\.}$" &>/dev/null &&
-  error "Version '$VERSION' already tagged as released"
+if [ "$META_VERSION" != "$CHANGES_VERSION" ]; then
+  error "Changes version ($CHANGES_VERSION) and Meta version ($META_VERSION) do not match"
+fi
+
+git tag | grep -E "^v?${META_VERSION//./\\.}$" &>/dev/null &&
+  error "Version '$META_VERSION' already tagged as released"
+
+[ "$OK" -ne 0 ] && exit $OK
 
 if [ -n "$(git status -s)" ]; then
   git status
@@ -62,7 +69,7 @@ if [ -n "$(git status -s)" ]; then
   else
     answer="$(prompt "Uncommitted changes. Commit them and continue? [yN] ")"
     if [ "$answer" == y ]; then
-      git commit -a -m "$VERSION"
+      git commit -a -m "$META_VERSION"
     else
       echo "Exiting." >&2
       exit 1
