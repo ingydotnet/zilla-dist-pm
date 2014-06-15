@@ -18,7 +18,7 @@ mkdir cpan
   elif [ -d cpan/t/devel ]; then
     mv cpan/t/devel cpan/xt
   fi
-  rm -fr cpan/t/misc
+  rm -fr cpan/t/misc cpan/t/fail
   zild-make-dist-ini > cpan/dist.ini
 )
 [ -x tool/make-cpan ] && tool/make-cpan

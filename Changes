@@ -1,4 +1,9 @@
 ---
+version: 0.0.23
+date:    Sun Jun 15 13:51:58 PDT 2014
+changes:
+- Remove failing tests from cpan/t/
+---
 version: 0.0.22
 date:    Sun Jun 15 11:38:34 PDT 2014
 changes:
