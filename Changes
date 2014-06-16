@@ -1,8 +1,9 @@
 ---
-version: 0.0.26
-date:    Mon Jun 16 13:58:38 PDT 2014
+version: 0.0.27
+date:    Mon Jun 16 16:03:22 PDT 2014
 changes:
-- Copy eg to cpan/example and noindex example
+- Allow for JSONY Changes file
+- Press enter to continue. Easier.
 ---
 version: 0.0.25
 date:    Mon Jun 16 13:43:27 PDT 2014
