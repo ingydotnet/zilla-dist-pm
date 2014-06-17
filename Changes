@@ -1,4 +1,9 @@
 ---
+version: 0.0.29
+date:    Tue Jun 17 10:37:04 PDT 2014
+changes:
+- Don't require retry when Makefile updates
+---
 version: 0.0.28
 date:    Mon Jun 16 23:02:48 PDT 2014
 changes:

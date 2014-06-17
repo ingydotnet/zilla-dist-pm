@@ -53,7 +53,8 @@ install: distdir
 	(cd $(DISTDIR); perl Makefile.PL; make install)
 	make clean
 
-update: makefile readme travis version
+update: makefile
+	make readme travis version
 
 cpan:
 	zild-make-cpan
@@ -121,14 +122,7 @@ ifeq (Zilla-Dist,$(NAME))
 makefile:
 	@echo Skip 'make upgrade'
 else
-makefile:
-	cp Makefile /tmp/
-	make upgrade
-	@if [ -n "`diff Makefile /tmp/Makefile`" ]; then \
-	    echo "Makefile updated. Try again"; \
-	    exit 1; \
-	fi
-	rm /tmp/Makefile
+makefile: upgrade
 endif
 
 version:
