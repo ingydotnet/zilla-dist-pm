@@ -46,3 +46,8 @@ notifications:
     on_success: change
     on_failure: always
 [% END -%]
+
+# Hack to not run on tag pushes:
+branches:
+  except:
+  - /^v?[0-9]+\.[0-9]+/

@@ -1,4 +1,9 @@
 ---
+version: 0.0.28
+date:    Mon Jun 16 23:02:48 PDT 2014
+changes:
+- Add travis config to skip tags
+---
 version: 0.0.27
 date:    Mon Jun 16 16:03:22 PDT 2014
 changes:
