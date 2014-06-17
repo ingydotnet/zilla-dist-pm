@@ -84,7 +84,7 @@ distshell: distdir
 disttest: cpan
 	(cd cpan; dzil test) && make clean
 
-release: update test check-release disttest
+release: clean update check-release test disttest
 	make dist
 	cpan-upload $(DIST)
 	git push
@@ -93,7 +93,7 @@ release: update test check-release disttest
 	make clean
 	git status
 
-preflight: update test check-release disttest
+preflight: clean update check-release test disttest
 	make dist
 	@echo cpan-upload $(DIST)
 	@echo git push
