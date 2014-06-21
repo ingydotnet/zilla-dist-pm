@@ -102,7 +102,7 @@ preflight: clean update check-release test disttest
 	@echo git push --tag
 	make clean
 	git status
-	@[ -n "$$(which cowsay)" ] && cowsay "$(DIST)"
+	@[ -n "$$(which cowsay)" ] && cowsay "$(DIST) Released!!!"
 
 readme:
 	kwim --pod-cpan doc/$(NAMEPATH).kwim > ReadMe.pod

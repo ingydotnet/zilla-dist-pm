@@ -59,7 +59,7 @@ if [ "$META_VERSION" != "$CHANGES_VERSION" ]; then
   error "Changes version ($CHANGES_VERSION) and Meta version ($META_VERSION) do not match"
 fi
 
-if [ -z "$(grep -r 'VERSION' | grep "$META_VERSION")" ]; then
+if [ -z "$(grep -r 'VERSION' lib | grep "$META_VERSION")" ]; then
   error "No '\$VERSION = $META_VERSION' statement in lib/"
 fi
 
