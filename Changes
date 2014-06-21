@@ -1,4 +1,9 @@
 ---
+version: 0.0.34
+date:    Sat Jun 21 14:28:51 PDT 2014
+changes:
+- Small changes to cowsay output.
+---
 version: 0.0.33
 date:    Sat Jun 21 14:28:51 PDT 2014
 changes:
