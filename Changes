@@ -1,4 +1,11 @@
 ---
+version: 0.0.32
+date:    Sat Jun 21 14:11:52 PDT 2014
+changes:
+- Add cowsay message to 'make release'. Issue 8
+- Check for VERSION statement in module. Issue 6
+- Check branch before release. Issue 7
+---
 version: 0.0.31
 date:    Thu Jun 19 11:11:46 PDT 2014
 changes:

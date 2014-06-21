@@ -92,6 +92,7 @@ release: clean update check-release test disttest
 	git push --tag
 	make clean
 	git status
+	@[ -n "$$(which cowsay)" ] && cowsay "$(DIST)"
 
 preflight: clean update check-release test disttest
 	make dist
@@ -101,6 +102,7 @@ preflight: clean update check-release test disttest
 	@echo git push --tag
 	make clean
 	git status
+	@[ -n "$$(which cowsay)" ] && cowsay "$(DIST)"
 
 readme:
 	kwim --pod-cpan doc/$(NAMEPATH).kwim > ReadMe.pod
