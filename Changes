@@ -1,4 +1,9 @@
 ---
+version: 0.0.35
+date:    Mon Jun 23 16:05:03 PDT 2014
+changes:
+- Fix bug in zild-make-cpan for eg copy.
+---
 version: 0.0.34
 date:    Sat Jun 21 14:28:51 PDT 2014
 changes:

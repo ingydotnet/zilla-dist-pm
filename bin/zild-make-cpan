@@ -10,7 +10,7 @@ mkdir cpan
   cp Changes cpan
   cp -r lib cpan
   [ -e bin ] && cp -r bin cpan
-  [ -e eg ] && cp -r cpan/example
+  [ -e eg ] && cp -r eg cpan/example
   [ -e share ] && cp -rL share cpan
   cp -r test cpan/t
   if [ -d cpan/t/extra ]; then
