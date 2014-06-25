@@ -1,4 +1,9 @@
 ---
+version: 0.0.36
+date:    Wed Jun 25 14:38:29 PDT 2014
+changes:
+- Substitute Kwim with Swim
+---
 version: 0.0.35
 date:    Mon Jun 23 16:05:03 PDT 2014
 changes:

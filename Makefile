@@ -105,7 +105,7 @@ preflight: clean update check-release test disttest
 	@[ -n "$$(which cowsay)" ] && cowsay "$(DIST) Released!!!" && echo
 
 readme:
-	kwim --pod-cpan doc/$(NAMEPATH).kwim > ReadMe.pod
+	swim --pod-cpan doc/$(NAMEPATH).swim > ReadMe.pod
 
 travis:
 	zild-make-travis

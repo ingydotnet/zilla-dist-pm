@@ -15,7 +15,7 @@ install:
   File::Share
   Hash::Merge
   IO::All
-  Kwim
+  Swim
   Template::Toolkit::Simple
   YAML::XS
 

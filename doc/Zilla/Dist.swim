@@ -30,9 +30,9 @@ A fully stacked top level CPAN package repository might look like this:
   Changes         # History in YAML
   Makefile        # Automation of test, dist, publish, etc
   Meta            # Meta info for all metadata needs (including dzil)
-  ReadMe.pod      # Generated from `doc/Module.kwim`
+  ReadMe.pod      # Generated from `doc/Module.swim`
   bin/            # Scripts
-  doc/            # Kwim docs
+  doc/            # Swim docs
   eg/             # Examples
   lib/            # Perl `.pm` code
   share/          # Shared files
@@ -174,7 +174,7 @@ ALLCAPSFILENAMES ARE TOO LOUD! ChillOut.
 * https://github.com/ingydotnet/zilla-dist-pm !!
 * https://github.com/ingydotnet/pegex-pm
 * https://github.com/ingydotnet/testml-pm
-* https://github.com/ingydotnet/kwim-pm
+* https://github.com/ingydotnet/swim-pm
 * https://github.com/ingydotnet/file-share-pm
 
 = Author

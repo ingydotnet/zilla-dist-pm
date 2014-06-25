@@ -23,19 +23,19 @@ mkdir cpan
 )
 [ -x tool/make-cpan ] && tool/make-cpan
 
-for kwim in $(find doc -type f -name '*.kwim'); do
-  pod="${kwim/doc/cpan/lib}"
-  pod="${pod/.kwim/.pod}"
+for swim in $(find doc -type f -name '*.swim'); do
+  pod="${swim/doc/cpan/lib}"
+  pod="${pod/.swim/.pod}"
   mkdir -p "$(dirname "$pod")"
-  if grep '^====' "$kwim" &> /dev/null; then
+  if grep '^====' "$swim" &> /dev/null; then
     (
       set -x
-      kwim --to=pod --pod-cpan "$kwim" > "$pod"
+      swim --to=pod --pod-cpan "$swim" > "$pod"
     )
   else
     (
       set -x
-      kwim --to=pod --complete --wrap "$kwim" > "$pod"
+      swim --to=pod --complete --wrap "$swim" > "$pod"
     )
   fi
 done
