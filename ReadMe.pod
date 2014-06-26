@@ -208,15 +208,71 @@ ALLCAPSFILENAMES ARE TOO LOUD! ChillOut.
 
 =over
 
-=item * L<https://github.com/ingydotnet/zilla-dist-pm> !!
+=item * L<https://github.com/ingydotnet/boolean-pm>
+
+=item * L<https://github.com/ingydotnet/dist-zilla-plugin-testbaseincluder-pm>
+
+=item * L<https://github.com/ingydotnet/dist-zilla-plugin-testmlincluder-pm>
+
+=item * L<https://github.com/ingydotnet/file-share-pm>
+
+=item * L<https://github.com/ingydotnet/io-all-pm>
+
+=item * L<https://github.com/ingydotnet/jsony-pm>
+
+=item * L<https://github.com/ingydotnet/js-pm>
+
+=item * L<https://github.com/ingydotnet/jsync-pm>
+
+=item * L<https://github.com/ingydotnet/kwim-plugin-badge-pm>
+
+=item * L<https://github.com/ingydotnet/kwim-pm>
+
+=item * L<https://github.com/ingydotnet/language-snusp-pm>
+
+=item * L<https://github.com/ingydotnet/moos-pm>
+
+=item * L<https://github.com/ingydotnet/pegex-cmd-pm>
+
+=item * L<https://github.com/ingydotnet/pegex-json-pm>
 
 =item * L<https://github.com/ingydotnet/pegex-pm>
 
-=item * L<https://github.com/ingydotnet/testml-pm>
+=item * L<https://github.com/ingydotnet/pquery-pm>
+
+=item * L<https://github.com/ingydotnet/spiffy-pm>
+
+=item * L<https://github.com/ingydotnet/stackato-stackrad-pm>
+
+=item * L<https://github.com/ingydotnet/swim-plugin-badge-pm>
 
 =item * L<https://github.com/ingydotnet/swim-pm>
 
-=item * L<https://github.com/ingydotnet/file-share-pm>
+=item * L<https://github.com/ingydotnet/template-toolkit-simple-pm>
+
+=item * L<https://github.com/ingydotnet/testml-pm>
+
+=item * L<https://github.com/ingydotnet/testml-script-pm>
+
+=item * L<https://github.com/ingydotnet/testml-tiny-pm>
+
+=item * L<https://github.com/ingydotnet/tiny-yaml-pm>
+
+=item * L<https://github.com/ingydotnet/vroom-pm>
+
+=item * L<https://github.com/ingydotnet/xxx-pm>
+
+=item * L<https://github.com/ingydotnet/yaml-full-pm>
+
+=item * L<https://github.com/ingydotnet/yaml-old-pm>
+
+=item * L<https://github.com/ingydotnet/yaml-pegex-pm>
+
+=item * L<https://github.com/ingydotnet/yaml-pm>
+
+=item * L<https://github.com/ingydotnet/yaml-shell-pm>
+
+=item * L<https://github.com/ingydotnet/zilla-dist-pm> !!
 
 =back
 

@@ -1,4 +1,9 @@
 ---
+version: 0.0.38
+date:    Thu Jun 26 08:52:45 PDT 2014
+changes:
+- Update list of modules shipped with Zilla::Dist
+---
 version: 0.0.37
 date:    Wed Jun 25 21:04:53 PDT 2014
 changes:
