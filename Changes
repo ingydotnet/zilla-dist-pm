@@ -1,4 +1,10 @@
 ---
+version: 0.0.39
+date:    Thu Jun 26 13:00:56 PDT 2014
+changes:
+- Be more lenient on VERSION checking.
+- Allow fully qualified over `our` style.
+---
 version: 0.0.38
 date:    Thu Jun 26 08:52:45 PDT 2014
 changes:
