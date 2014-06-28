@@ -234,6 +234,8 @@ ALLCAPSFILENAMES ARE TOO LOUD! ChillOut.
 
 =item * L<https://github.com/ingydotnet/lexicals-pm>
 
+=item * L<https://github.com/ingydotnet/package-pm>
+
 =item * L<https://github.com/ingydotnet/pegex-pm>
 
 =item * L<https://github.com/ingydotnet/pegex-cmd-pm>
