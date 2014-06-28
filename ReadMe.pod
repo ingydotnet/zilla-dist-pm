@@ -224,19 +224,25 @@ ALLCAPSFILENAMES ARE TOO LOUD! ChillOut.
 
 =item * L<https://github.com/ingydotnet/jsync-pm>
 
-=item * L<https://github.com/ingydotnet/kwim-plugin-badge-pm>
-
 =item * L<https://github.com/ingydotnet/kwim-pm>
+
+=item * L<https://github.com/ingydotnet/kwim-plugin-badge-pm>
 
 =item * L<https://github.com/ingydotnet/language-snusp-pm>
 
 =item * L<https://github.com/ingydotnet/moos-pm>
 
+=item * L<https://github.com/ingydotnet/pegex-pm>
+
 =item * L<https://github.com/ingydotnet/pegex-cmd-pm>
 
 =item * L<https://github.com/ingydotnet/pegex-json-pm>
 
-=item * L<https://github.com/ingydotnet/pegex-pm>
+=item * L<https://github.com/ingydotnet/perl5-pm>
+
+=item * L<https://github.com/ingydotnet/perl5-i-pm>
+
+=item * L<https://github.com/ingydotnet/perl5-ingy-pm>
 
 =item * L<https://github.com/ingydotnet/pquery-pm>
 
@@ -244,9 +250,9 @@ ALLCAPSFILENAMES ARE TOO LOUD! ChillOut.
 
 =item * L<https://github.com/ingydotnet/stackato-stackrad-pm>
 
-=item * L<https://github.com/ingydotnet/swim-plugin-badge-pm>
-
 =item * L<https://github.com/ingydotnet/swim-pm>
+
+=item * L<https://github.com/ingydotnet/swim-plugin-badge-pm>
 
 =item * L<https://github.com/ingydotnet/template-toolkit-simple-pm>
 
