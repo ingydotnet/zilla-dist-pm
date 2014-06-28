@@ -232,9 +232,13 @@ ALLCAPSFILENAMES ARE TOO LOUD! ChillOut.
 
 =item * L<https://github.com/ingydotnet/moos-pm>
 
+=item * L<https://github.com/ingydotnet/lexicals-pm>
+
 =item * L<https://github.com/ingydotnet/pegex-pm>
 
 =item * L<https://github.com/ingydotnet/pegex-cmd-pm>
+
+=item * L<https://github.com/ingydotnet/pegex-crontab-pm>
 
 =item * L<https://github.com/ingydotnet/pegex-json-pm>
 
