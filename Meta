@@ -1,7 +1,7 @@
 =meta: 0.0.1
 
 name: Zilla-Dist
-version: 0.0.42
+version: 0.0.43
 abstract: Dist::Zilla Mixed Up
 homepage: http://pegex.org
 
@@ -26,8 +26,10 @@ requires:
   YAML::XS: 0
 
 devel:
-  git: git@github.org/ingydotnet/pegex-pm
-  irc: irc.freenode.net#pegex
-  bug: https://github.com/ingydotnet/pegex-pm/issues/
+  git: git@github.org/ingydotnet/zilla-dist-pm
+  irc: irc.freenode.net#pkg
+  bug: https://github.com/ingydotnet/zilla-dist-pm/issues/
 
-=travis: perl
+=travis:
+  type: perl
+  irc: irc.freenode.net#pkg

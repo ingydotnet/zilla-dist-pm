@@ -44,8 +44,10 @@ A fully stacked top level CPAN package repository might look like this:
     doc/            # Swim docs
     eg/             # Examples
     lib/            # Perl `.pm` code
-    share/          # Shared files
+    note/           # Project notes, todo lists, ideas, specs, etc
+    share/          # Shared files to distribute
     test/           # Test suite
+    .travis.yml     # Travis file (generated)
 
 Note a few things:
 
@@ -76,21 +78,22 @@ And you can refresh it later with:
 
     > make update
 
-The Makefile has these targets:
+Run C<make help> to get a list of all the targets. Here are the most
+important targets:
 
 =over
 
+=item C<make release>
+
+Build the dist, then C<cpan-upload> it.
+
 =item C<make test>
 
-Use C<prove -lv test>
+Run the test suite.
 
 =item C<make install>
 
-Do a C<dzil> install.
-
-=item C<make doc>
-
-Make the C<ReadMe.pod> and other stuff.
+Build and install the software. Same as install from CPAN.
 
 =item C<make cpan>
 
@@ -101,48 +104,7 @@ directory has a C<dist.ini> file.
 
 Basically the same as C<make cpan; cd cpan; dzil build>.
 
-=item C<make distdir>
-
-Unzip the dist, for inspection.
-
-=item C<make publish>
-
-Have C<dzil> build a dist, then C<cpan-upload> it.
-
-=item C<make publish-dryrun>
-
-Yep.
-
-=item C<make upgrade>
-
-Upgrade the L<Zilla::Dist> C<Makefile>.
-
-=item C<make help>
-
-Show documentation for B<all> targets.
-
 =back
-
-=head1 RATIONALE RANTING
-
-I've published a lot of I<packages> in a lot of programming languages. I like
-taking the best ideas and spreading them around. I like reusing ideas and code
-and tools as much as possible between these packages.
-
-I trust dzil to DTRT with regard to the CPAN release process. I use almost the
-exact same C<dist.ini> for some 20 CPAN packages that I've converted so far.
-
-I don't like cluttered repos and adding new I<metadata> files for each new
-tool that needs one. The C<dist.ini> file is not bad, but I can generate it
-from metadata easily. So I do.
-
-As much as these great new ideas differ from the norm, I want my CPAN
-publishings to be normal to normal mongers (if there's such a thing). The
-C<make publish> process does just that. End users would have to look hard to
-know this wasn't a "normal" dzil release.
-
-I'm packaging this packaging process as L<Zilla::Dist> for others to use. It's
-also a decent example of a CPAN package packaged with itself.
 
 =head1 USAGE
 
@@ -176,6 +138,27 @@ This will:
 
 =back
 
+=head1 RATIONALE RANTING
+
+I've published a lot of I<packages> in a lot of programming languages. I like
+taking the best ideas and spreading them around. I like reusing ideas and code
+and tools as much as possible between these packages.
+
+I trust dzil to DTRT with regard to the CPAN release process. I use almost the
+exact same C<dist.ini> for some 20 CPAN packages that I've converted so far.
+
+I don't like cluttered repos and adding new I<metadata> files for each new
+tool that needs one. The C<dist.ini> file is not bad, but I can generate it
+from metadata easily. So I do.
+
+As much as these great new ideas differ from the norm, I want my CPAN
+publishings to be normal to normal mongers (if there's such a thing). The
+C<make publish> process does just that. End users would have to look hard to
+know this wasn't a "normal" dzil release.
+
+I'm packaging this packaging process as L<Zilla::Dist> for others to use. It's
+also a decent example of a CPAN package packaged with itself.
+
 =head1 NOTES
 
 Unlike C<dzil>, the only C<zild> command you ever use is C<zild setup> to
@@ -195,6 +178,21 @@ C<tests/>.
 I don't like plural directory names. Try singular. I think you'll like it too.
 
 ALLCAPSFILENAMES ARE TOO LOUD! ChillOut.
+
+=head2 Commiting Generated Code/Files
+
+People think that committing generated code/files is a bad idea and in general
+I concur, but there are exceptions.
+
+Sometimes tools like Travis-CI require you to commit a config file.
+Zilla::Dist generates these files from metadata, which is a whole lot easier
+than maintaining them yourself, but you end up commiting generated code.
+
+The C<dist.ini> file is only needed locally, however, during dist build time,
+so no need to commit that.
+
+In general, when an external tool requires files, and it's easiest to generate
+those files, it's OK to commit generated code.
 
 =head1 SEE ALSO
 

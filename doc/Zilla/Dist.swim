@@ -20,8 +20,8 @@ Bash, Ruby, Python and Node.js package publishing.
 Zilla::Dist provides a Makefile and set of scripts that take a modern code
 layout and transform it into something that looks like a standard old Perl
 distribution.  Under the hood `zild` generates everything that Dist::Zilla
-wants and lets `dzil` do the heavy lifting, but you never need to interact with
-`Dist::Zilla` stuff directly.
+wants and lets `dzil` do the heavy lifting, but you never need to interact
+with `Dist::Zilla` stuff directly.
 
 == Directory Layout
 
@@ -35,8 +35,10 @@ A fully stacked top level CPAN package repository might look like this:
   doc/            # Swim docs
   eg/             # Examples
   lib/            # Perl `.pm` code
-  share/          # Shared files
+  note/           # Project notes, todo lists, ideas, specs, etc
+  share/          # Shared files to distribute
   test/           # Test suite
+  .travis.yml     # Travis file (generated)
 
 Note a few things:
 
@@ -59,19 +61,20 @@ And you can refresh it later with:
 
   > make update
 
-The Makefile has these targets:
+Run `make help` to get a list of all the targets. Here are the most important
+targets:
+
+- `make release`
+
+  Build the dist, then `cpan-upload` it.
 
 - `make test`
 
-  Use `prove -lv test`
+  Run the test suite.
 
 - `make install`
 
-  Do a `dzil` install.
-
-- `make doc`
-
-  Make the `ReadMe.pod` and other stuff.
+  Build and install the software. Same as install from CPAN.
 
 - `make cpan`
 
@@ -81,47 +84,6 @@ The Makefile has these targets:
 - `make dist`
 
   Basically the same as `make cpan; cd cpan; dzil build`.
-
-- `make distdir`
-
-  Unzip the dist, for inspection.
-
-- `make publish`
-
-  Have `dzil` build a dist, then `cpan-upload` it.
-
-- `make publish-dryrun`
-
-  Yep.
-
-- `make upgrade`
-
-  Upgrade the [Zilla::Dist] `Makefile`.
-
-- `make help`
-
-  Show documentation for *all* targets.
-
-= Rationale Ranting
-
-I've published a lot of /packages/ in a lot of programming languages. I like
-taking the best ideas and spreading them around. I like reusing ideas and code
-and tools as much as possible between these packages.
-
-I trust dzil to DTRT with regard to the CPAN release process. I use almost the
-exact same `dist.ini` for some 20 CPAN packages that I've converted so far.
-
-I don't like cluttered repos and adding new /metadata/ files for each new tool
-that needs one. The `dist.ini` file is not bad, but I can generate it from
-metadata easily. So I do.
-
-As much as these great new ideas differ from the norm, I want my CPAN
-publishings to be normal to normal mongers (if there's such a thing). The `make
-publish` process does just that. End users would have to look hard to know this
-wasn't a "normal" dzil release.
-
-I'm packaging this packaging process as [Zilla::Dist] for others to use. It's
-also a decent example of a CPAN package packaged with itself.
 
 = Usage
 
@@ -146,6 +108,27 @@ This will:
 * Tag the git repo with the version string.
 * `git push` the repo and tag upstream.
 
+= Rationale Ranting
+
+I've published a lot of /packages/ in a lot of programming languages. I like
+taking the best ideas and spreading them around. I like reusing ideas and code
+and tools as much as possible between these packages.
+
+I trust dzil to DTRT with regard to the CPAN release process. I use almost the
+exact same `dist.ini` for some 20 CPAN packages that I've converted so far.
+
+I don't like cluttered repos and adding new /metadata/ files for each new tool
+that needs one. The `dist.ini` file is not bad, but I can generate it from
+metadata easily. So I do.
+
+As much as these great new ideas differ from the norm, I want my CPAN
+publishings to be normal to normal mongers (if there's such a thing). The
+`make publish` process does just that. End users would have to look hard to
+know this wasn't a "normal" dzil release.
+
+I'm packaging this packaging process as [Zilla::Dist] for others to use. It's
+also a decent example of a CPAN package packaged with itself.
+
 = Notes
 
 Unlike `dzil`, the only `zild` command you ever use is `zild setup` to get the
@@ -164,6 +147,21 @@ The name `t/` is another outlier. The most common is `test/` followed by
 I don't like plural directory names. Try singular. I think you'll like it too.
 
 ALLCAPSFILENAMES ARE TOO LOUD! ChillOut.
+
+== Commiting Generated Code/Files
+
+People think that committing generated code/files is a bad idea and in general
+I concur, but there are exceptions.
+
+Sometimes tools like Travis-CI require you to commit a config file.
+Zilla::Dist generates these files from metadata, which is a whole lot easier
+than maintaining them yourself, but you end up commiting generated code.
+
+The `dist.ini` file is only needed locally, however, during dist build time,
+so no need to commit that.
+
+In general, when an external tool requires files, and it's easiest to generate
+those files, it's OK to commit generated code.
 
 = See Also
 

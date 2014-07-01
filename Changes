@@ -1,4 +1,11 @@
 ---
+version: 0.0.43
+date:    Tue Jul  1 10:31:40 PDT 2014
+changes:
+- Remove preflight from Makefile
+- Other Makefile refactoring
+- Update the docs
+---
 version: 0.0.42
 date:    Fri Jun 27 23:07:55 PDT 2014
 changes:
