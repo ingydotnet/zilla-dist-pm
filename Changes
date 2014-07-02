@@ -1,4 +1,10 @@
 ---
+version: 0.0.45
+date:    Wed Jul  2 12:39:33 PDT 2014
+changes:
+- The Makefile no longer checks for Zilla::Dist to be installed.
+- Regular users can run `make test`, without need zild or dzil.
+---
 version: 0.0.44
 date:    Wed Jul  2 12:11:10 PDT 2014
 changes:
