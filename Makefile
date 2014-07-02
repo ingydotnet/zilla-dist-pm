@@ -7,12 +7,14 @@
 
 .PHONY: cpan test
 
-ifeq (,$(shell which zild))
-    $(error "Error: 'zild' command not found. Please install Zilla::Dist from CPAN")
+ifneq (,$(shell which zild))
+    NAME := $(shell zild meta name)
+    VERSION := $(shell zild meta version)
+else
+    NAME := No-Name
+    VERSION := 0
 endif
 
-NAME := $(shell zild meta name)
-VERSION := $(shell zild meta version)
 DISTDIR := $(NAME)-$(VERSION)
 DIST := $(DISTDIR).tar.gz
 NAMEPATH := $(subst -,/,$(NAME))
