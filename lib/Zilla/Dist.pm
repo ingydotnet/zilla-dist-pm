@@ -1,6 +1,6 @@
 use strict;
 package Zilla::Dist;
-our $VERSION = '0.0.43';
+our $VERSION = '0.0.44';
 
 use YAML::XS;
 use File::Share;
@@ -13,7 +13,7 @@ sub new {
 
 sub run {
     my ($self, @args) = @_;
-    $self->usage unless @args >= 1;
+    @args = ('setup') unless @args;
     my $cmd = shift @args;
     my $method = "do_$cmd";
     $self->usage unless $self->can($method);
@@ -56,13 +56,16 @@ sub find_sharedir {
 
 sub usage {
     die <<'...';
+
 Usage:
-        zild setup      # Create a new Zilla::Dist Makefile and Meta
+        zild            # Make the directory be Zilla::Dist enabled;
+                        # Creates new Zilla::Dist Makefile and Meta files.
 
 Internal commands issued by the Makefile:
 
         zild sharedir   # Print the location of the Zilla::Dist share dir
         zild meta <key> # Print Meta value for a key
+
 ...
 }
 

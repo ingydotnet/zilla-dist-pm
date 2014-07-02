@@ -7,9 +7,9 @@ Dist::Zilla Mixed Up
 
 = Synopsis
 
-  > zild setup
+  > zild
   > # Edit the Meta file.
-  > make publish
+  > make release
 
 = Description
 
@@ -55,7 +55,7 @@ happy, and not tied to poor legacy standards.
 
 Zilla::Dist provides a Makefile to do everything. You get a new Makefile with:
 
-  > zild setup
+  > zild [setup]
 
 And you can refresh it later with:
 
@@ -89,7 +89,7 @@ targets:
 
 Start by running:
 
-  zild setup
+  zild
 
 and you'll get a `Makefile` and a `Meta` file template. You need to customize
 the `Meta` file and leave the `Makefile` alone.
@@ -131,9 +131,9 @@ also a decent example of a CPAN package packaged with itself.
 
 = Notes
 
-Unlike `dzil`, the only `zild` command you ever use is `zild setup` to get the
-Zilla::Dist `Makefile`. After that, all Zilla::Dist commands are `make`
-targets.
+Unlike `dzil`, the only `zild` command you ever use is `zild` (with no
+arguments) to get the Zilla::Dist `Makefile` and `Meta` file. After that, all
+Zilla::Dist commands are `make` targets.
 
 Some of the tools in Zilla::Dist are Bash, some are Perl. I'm doing a lot in
 the area of Bash Package packaging. See [http://bpan.org].

@@ -1,4 +1,9 @@
 ---
+version: 0.0.44
+date:    Wed Jul  2 12:11:10 PDT 2014
+changes:
+- Make 'setup' be default 'zild' command.
+---
 version: 0.0.43
 date:    Tue Jul  1 10:31:40 PDT 2014
 changes:
