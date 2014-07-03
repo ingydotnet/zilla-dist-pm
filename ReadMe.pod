@@ -214,6 +214,8 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/file-share-pm>
 
+=item * L<https://github.com/ingydotnet/inline-c-pm>
+
 =item * L<https://github.com/ingydotnet/io-all-pm>
 
 =item * L<https://github.com/ingydotnet/jsony-pm>
@@ -247,6 +249,8 @@ those files, it's OK to commit generated code.
 =item * L<https://github.com/ingydotnet/perl5-i-pm>
 
 =item * L<https://github.com/ingydotnet/perl5-ingy-pm>
+
+=item * L<https://github.com/ingydotnet/plack-middleware-cache-pm>
 
 =item * L<https://github.com/ingydotnet/pquery-pm>
 

@@ -173,6 +173,7 @@ those files, it's OK to commit generated code.
 * https://github.com/ingydotnet/dist-zilla-plugin-testbaseincluder-pm
 * https://github.com/ingydotnet/dist-zilla-plugin-testmlincluder-pm
 * https://github.com/ingydotnet/file-share-pm
+* https://github.com/ingydotnet/inline-c-pm
 * https://github.com/ingydotnet/io-all-pm
 * https://github.com/ingydotnet/jsony-pm
 * https://github.com/ingydotnet/js-pm
@@ -190,6 +191,7 @@ those files, it's OK to commit generated code.
 * https://github.com/ingydotnet/perl5-pm
 * https://github.com/ingydotnet/perl5-i-pm
 * https://github.com/ingydotnet/perl5-ingy-pm
+* https://github.com/ingydotnet/plack-middleware-cache-pm
 * https://github.com/ingydotnet/pquery-pm
 * https://github.com/ingydotnet/spiffy-pm
 * https://github.com/ingydotnet/stackato-stackrad-pm
