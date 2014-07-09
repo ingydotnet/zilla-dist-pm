@@ -10,9 +10,11 @@
 ifneq (,$(shell which zild))
     NAME := $(shell zild meta name)
     VERSION := $(shell zild meta version)
+    RELEASE_BRANCH := $(shell zild meta branch)
 else
     NAME := No-Name
     VERSION := 0
+    RELEASE_BRANCH := master
 endif
 
 DISTDIR := $(NAME)-$(VERSION)
@@ -115,7 +117,7 @@ clean purge:
 # Non-pulic-facing targets:
 #------------------------------------------------------------------------------
 check-release:
-	zild-check-release
+	RELEASE_BRANCH=$(RELEASE_BRANCH) zild-check-release
 
 # We don't want to update the Makefile in Zilla::Dist since it is the real
 # source, and would be reverting to whatever was installed.

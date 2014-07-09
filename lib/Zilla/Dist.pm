@@ -41,10 +41,14 @@ sub do_sharedir {
     print $self->find_sharedir . "\n";
 }
 
+my $default = {
+    branch => 'master',
+};
 sub do_meta {
     my ($self, $key) = @_;
     my $meta = YAML::XS::LoadFile('Meta');
-    print $meta->{$key} . "\n";
+    my $value = $meta->{$key} || $default->{$key};
+    print "$value\n";
 }
 
 sub find_sharedir {

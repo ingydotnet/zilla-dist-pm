@@ -32,8 +32,10 @@ branch_name=$(git symbolic-ref -q HEAD)
 branch_name=${branch_name##refs/heads/}
 branch_name=${branch_name:-HEAD}
 
-if [ "$branch_name" != master ]; then
-  error "Not on 'master' branch"
+if [ -z "$RELEASE_BRANCH" ]; then
+  error "Can't deterine RELEASE_BRANCH"
+elif [ "$branch_name" != "$RELEASE_BRANCH" ]; then
+  error "Not on '$RELEASE_BRANCH' branch"
 fi
 
 [ "$OK" -ne 0 ] && exit $OK
