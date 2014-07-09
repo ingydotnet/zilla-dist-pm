@@ -3,7 +3,7 @@
 name: Zilla-Dist
 version: 0.0.47
 abstract: Dist::Zilla Mixed Up
-homepage: http://pegex.org
+homepage: https://metacpan.org/release/Zilla-Dist
 
 license: perl
 copyright: 2014. Ingy döt Net.
@@ -21,14 +21,14 @@ requires:
   File::Share: 0
   Hash::Merge: 0
   IO::All: 0
-  Swim: 0.0.7
+  Swim: 0.1.8
   Template::Toolkit::Simple: 0
   YAML::XS: 0
 
 devel:
   git: git@github.org/ingydotnet/zilla-dist-pm
-  irc: irc.freenode.net#pkg
   bug: https://github.com/ingydotnet/zilla-dist-pm/issues/
+  irc: irc.freenode.net#pkg
 
 =travis:
   type: perl
