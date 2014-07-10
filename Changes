@@ -1,4 +1,9 @@
 ---
+version: 0.0.52
+date:    Wed Jul  9 17:39:06 PDT 2014
+changes:
+- Dep on Dist::Zilla::PluginBundle::Git, mohawk2++
+---
 version: 0.0.51
 date:    Wed Jul  9 17:37:26 PDT 2014
 changes:

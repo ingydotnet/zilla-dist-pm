@@ -21,6 +21,7 @@ install:
   Dist::Zilla
   Dist::Zilla::Plugin::ChangesFromYaml
   Dist::Zilla::Plugin::ReadmeFromPod
+  Dist::Zilla::PluginBundle::Git
   File::Share
   Hash::Merge
   IO::All
