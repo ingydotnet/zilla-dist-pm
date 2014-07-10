@@ -20,6 +20,7 @@ install:
   Devel::Cover::Report::Coveralls
   Dist::Zilla
   Dist::Zilla::Plugin::ChangesFromYaml
+  Dist::Zilla::Plugin::GithubMeta
   Dist::Zilla::Plugin::ReadmeFromPod
   Dist::Zilla::PluginBundle::Git
   File::Share
