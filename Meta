@@ -1,7 +1,7 @@
 =meta: 0.0.1
 
 name: Zilla-Dist
-version: 0.0.54
+version: 0.0.55
 abstract: Dist::Zilla Mixed Up
 homepage: https://metacpan.org/release/Zilla-Dist
 
@@ -27,6 +27,7 @@ requires:
   Hash::Merge: 0
   IO::All: 0
   Swim: 0.1.8
+  Swim::Plugin::badge: 0
   Template::Toolkit::Simple: 0
   YAML::XS: 0
 

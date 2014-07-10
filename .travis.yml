@@ -28,6 +28,7 @@ install:
   Hash::Merge
   IO::All
   Swim
+  Swim::Plugin::badge
   Template::Toolkit::Simple
   YAML::XS
 

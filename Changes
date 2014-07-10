@@ -1,4 +1,9 @@
 ---
+version: 0.0.55
+date:    Thu Jul 10 10:54:37 PDT 2014
+changes:
+- Dep on Swim::Plugin::badge
+---
 version: 0.0.54
 date:    Thu Jul 10 08:47:19 PDT 2014
 changes:
