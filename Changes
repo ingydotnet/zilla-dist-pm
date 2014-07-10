@@ -1,4 +1,9 @@
 ---
+version: 0.0.51
+date:    Wed Jul  9 17:37:26 PDT 2014
+changes:
+- Dep on Dist::Zilla::Plugin::ReadmeFromPod, mohawk2++
+---
 version: 0.0.50
 date:    Wed Jul  9 17:32:10 PDT 2014
 changes:
