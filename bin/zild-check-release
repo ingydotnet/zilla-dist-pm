@@ -38,6 +38,12 @@ elif [ "$branch_name" != "$RELEASE_BRANCH" ]; then
   error "Not on '$RELEASE_BRANCH' branch"
 fi
 
+if [ -z "$(which cpan-upload)" ]; then
+  error "'cpan-upload' not insalled. Run 'cpanm CPAN::Uploader'"
+elif [ ! -e ~/.pause ]; then
+  error "No ~/.pause file. See https://metacpan.org/pod/distribution/CPAN-Uploader/bin/cpan-upload#CONFIGURATION"
+fi
+
 [ "$OK" -ne 0 ] && exit $OK
 
 if [ -n "$(git status -s)" ]; then

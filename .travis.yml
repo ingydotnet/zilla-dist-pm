@@ -18,6 +18,7 @@ perl:
 install:
 - cpanm --quiet --notest
   Devel::Cover::Report::Coveralls
+  CPAN::Uploader
   Dist::Zilla
   Dist::Zilla::Plugin::ChangesFromYaml
   Dist::Zilla::Plugin::GithubMeta
