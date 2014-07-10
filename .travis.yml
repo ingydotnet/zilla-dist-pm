@@ -19,6 +19,7 @@ install:
 - cpanm --quiet --notest
   Devel::Cover::Report::Coveralls
   Dist::Zilla
+  Dist::Zilla::Plugin::ChangesFromYaml
   File::Share
   Hash::Merge
   IO::All

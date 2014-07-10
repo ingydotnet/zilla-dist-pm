@@ -1,4 +1,9 @@
 ---
+version: 0.0.50
+date:    Wed Jul  9 17:32:10 PDT 2014
+changes:
+- Dep on Dist::Zilla::Plugin::ChangesFromYaml, mohawk2++
+---
 version: 0.0.49
 date:    Wed Jul  9 17:23:43 PDT 2014
 changes:
