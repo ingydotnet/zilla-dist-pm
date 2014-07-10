@@ -1,4 +1,9 @@
 ---
+version: 0.0.56
+date:    Thu Jul 10 11:02:45 PDT 2014
+changes:
+- Initial support for CONTRIBUTE
+---
 version: 0.0.55
 date:    Thu Jul 10 10:54:37 PDT 2014
 changes:
