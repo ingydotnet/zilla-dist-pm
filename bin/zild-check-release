@@ -33,7 +33,7 @@ branch_name=${branch_name##refs/heads/}
 branch_name=${branch_name:-HEAD}
 
 if [ -z "$RELEASE_BRANCH" ]; then
-  error "Can't deterine RELEASE_BRANCH"
+  error "Can't determine RELEASE_BRANCH"
 elif [ "$branch_name" != "$RELEASE_BRANCH" ]; then
   error "Not on '$RELEASE_BRANCH' branch"
 fi

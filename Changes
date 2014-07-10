@@ -1,4 +1,9 @@
 ---
+version: 0.0.49
+date:    Wed Jul  9 17:23:43 PDT 2014
+changes:
+- Fix typo. @mohawk2++
+---
 version: 0.0.48
 date:    Wed Jul  9 11:12:13 PDT 2014
 changes:
