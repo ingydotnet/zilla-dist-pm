@@ -1,4 +1,9 @@
 ---
+version: 0.0.59
+date:    Fri Jul 11 12:45:35 PDT 2014
+changes:
+- Allow for pkg/travis.yml override
+---
 version: 0.0.58
 date:    Fri Jul 11 00:41:43 PDT 2014
 changes:

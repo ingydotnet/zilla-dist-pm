@@ -11,27 +11,33 @@ use Template::Toolkit::Simple;
 use YAML::XS;
 use Zilla::Dist;
 
-my $meta = Load io->file('Meta')->all;
-my $cpan = delete($meta->{'=cpan'}) || {};
-my $data = merge($cpan, $meta);
-my $travis = delete($meta->{'=travis'}) or exit;
-$travis = { type => $travis } unless ref $travis;
-exit unless $travis->{type} eq 'perl';
-$data = merge($travis, $data);
-$data->{RequiredModules} = [];
-if (my $r = $data->{requires}) {
-    push @{$data->{RequiredModules}}, keys %$r;
+if (-e 'pkg/travis.yml') {
+    my $travis = io->file('pkg/travis.yml')->all;
+    io->file('.travis.yml')->print($travis);
 }
-if (my $r = $data->{test}{requires}) {
-    push @{$data->{RequiredModules}}, keys %$r;
-}
-if (my $r = $data->{recommends}) {
-    push @{$data->{RequiredModules}}, keys %$r;
-}
+else {
+    my $meta = Load io->file('Meta')->all;
+    my $cpan = delete($meta->{'=cpan'}) || {};
+    my $data = merge($cpan, $meta);
+    my $travis = delete($meta->{'=travis'}) or exit;
+    $travis = { type => $travis } unless ref $travis;
+    exit unless $travis->{type} eq 'perl';
+    $data = merge($travis, $data);
+    $data->{RequiredModules} = [];
+    if (my $r = $data->{requires}) {
+        push @{$data->{RequiredModules}}, keys %$r;
+    }
+    if (my $r = $data->{test}{requires}) {
+        push @{$data->{RequiredModules}}, keys %$r;
+    }
+    if (my $r = $data->{recommends}) {
+        push @{$data->{RequiredModules}}, keys %$r;
+    }
 
-my $yaml = tt
-    ->path([File::Share::dist_dir('Zilla-Dist')])
-    ->data($data)
-    ->render('travis.yml');
+    my $yaml = tt
+        ->path([File::Share::dist_dir('Zilla-Dist')])
+        ->data($data)
+        ->render('travis.yml');
 
-io->file('.travis.yml')->print($yaml);
+    io->file('.travis.yml')->print($yaml);
+}
