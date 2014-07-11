@@ -1,4 +1,9 @@
 ---
+version: 0.0.58
+date:    Fri Jul 11 00:41:43 PDT 2014
+changes:
+- Make travis not join on notifications
+---
 version: 0.0.57
 date:    Thu Jul 10 17:03:50 PDT 2014
 changes:
