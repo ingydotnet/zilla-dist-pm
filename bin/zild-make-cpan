@@ -43,4 +43,8 @@ for swim in $(find doc -type f -name '*.swim'); do
   fi
 done
 
+if [ -e pkg/make-cpan ]; then
+  ./pkg/make-cpan
+fi
+
 # vim: set sw=2 lisp:

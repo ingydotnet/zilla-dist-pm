@@ -1,4 +1,17 @@
 ---
+version: 0.0.60
+date:    Fri Jul 11 15:29:24 PDT 2014
+changes:
+- Added support for YAML::XS
+- Can't use prove testing (only disttest)
+- Need to add custom content (LibYAML dir)
+---
+version: 0.0.59
+date:    Fri Jul 11 12:45:35 PDT 2014
+changes:
+- Support custom make-cpan
+- Support no-test (for XS)
+---
 version: 0.0.59
 date:    Fri Jul 11 12:45:35 PDT 2014
 changes:
