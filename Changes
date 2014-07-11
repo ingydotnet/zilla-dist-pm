@@ -1,4 +1,9 @@
 ---
+version: 0.0.57
+date:    Thu Jul 10 17:03:50 PDT 2014
+changes:
+- Change CONTRIBUTE to CONTRIBUTING
+---
 version: 0.0.56
 date:    Thu Jul 10 11:02:45 PDT 2014
 changes:
