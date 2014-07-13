@@ -173,6 +173,7 @@ those files, it's OK to commit generated code.
 * https://github.com/ingydotnet/dist-zilla-plugin-testbaseincluder-pm
 * https://github.com/ingydotnet/dist-zilla-plugin-testmlincluder-pm
 * https://github.com/ingydotnet/file-share-pm
+* https://github.com/ingydotnet/inline-pm
 * https://github.com/ingydotnet/inline-c-pm
 * https://github.com/ingydotnet/io-all-pm
 * https://github.com/ingydotnet/jsony-pm
@@ -185,6 +186,7 @@ those files, it's OK to commit generated code.
 * https://github.com/ingydotnet/lexicals-pm
 * https://github.com/ingydotnet/package-pm
 * https://github.com/ingydotnet/pegex-pm
+* https://github.com/ingydotnet/pegex-chess-pm
 * https://github.com/ingydotnet/pegex-cmd-pm
 * https://github.com/ingydotnet/pegex-crontab-pm
 * https://github.com/ingydotnet/pegex-json-pm
@@ -204,10 +206,11 @@ those files, it's OK to commit generated code.
 * https://github.com/ingydotnet/tiny-yaml-pm
 * https://github.com/ingydotnet/vroom-pm
 * https://github.com/ingydotnet/xxx-pm
+* https://github.com/ingydotnet/yaml-pm
 * https://github.com/ingydotnet/yaml-full-pm
+* https://github.com/ingydotnet/yaml-libyaml-pm
 * https://github.com/ingydotnet/yaml-old-pm
 * https://github.com/ingydotnet/yaml-pegex-pm
-* https://github.com/ingydotnet/yaml-pm
 * https://github.com/ingydotnet/yaml-shell-pm
 * https://github.com/ingydotnet/zilla-dist-pm !!
 

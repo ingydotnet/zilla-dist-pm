@@ -214,6 +214,8 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/file-share-pm>
 
+=item * L<https://github.com/ingydotnet/inline-pm>
+
 =item * L<https://github.com/ingydotnet/inline-c-pm>
 
 =item * L<https://github.com/ingydotnet/io-all-pm>
@@ -237,6 +239,8 @@ those files, it's OK to commit generated code.
 =item * L<https://github.com/ingydotnet/package-pm>
 
 =item * L<https://github.com/ingydotnet/pegex-pm>
+
+=item * L<https://github.com/ingydotnet/pegex-chess-pm>
 
 =item * L<https://github.com/ingydotnet/pegex-cmd-pm>
 
@@ -276,13 +280,15 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/xxx-pm>
 
+=item * L<https://github.com/ingydotnet/yaml-pm>
+
 =item * L<https://github.com/ingydotnet/yaml-full-pm>
+
+=item * L<https://github.com/ingydotnet/yaml-libyaml-pm>
 
 =item * L<https://github.com/ingydotnet/yaml-old-pm>
 
 =item * L<https://github.com/ingydotnet/yaml-pegex-pm>
-
-=item * L<https://github.com/ingydotnet/yaml-pm>
 
 =item * L<https://github.com/ingydotnet/yaml-shell-pm>
 

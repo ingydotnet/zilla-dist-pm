@@ -1,4 +1,9 @@
 ---
+version: 0.0.61
+date:    Sun Jul 13 15:36:24 PDT 2014
+changes:
+- Add latest modules to list.
+---
 version: 0.0.60
 date:    Fri Jul 11 15:29:24 PDT 2014
 changes:
