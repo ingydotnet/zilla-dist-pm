@@ -1,0 +1,83 @@
+Zilla::Dist::Contributing
+=========================
+
+You probably linked to here from a `Contributing` or `CONTRIBUTING` document,
+for a Project that you are interested in contributing to. Welcome!
+
+This is the generic documentation for how to contribute to that Project. It is
+stored separately from the project, so that it can be easily be kept up to
+date.
+
+This Project is targeted to ship to CPAN and uses [Zilla::Dist] to do that.
+This means that things are laid out somewhat differently than a "normal" Perl
+module repository. A project in this style looks like this at the top level:
+
+- `Changes`      :: A YAML changelog history
+- `Contributing` :: Instructions for contributing to the project
+- `Makefile`     :: All the automation for developing and shipping
+- `Meta`         :: A YAML file of all metadata needed
+- `ReadMe.pod`   :: Top level doc in a format for GitHub
+- `.travis.yml`  :: A generated Travis-CI instruction file
+- `bin/`   :: Installable bin scripts
+- `doc/`   :: All the Project documentation
+- `eg/`    :: A directory of Project examples
+- `ext/`   :: External repositories
+- `lib/`   :: Project library code
+- `note/`  :: Project note files
+- `pkg/`   :: Any extra files needed for packaging a release
+- `share/` :: Ancillary files that ship and install with the release
+- `test/`  :: Project test suite
+
+The documentation is written in [Swim] instead of Pod. Swim can make docs
+every bit as nice as Pod, but in a format nicer than even Markdown.
+
+Everything else is pretty familiar. Even though this layout is quite a
+departure from the CPAN style, the content that actually ships to CPAN is
+completely in the traditional CPAN style. Swim becomes Pod and tests are in
+the `t/` directory.
+
+This style is meant to be a modern combination of styles and ideas from Perl
+and other programming languages. It allows the developer to use more modern
+tools and ideas, while keeping the published result compatible with the most
+stable and trusted CPAN standards.
+
+When [Zilla::Dist] generates a distribution for CPAN, it first creates a
+`cpan/` directory, with everything converted into a `Dist::Zilla` style, and
+then invokes `dzil build` to create the CPAN ready tarball.
+
+To see the `cpan/` directory, run:
+
+  make cpan
+
+To see the distribution directory, run:
+
+  make distdir
+
+To see all the other Makefile targets, run:
+
+  make help
+
+== Testing
+
+The `bin`, `lib` and `test` directories contain normal code. Make your changes and test them with:
+
+  make test
+
+which simply runs:
+
+  prove -lv test/
+
+== Installing Dependencies
+
+Even though this Project is managed by [Zilla::Dist], you probably don't need
+to install it. Many `Makefile` targets require it, but things like `make test`
+do not. If you do need `Zilla::Dist` to be installed, this is the best command to use:
+
+  cpanm --notest Zilla::Dist
+
+This can take a long time, as it needs [Dist::Zilla] and friends, but it
+should only be slow once.
+
+To install the other Project specific dependencies, just run this command:
+
+  make install-deps

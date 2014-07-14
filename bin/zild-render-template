@@ -11,9 +11,13 @@ use Template::Toolkit::Simple;
 use YAML::XS;
 use Zilla::Dist;
 
-if (-e 'pkg/travis.yml') {
-    my $travis = io->file('pkg/travis.yml')->all;
-    io->file('.travis.yml')->print($travis);
+my ($template, $target) = @ARGV;
+
+$target ||= $template;
+
+if (-e "pkg/$template") {
+    my $text = io->file("pkg/$template")->all;
+    io->file($target)->print($text);
 }
 else {
     my $meta = Load io->file('Meta')->all;
@@ -33,11 +37,13 @@ else {
     if (my $r = $data->{recommends}) {
         push @{$data->{RequiredModules}}, keys %$r;
     }
+    ($data->{namepath} = $meta->{name}) =~ s/-/\//g;
+    $data->{sharedir} = 1 if -d 'share';
 
-    my $yaml = tt
+    my $text = tt
         ->path([File::Share::dist_dir('Zilla-Dist')])
         ->data($data)
-        ->render('travis.yml');
+        ->render($template);
 
-    io->file('.travis.yml')->print($yaml);
+    io->file($target)->print($text);
 }
