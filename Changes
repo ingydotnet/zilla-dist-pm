@@ -1,4 +1,10 @@
 ---
+version: 0.0.68
+date:    Mon Jul 14 15:08:48 PDT 2014
+changes:
+- Depend on latest versions of prereqs.
+- Had inconsistent DZ results.
+---
 version: 0.0.67
 date:    Mon Jul 14 12:34:24 PDT 2014
 changes:
