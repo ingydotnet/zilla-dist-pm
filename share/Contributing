@@ -40,5 +40,17 @@ This Project uses Zilla::Dist to prepare it for publishing to CPAN. Read:
 for up-to-date instructions on what contributors like yourself need to know to
 use it.
 
+[% IF devel.irc -%]
+IRC
+---
 
-Thanks in advance, [% author.name %]
+[% name %] has an IRC channel where you can find real people to help you:
+
+  [% devel.irc %]
+
+Join the channel. Join the team!
+
+[%END -%]
+
+    Thanks in advance, [% author.name %]
+

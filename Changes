@@ -1,4 +1,9 @@
 ---
+version: 0.0.65
+date:    Sun Jul 13 20:50:57 PDT 2014
+changes:
+- Add IRC info to share/Contributing file.
+---
 version: 0.0.64
 date:    Sun Jul 13 20:34:11 PDT 2014
 changes:
