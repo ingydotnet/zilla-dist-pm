@@ -1,4 +1,9 @@
 ---
+version: 0.0.66
+date:    Sun Jul 13 21:13:16 PDT 2014
+changes:
+- Change share/Contributing intro.
+---
 version: 0.0.65
 date:    Sun Jul 13 20:50:57 PDT 2014
 changes:
