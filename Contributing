@@ -33,8 +33,10 @@ See these links for help on interacting with GitHub:
 Zilla::Dist
 -----------
 
-This Project uses Zilla::Dist to prepare it for publishing to CPAN. Read
-https://metacpan.org/pod/distribution/Zilla-Dist/lib/Zilla/Dist/Contributing.pod
+This Project uses Zilla::Dist to prepare it for publishing to CPAN. Read:
+
+  https://metacpan.org/pod/distribution/Zilla-Dist/lib/Zilla/Dist/Contributing.pod
+
 for up-to-date instructions on what contributors like yourself need to know to
 use it.
 

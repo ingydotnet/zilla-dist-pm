@@ -1,4 +1,9 @@
 ---
+version: 0.0.64
+date:    Sun Jul 13 20:34:11 PDT 2014
+changes:
+- Forgot to update ./Contributing
+---
 version: 0.0.63
 date:    Sun Jul 13 19:49:42 PDT 2014
 changes:
