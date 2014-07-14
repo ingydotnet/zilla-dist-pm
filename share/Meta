@@ -24,8 +24,10 @@ test:
     Test::Pre::Req: 0
 
 devel:
-  git: git@github.org/yourgithubid/package-name
-  irc: irc.freenode.net/roomname
-  bug: https://github.com/yourgithubid/package-name/issues/
+  git: https://github.com/yourgithubid/package-name
+  bug: https://github.com/yourgithubid/package-name/issues
+  irc: irc.freenode.net#roomname
 
-=travis: perl
+=travis:
+  type: perl
+  irc: irc.freenode.net#roomname

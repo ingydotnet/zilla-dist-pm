@@ -1,4 +1,9 @@
 ---
+version: 0.0.67
+date:    Mon Jul 14 12:34:24 PDT 2014
+changes:
+- Fix the share/Meta file.
+---
 version: 0.0.66
 date:    Sun Jul 13 21:13:16 PDT 2014
 changes:
