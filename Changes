@@ -1,9 +1,8 @@
 ---
-version: 0.0.68
-date:    Mon Jul 14 15:08:48 PDT 2014
+version: 0.0.69
+date:    Tue Jul 15 11:17:43 PDT 2014
 changes:
-- Depend on latest versions of prereqs.
-- Had inconsistent DZ results.
+- Fix issue#21. Check Meta correctness before release.
 ---
 version: 0.0.67
 date:    Mon Jul 14 12:34:24 PDT 2014
