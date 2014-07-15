@@ -1,56 +1,102 @@
 #!/usr/bin/env bash
 
-META_VERSION="$(grep '^version: ' Meta | cut -d' ' -f2)"
-CHANGES_VERSION="$(grep -E '^version:' Changes | head -n1 | cut -f2 -d' ')"
-[ -n "$CHANGES_VERSION" ] ||
-  CHANGES_VERSION="$(grep -E '\- [0-9]' Changes | head -n1 | cut -f2 -d' ')"
-OK=0
-
-error() {
-  echo "Error, can't release: $1" >&2
-  OK=1
+# Setup variables:
+{
+  META_VERSION="$(zild meta version)"
+  CHANGES_VERSION="$(zild changes version)"
+  [ -n "$CHANGES_VERSION" ] || CHANGES_VERSION=0
 }
 
-if ! (grep "^version: $META_VERSION" Changes &>/dev/null); then
-  if ! (grep "^- $META_VERSION" Changes &>/dev/null); then
-    error "No Changes entry for version '$META_VERSION'"
+# Define a error reporting function:
+{
+  OK=0
+  error() {
+    echo "Error, can't release: $1" >&2
+    OK=1
+  }
+}
+
+# Make sure Meta version is also in Changes file:
+{
+  if ! (grep "^version: $META_VERSION" Changes &>/dev/null); then
+    if ! (grep "^- $META_VERSION" Changes &>/dev/null); then
+      error "No Changes entry for version '$META_VERSION'"
+    fi
   fi
-fi
+}
 
-if [ "$META_VERSION" != "$CHANGES_VERSION" ]; then
-  error "Changes version ($CHANGES_VERSION) and Meta version ($META_VERSION) do not match"
-fi
+# Make sure current Meta, Changes and lib/<module> versions match:
+{
+  if [ "$META_VERSION" != "$CHANGES_VERSION" ]; then
+    error "Changes version ($CHANGES_VERSION) and Meta version ($META_VERSION) do not match"
+  fi
 
-if [ -z "$(grep -r 'VERSION' lib | grep "$META_VERSION")" ]; then
-  error "No '\$VERSION = $META_VERSION' statement in lib/"
-fi
+  if [ -z "$(grep -r 'VERSION' lib | grep "$META_VERSION")" ]; then
+    error "No '\$VERSION = $META_VERSION' statement in lib/"
+  fi
 
-git tag | grep -E "^v?${META_VERSION//./\\.}$" &>/dev/null &&
-  error "Version '$META_VERSION' already tagged as released"
+  # Make sure this is a new version:
+  git tag | grep -E "^v?${META_VERSION//./\\.}$" &>/dev/null &&
+    error "Version '$META_VERSION' already tagged as released"
+}
 
-branch_name=$(git symbolic-ref -q HEAD)
-branch_name=${branch_name##refs/heads/}
-branch_name=${branch_name:-HEAD}
+# Make sure we are on the right branch:
+{
+  branch_name=$(git symbolic-ref -q HEAD)
+  branch_name=${branch_name##refs/heads/}
+  branch_name=${branch_name:-HEAD}
 
-if [ -z "$RELEASE_BRANCH" ]; then
-  error "Can't determine RELEASE_BRANCH"
-elif [ "$branch_name" != "$RELEASE_BRANCH" ]; then
-  error "Not on '$RELEASE_BRANCH' branch"
-fi
+  if [ -z "$RELEASE_BRANCH" ]; then
+    error "Can't determine RELEASE_BRANCH"
+  elif [ "$branch_name" != "$RELEASE_BRANCH" ]; then
+    error "Not on '$RELEASE_BRANCH' branch"
+  fi
+}
 
-if [ -z "$(which cpan-upload)" ]; then
-  error "'cpan-upload' not insalled. Run 'cpanm CPAN::Uploader'"
-elif [ ! -e ~/.pause ]; then
-  error "No ~/.pause file. See https://metacpan.org/pod/distribution/CPAN-Uploader/bin/cpan-upload#CONFIGURATION"
-fi
+# Make sure the `cpan-upload` is installed and configured:
+{
+  if [ -z "$(which cpan-upload)" ]; then
+    error "'cpan-upload' not installed. Run 'cpanm CPAN::Uploader'"
+  elif [ ! -e ~/.pause ]; then
+    error "No ~/.pause file. See https://metacpan.org/pod/distribution/CPAN-Uploader/bin/cpan-upload#CONFIGURATION"
+  fi
+}
 
+# Check for common Meta errors:
+{
+  if [[ "$(zild meta name)" =~ :: ]]; then
+    error "Meta name contains '::'. Change to '-'"
+  fi
+  if [[ "$(zild meta devel/git)" =~ ^git@ ]]; then
+    error "Meta devel/git begins with git@. Change to https://"
+  fi
+  if [[ "$(zild meta devel/git)" =~ github\.org ]]; then
+    error "Meta devel/git has github.ORG. Change to .com"
+  fi
+  if [[ "$(zild meta devel/bug)" =~ /$ ]]; then
+    error "Meta devel/bug ends with a /. Please remove"
+  fi
+  if [[ "$(zild meta devel/irc)" =~ / ]]; then
+    error "Meta devel/irc contains a /. Please change to #"
+  fi
+  if [[ "$(zild meta =travis/irc)" =~ / ]]; then
+    error "Meta =travis/irc contains a /. Please change to #"
+  fi
+}
+
+# Exit if any errors have been found:
 [ "$OK" -ne 0 ] && exit $OK
 
-if [ -n "$(git status -s)" ]; then
-  git status
-  if [[ "$(git status)" =~ $'\n'\#\ Untracked ]]; then
-    error "Untracked files."
+# Make sure there are no files unaccounted for:
+# Need more `git status` verification here:
+{
+  if [ -n "$(git status -s)" ]; then
+    git status
+    if [[ "$(git status)" =~ $'\n'\#\ Untracked ]]; then
+      error "Untracked files."
+    fi
   fi
-fi
+}
 
+# Exit with status code:
 exit $OK

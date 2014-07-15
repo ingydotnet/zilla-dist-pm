@@ -47,8 +47,42 @@ my $default = {
 sub do_meta {
     my ($self, $key) = @_;
     my $meta = YAML::XS::LoadFile('Meta');
-    my $value = $meta->{$key} || $default->{$key};
-    print "$value\n";
+    my $keys = [ split '/', $key ];
+    my $value = $meta;
+    for my $k (@$keys) {
+        return unless ref($value) eq 'HASH';
+        $value = $value->{$k} || $default->{$k};
+        last unless defined $value;
+    }
+    if (defined $value) {
+        if (not ref $value) {
+            print "$value\n";
+        }
+        elsif (ref($value) eq 'ARRAY') {
+            print "$_\n" for @$value;
+        }
+        elsif (ref($value) eq 'HASH') {
+            for my $kk (sort keys %$value) {
+                print "$kk\t$value->{$kk}\n";
+            }
+        }
+        else {
+            print "$value\n";
+        }
+    }
+}
+
+sub do_changes {
+    my ($self, $key, $value) = @_;
+    my @changes = YAML::XS::LoadFile('Changes');
+    return unless @changes;
+    if ($value) {
+        die "XXX - Can't set Changes value yet. Not implemented.";
+    }
+    else {
+        $value = $changes[0]{$key} or return;
+        print "$value\n";
+    }
 }
 
 sub find_sharedir {
@@ -69,6 +103,7 @@ Internal commands issued by the Makefile:
 
         zild sharedir   # Print the location of the Zilla::Dist share dir
         zild meta <key> # Print Meta value for a key
+        zild changes <key> [<value>]
 
 ...
 }
