@@ -1,4 +1,9 @@
 ---
+version: 0.0.72
+date:    Thu Jul 17 08:05:30 PDT 2014
+changes:
+- Add mailing list info to contributing
+---
 version: 0.0.71
 date:    Thu Jul 17 00:11:37 PDT 2014
 changes:
