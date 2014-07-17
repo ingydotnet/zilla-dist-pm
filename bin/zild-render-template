@@ -23,10 +23,12 @@ else {
     my $meta = Load io->file('Meta')->all;
     my $cpan = delete($meta->{'=cpan'}) || {};
     my $data = merge($cpan, $meta);
-    my $travis = delete($meta->{'=travis'}) or exit;
-    $travis = { type => $travis } unless ref $travis;
-    exit unless $travis->{type} eq 'perl';
-    $data = merge($travis, $data);
+    if ($template ne 'dist.ini') {
+        my $travis = delete($meta->{'=travis'}) or exit;
+        $travis = { type => $travis } unless ref $travis;
+        exit unless $travis->{type} eq 'perl';
+        $data = merge($travis, $data);
+    }
     $data->{RequiredModules} = [];
     if (my $r = $data->{requires}) {
         push @{$data->{RequiredModules}}, keys %$r;
