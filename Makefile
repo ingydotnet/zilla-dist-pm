@@ -7,8 +7,8 @@
 
 .PHONY: cpan test
 
-PERL_S := $(shell which perl) -S
-ZILD := $(PERL_S) zild
+PERL ?= $(shell which perl)
+ZILD := $(PERL) -S zild
 
 ifneq (,$(shell which zild))
     NAME := $(shell $(ZILD) meta name)
@@ -55,7 +55,7 @@ help:
 
 test:
 ifeq ($(wildcard pkg/no-test),)
-	prove -lv test
+	prove -lv -e $(PERL) test
 else
 	@echo "Testing not available. Use 'disttest' instead."
 endif
@@ -89,7 +89,7 @@ cpanshell: cpan
 
 cpantest: cpan
 ifeq ($(wildcard pkg/no-test),)
-	(cd cpan; prove -lv t) && make clean
+	(cd cpan; prove -lv -e $(PERL) t) && make clean
 else
 	@echo "Testing not available. Use 'disttest' instead."
 endif
@@ -119,10 +119,10 @@ readme:
 	swim --pod-cpan doc/$(NAMEPATH).swim > ReadMe.pod
 
 contrib:
-	$(PERL_S) zild-render-template Contributing
+	$(PERL) -S zild-render-template Contributing
 
 travis:
-	$(PERL_S) zild-render-template travis.yml .travis.yml
+	$(PERL) -S zild-render-template travis.yml .travis.yml
 
 clean purge:
 	rm -fr cpan .build $(DIST) $(DISTDIR)
@@ -150,4 +150,4 @@ makefile:
 endif
 
 version:
-	$(PERL_S) zild-version-update
+	$(PERL) -S zild-version-update

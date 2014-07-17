@@ -2,6 +2,8 @@
 
 set -e
 
+: "${PERL:=$(which perl)}"
+
 rm -fr cpan
 mkdir cpan
 
@@ -22,7 +24,7 @@ mkdir cpan
   fi
   rm -fr cpan/t/misc cpan/t/fail
 
-  perl -S zild-render-template dist.ini cpan/dist.ini
+  $PERL -S zild-render-template dist.ini cpan/dist.ini
 )
 [ -x tool/make-cpan ] && tool/make-cpan
 

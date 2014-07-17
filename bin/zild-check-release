@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-ZILD="$(which perl) -S zild"
+: "${PERL:=$(which perl)}"
+ZILD="$PERL -S zild"
 
 # Setup variables:
 {
