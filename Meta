@@ -1,7 +1,7 @@
 =meta: 0.0.1
 
 name: Zilla-Dist
-version: 0.0.69
+version: 0.0.70
 abstract: Dist::Zilla Mixed Up
 homepage: https://metacpan.org/release/Zilla-Dist
 
@@ -23,6 +23,8 @@ requires:
   Dist::Zilla::Plugin::ChangesFromYaml: 0.004
   Dist::Zilla::Plugin::GithubMeta: 0.46
   Dist::Zilla::Plugin::ReadmeFromPod: 0.21
+  Dist::Zilla::Plugin::TestBaseIncluder: 0.05
+  Dist::Zilla::Plugin::TestMLIncluder: 0.05
   File::Share: 0.14
   Hash::Merge: 0.200
   IO::All: 0.65

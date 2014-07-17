@@ -1,4 +1,11 @@
 ---
+version: 0.0.70
+date:    Wed Jul 16 22:57:32 PDT 2014
+changes:
+- Add new prereqs
+- Dist::Zilla::Plugin::TestBaseIncluder
+- Dist::Zilla::Plugin::TestMLIncluder
+---
 version: 0.0.69
 date:    Tue Jul 15 11:17:43 PDT 2014
 changes:
