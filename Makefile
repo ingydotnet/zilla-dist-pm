@@ -7,10 +7,13 @@
 
 .PHONY: cpan test
 
+PERL_S := $(shell which perl) -S
+ZILD := $(PERL_S) zild
+
 ifneq (,$(shell which zild))
-    NAME := $(shell zild meta name)
-    VERSION := $(shell zild meta version)
-    RELEASE_BRANCH := $(shell zild meta branch)
+    NAME := $(shell $(ZILD) meta name)
+    VERSION := $(shell $(ZILD) meta version)
+    RELEASE_BRANCH := $(shell $(ZILD) meta branch)
 else
     NAME := No-Name
     VERSION := 0
@@ -110,16 +113,16 @@ disttest: cpan
 	(cd cpan; dzil test) && make clean
 
 upgrade:
-	cp `zild sharedir`/Makefile ./
+	cp `$(ZILD) sharedir`/Makefile ./
 
 readme:
 	swim --pod-cpan doc/$(NAMEPATH).swim > ReadMe.pod
 
 contrib:
-	zild-render-template Contributing
+	$(PERL_S) zild-render-template Contributing
 
 travis:
-	zild-render-template travis.yml .travis.yml
+	$(PERL_S) zild-render-template travis.yml .travis.yml
 
 clean purge:
 	rm -fr cpan .build $(DIST) $(DISTDIR)
@@ -147,4 +150,4 @@ makefile:
 endif
 
 version:
-	zild-version-update
+	$(PERL_S) zild-version-update

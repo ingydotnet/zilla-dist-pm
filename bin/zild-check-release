@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+ZILD="$(which perl) -S zild"
+
 # Setup variables:
 {
-  META_VERSION="$(zild meta version)"
-  CHANGES_VERSION="$(zild changes version)"
+  META_VERSION="$($ZILD meta version)"
+  CHANGES_VERSION="$($ZILD changes version)"
   [ -n "$CHANGES_VERSION" ] || CHANGES_VERSION=0
 }
 
@@ -64,22 +66,22 @@
 
 # Check for common Meta errors:
 {
-  if [[ "$(zild meta name)" =~ :: ]]; then
+  if [[ "$($ZILD meta name)" =~ :: ]]; then
     error "Meta name contains '::'. Change to '-'"
   fi
-  if [[ "$(zild meta devel/git)" =~ ^git@ ]]; then
+  if [[ "$($ZILD meta devel/git)" =~ ^git@ ]]; then
     error "Meta devel/git begins with git@. Change to https://"
   fi
-  if [[ "$(zild meta devel/git)" =~ github\.org ]]; then
+  if [[ "$($ZILD meta devel/git)" =~ github\.org ]]; then
     error "Meta devel/git has github.ORG. Change to .com"
   fi
-  if [[ "$(zild meta devel/bug)" =~ /$ ]]; then
+  if [[ "$($ZILD meta devel/bug)" =~ /$ ]]; then
     error "Meta devel/bug ends with a /. Please remove"
   fi
-  if [[ "$(zild meta devel/irc)" =~ / ]]; then
+  if [[ "$($ZILD meta devel/irc)" =~ / ]]; then
     error "Meta devel/irc contains a /. Please change to #"
   fi
-  if [[ "$(zild meta =travis/irc)" =~ / ]]; then
+  if [[ "$($ZILD meta =travis/irc)" =~ / ]]; then
     error "Meta =travis/irc contains a /. Please change to #"
   fi
 }

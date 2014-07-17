@@ -22,7 +22,7 @@ mkdir cpan
   fi
   rm -fr cpan/t/misc cpan/t/fail
 
-  zild-render-template dist.ini cpan/dist.ini
+  perl -S zild-render-template dist.ini cpan/dist.ini
 )
 [ -x tool/make-cpan ] && tool/make-cpan
 

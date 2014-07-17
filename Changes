@@ -1,4 +1,10 @@
 ---
+version: 0.0.74
+date:    Thu Jul 17 11:12:12 PDT 2014
+changes:
+- Fix for issue/25. rurban++
+- Call perl scripts with current perl
+---
 version: 0.0.73
 date:    Thu Jul 17 08:05:30 PDT 2014
 changes:
