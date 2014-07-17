@@ -1,4 +1,11 @@
 ---
+version: 0.0.73
+date:    Thu Jul 17 08:05:30 PDT 2014
+changes:
+- Fix issue/24. rurban++
+- Don't dist-dep on the travis-deps.
+- Fixed swim modules, and dep on new ones
+---
 version: 0.0.72
 date:    Thu Jul 17 08:05:30 PDT 2014
 changes:
