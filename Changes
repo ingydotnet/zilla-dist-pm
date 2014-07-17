@@ -1,4 +1,10 @@
 ---
+version: 0.0.71
+date:    Thu Jul 17 00:11:37 PDT 2014
+changes:
+- Fix issue/22
+- Die on make commands when Makefile changes
+---
 version: 0.0.70
 date:    Wed Jul 16 22:57:32 PDT 2014
 changes:
