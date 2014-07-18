@@ -5,6 +5,7 @@ our $VERSION = '0.0.76';
 use YAML::XS;
 use File::Share;
 use IO::All;
+use version;
 
 sub new {
     my $class = shift;
