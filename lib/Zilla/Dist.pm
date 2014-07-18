@@ -1,6 +1,6 @@
 use strict;
 package Zilla::Dist;
-our $VERSION = '0.0.75';
+our $VERSION = '0.0.76';
 
 use YAML::XS;
 use File::Share;
@@ -124,6 +124,8 @@ sub validate_changes {
         my $changes2 = join '%^&*', @{$changes->[1]{changes}};
         die "2 most recent Changes messages cannot be the same!"
             if $changes1 eq $changes2;
+#         die "Latest Changes version is not greater than previous one"
+#             unless $changes->[0]{version} gt $changes->[1]{version};
     }
 }
 

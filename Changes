@@ -1,4 +1,10 @@
 ---
+version: 0.0.76
+date:    Fri Jul 18 11:23:20 PDT 2014
+changes:
+- issue/10
+- Fully check out Changes file content and structure
+---
 version: 0.0.75
 date:    Thu Jul 17 15:10:19 PDT 2014
 changes:
