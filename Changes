@@ -1,4 +1,10 @@
 ---
+version: 0.0.80
+date:    Sat Jul 19 12:42:13 PDT 2014
+changes:
+- Fix issues/28
+- Dep on ExtUtils-MakeMaker-6.98 to fix 3 part version warnings
+---
 version: 0.0.79
 date:    Sat Jul 19 12:33:35 PDT 2014
 changes:
