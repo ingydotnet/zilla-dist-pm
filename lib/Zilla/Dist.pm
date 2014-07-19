@@ -1,6 +1,6 @@
 use strict;
 package Zilla::Dist;
-our $VERSION = '0.0.84';
+our $VERSION = '0.0.85';
 
 use YAML::XS;
 use File::Share;
@@ -83,13 +83,12 @@ sub do_changes {
     $self->validate_changes(\@changes);
     return unless @changes;
     if ($value) {
-        my $date = `date` or die;
-        chomp $date;
-        die unless length $date;
+        chomp $value;
+        die unless length $value;
         my $text = io->file('Changes')->all or die;
-        $text =~ s/^date:.*/date:    $date/m;
+        my $line = sprintf "%-8s %s", "$key:", $value;
+        $text =~ s/^$key:.*/$line/m or die;
         io->file('Changes')->print($text);
-        die 422;
     }
     else {
         $value = $changes[0]{$key} or return;

@@ -69,7 +69,7 @@ update: makefile
 	@echo '***** Updating/regenerating repo content'
 	make readme contrib travis version
 
-release: clean update check-release test disttest
+release: clean update check-release date test disttest
 	@echo '***** Releasing $(DISTDIR)'
 	make dist
 	cpan-upload $(DIST)
@@ -161,6 +161,9 @@ makefile:
 	fi
 	@rm /tmp/Makefile
 endif
+
+date:
+	$(ZILD) changes date "`date`"
 
 version:
 	$(PERL) -S zild-version-update

@@ -1,6 +1,11 @@
 ---
+version: 0.0.85
+date:    Sat Jul 19 13:28:54 PDT 2014
+changes:
+- 2nd attempt at issues/20
+---
 version: 0.0.84
-date:    Sat
+date:    Sat Jul 19 13:09:52 PDT 2014
 changes:
 - Fix issues/20
 - Auto update date in Changes on release
