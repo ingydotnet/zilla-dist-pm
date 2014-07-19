@@ -21,6 +21,10 @@ sub run {
     $self->$method(@args);
 }
 
+sub error {
+    die "Error: $_[0]\n";
+}
+
 sub do_setup {
     my ($self, @args) = @_;
 
@@ -89,32 +93,32 @@ sub do_changes {
 
 sub validate_changes {
     my ($self, $changes) = @_;
-    scalar(@$changes) or die "Changes is empty";
+    scalar(@$changes) or error "Changes file is empty";
 
     for (my $i = 1; $i <= @$changes; $i++) {
         my $entry = $changes->[$i - 1];
         ref($entry) eq 'HASH'
-            or die "Changes entry #$i is not a hash";
+            or error "Changes entry #$i is not a hash";
         my @keys = keys %$entry;
         @keys == 3
-            or die "Changes entry #$i doesn't have 3 keys";
+            or error "Changes entry #$i doesn't have 3 keys";
         for my $key (qw(version date changes)) {
-            die "Changes entry #$i is missing field '$key'"
+            error "Changes entry #$i is missing field '$key'"
                 unless exists $entry->{$key};
-            die "Changes entry #$i has undefined field '$key'"
+            error "Changes entry #$i has undefined field '$key'"
                 unless defined $entry->{$key} or $key eq 'date';
             if (defined $entry->{$key}) {
                 if ($key eq 'changes') {
-                    die "Changes entry #$i field '$key' should be an array"
+                    error "Changes entry #$i field '$key' should be an array"
                         unless ref($entry->{$key}) eq 'ARRAY';
                     my $change_list = $entry->{changes};
                     for my $change_entry (@$change_list) {
-                        die "Changes entry #$i has non-scalar 'changes' entry"
+                        error "Changes entry #$i has non-scalar 'changes' entry"
                             if ref $change_entry;
                     }
                 }
                 else {
-                    die "Changes entry #$i field '$key' should be a scalar"
+                    error "Changes entry #$i field '$key' should be a scalar"
                         if ref($entry->{$key});
                 }
             }
@@ -123,10 +127,12 @@ sub validate_changes {
     if (@$changes >= 2) {
         my $changes1 = join '%^&*', @{$changes->[0]{changes}};
         my $changes2 = join '%^&*', @{$changes->[1]{changes}};
-        die "2 most recent Changes messages cannot be the same!"
+        error "2 most recent Changes messages cannot be the same!"
             if $changes1 eq $changes2;
-#         die "Latest Changes version is not greater than previous one"
-#             unless $changes->[0]{version} gt $changes->[1]{version};
+        my $v0 = $changes->[0]{version};
+        my $v1 = $changes->[1]{version};
+        error "latest Changes version ($v0) is not greater than previous ($v1)"
+            unless version->parse($v0) > version->parse($v1);
     }
 }
 
