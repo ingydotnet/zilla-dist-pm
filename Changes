@@ -1,4 +1,9 @@
 ---
+version: 0.0.86
+date:    Sat Jul 19 13:50:35 PDT 2014
+changes:
+- Fix issues/17. Sort prereqs list in dist.ini
+---
 version: 0.0.85
 date:    Sat Jul 19 13:28:54 PDT 2014
 changes:
