@@ -73,6 +73,7 @@ release: clean update check-release test disttest
 	@echo '***** Releasing $(DISTDIR)'
 	make dist
 	cpan-upload $(DIST)
+	make clean
 	[ -n "$$(git status -s)" ] && git commit -am '$(VERSION)'
 	git push
 	git tag $(VERSION)
