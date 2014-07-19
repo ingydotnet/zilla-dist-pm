@@ -1,6 +1,6 @@
 use strict;
 package Zilla::Dist;
-our $VERSION = '0.0.83';
+our $VERSION = '0.0.84';
 
 use YAML::XS;
 use File::Share;
@@ -83,7 +83,13 @@ sub do_changes {
     $self->validate_changes(\@changes);
     return unless @changes;
     if ($value) {
-        die "XXX - Can't set Changes value yet. Not implemented.";
+        my $date = `date` or die;
+        chomp $date;
+        die unless length $date;
+        my $text = io->file('Changes')->all or die;
+        $text =~ s/^date:.*/date:    $date/m;
+        io->file('Changes')->print($text);
+        die 422;
     }
     else {
         $value = $changes[0]{$key} or return;

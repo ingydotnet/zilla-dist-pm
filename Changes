@@ -1,4 +1,10 @@
 ---
+version: 0.0.84
+date:    Sat
+changes:
+- Fix issues/20
+- Auto update date in Changes on release
+---
 version: 0.0.83
 date:    Sat Jul 19 12:59:18 PDT 2014
 changes:
@@ -76,7 +82,7 @@ changes:
 version: 0.0.69
 date:    Tue Jul 15 11:17:43 PDT 2014
 changes:
-- Fix issue#21. Check Meta correctness before release.
+- Fix issues/21. Check Meta correctness before release.
 ---
 version: 0.0.67
 date:    Mon Jul 14 12:34:24 PDT 2014
@@ -186,7 +192,7 @@ changes:
 version: 0.0.48
 date:    Wed Jul  9 11:12:13 PDT 2014
 changes:
-- Support release branch variable in Meta (Issue#7)
+- Support release branch variable in Meta (issues/7)
 ---
 version: 0.0.47
 date:    Fri Jul  4 07:23:55 PDT 2014
@@ -335,7 +341,7 @@ changes:
 version: 0.0.19
 date:    Fri Jun 13 22:41:15 PDT 2014
 changes:
-- Support xt tests (Issue #4)
+- Support xt tests (issues/4)
 ---
 version: 0.0.18
 date:    Fri Jun 13 21:26:03 PDT 2014
