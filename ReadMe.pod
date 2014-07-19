@@ -95,6 +95,11 @@ Run the test suite.
 
 Build and install the software. Same as install from CPAN.
 
+=item C<make prereqs>
+
+Install the prereqs from CPAN that are listed in the C<Meta> file's
+C<requires:> field.
+
 =item C<make cpan>
 
 Turn repo into a C<Dist::Zilla> ready subdirectory called C<./cpan/>. This

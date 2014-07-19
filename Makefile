@@ -32,7 +32,8 @@ help:
 	@echo 'Makefile targets:'
 	@echo ''
 	@echo '    make test      - Run the repo tests'
-	@echo '    make install   - Install the repo'
+	@echo '    make install   - Install the dist from this repo'
+	@echo '    make prereqs   - Install the CPAN prereqs'
 	@echo '    make update    - Update generated files'
 	@echo '    make release   - Release the dist to CPAN'
 	@echo ''
@@ -64,6 +65,9 @@ install: distdir
 	@echo '***** Installing $(DISTDIR)'
 	(cd $(DISTDIR); perl Makefile.PL; make install)
 	make clean
+
+prereqs:
+	cpanm `$(ZILD) meta requires`
 
 update: makefile
 	@echo '***** Updating/regenerating repo content'

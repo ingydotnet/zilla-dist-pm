@@ -76,6 +76,11 @@ targets:
 
   Build and install the software. Same as install from CPAN.
 
+- `make prereqs`
+
+  Install the prereqs from CPAN that are listed in the `Meta` file's
+  `requires:` field.
+
 - `make cpan`
 
   Turn repo into a `Dist::Zilla` ready subdirectory called `./cpan/`. This
