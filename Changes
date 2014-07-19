@@ -1,4 +1,9 @@
 ---
+version: 0.0.88
+date:    Sat Jul 19 14:35:34 PDT 2014
+changes:
+- -e in prove messes up -T, so using $(PERL) -S
+---
 version: 0.0.87
 date:    Sat Jul 19 14:04:31 PDT 2014
 changes:
