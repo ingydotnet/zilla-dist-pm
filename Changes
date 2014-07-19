@@ -1,4 +1,10 @@
 ---
+version: 0.0.81
+date:    Sat Jul 19 12:44:20 PDT 2014
+changes:
+- Fix issues/23
+- `make release` fails when all files committed already
+---
 version: 0.0.80
 date:    Sat Jul 19 12:42:13 PDT 2014
 changes:
