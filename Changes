@@ -1,4 +1,9 @@
 ---
+version: 0.0.77
+date:    Sat Jul 19 12:25:20 PDT 2014
+changes:
+- issue/6. Make sure version change is an increase.
+---
 version: 0.0.76
 date:    Fri Jul 18 11:23:20 PDT 2014
 changes:
