@@ -72,8 +72,8 @@ update: makefile
 release: clean update check-release test disttest
 	@echo '***** Releasing $(DISTDIR)'
 	make dist
-	[ -n "$$(git status -s)" ] && git commit -am '$(VERSION)'
 	cpan-upload $(DIST)
+	[ -n "$$(git status -s)" ] && git commit -am '$(VERSION)'
 	git push
 	git tag $(VERSION)
 	git push --tag
