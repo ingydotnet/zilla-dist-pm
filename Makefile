@@ -61,13 +61,16 @@ else
 endif
 
 install: distdir
+	@echo '***** Installing $(DISTDIR)'
 	(cd $(DISTDIR); perl Makefile.PL; make install)
 	make clean
 
 update: makefile
+	@echo '***** Updating/regenerating repo content'
 	make readme contrib travis version
 
 release: clean update check-release test disttest
+	@echo '***** Releasing $(DISTDIR)'
 	make dist
 	[ -n "$$(git status -s)" ] && git commit -am '$(VERSION)'
 	cpan-upload $(DIST)
@@ -81,38 +84,46 @@ release: clean update check-release test disttest
 	@echo
 
 cpan:
+	@echo '***** Creating the `cpan/` directory'
 	zild-make-cpan
 
 cpanshell: cpan
+	@echo '***** Starting new shell in `cpan/` directory'
 	(cd cpan; $$SHELL)
 	make clean
 
 cpantest: cpan
 ifeq ($(wildcard pkg/no-test),)
+	@echo '***** Running tests in `cpan/` directory'
 	(cd cpan; prove -lv -e $(PERL) t) && make clean
 else
 	@echo "Testing not available. Use 'disttest' instead."
 endif
 
 dist: clean cpan
+	@echo '***** Creating new dist: $(DIST)'
 	(cd cpan; dzil build)
 	mv cpan/$(DIST) .
 	rm -fr cpan
 
 distdir: clean cpan
+	@echo '***** Creating new dist directory: $(DISTDIR)'
 	(cd cpan; dzil build)
 	mv cpan/$(DIST) .
 	tar xzf $(DIST)
 	rm -fr cpan $(DIST)
 
 distshell: distdir
+	@echo '***** Starting new shell in `$(DISTDIR)` directory'
 	(cd $(DISTDIR); $$SHELL)
 	make clean
 
 disttest: cpan
+	@echo '***** Running tests in `$(DISTDIR)` directory'
 	(cd cpan; dzil test) && make clean
 
 upgrade:
+	@echo '***** Checking that Zilla-Dist Makefile is up to date'
 	cp `$(ZILD) sharedir`/Makefile ./
 
 readme:
@@ -131,6 +142,7 @@ clean purge:
 # Non-pulic-facing targets:
 #------------------------------------------------------------------------------
 check-release:
+	@echo '***** Checking readiness to release $(DIST)'
 	RELEASE_BRANCH=$(RELEASE_BRANCH) zild-check-release
 
 # We don't want to update the Makefile in Zilla::Dist since it is the real
@@ -143,7 +155,7 @@ makefile:
 	@cp Makefile /tmp/
 	make upgrade
 	@if [ -n "`diff Makefile /tmp/Makefile`" ]; then \
-	    echo "Makefile updated. Try again"; \
+	    echo "ATTENTION: Dist-Zilla Makefile updated. Please re-run the command."; \
 	    exit 1; \
 	fi
 	@rm /tmp/Makefile
