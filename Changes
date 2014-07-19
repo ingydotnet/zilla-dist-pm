@@ -1,6 +1,11 @@
 ---
-version: 0.0.77
-date:    Sat Jul 19 12:25:20 PDT 2014
+version: 0.0.79
+date:    Sat Jul 19 12:33:35 PDT 2014
+changes:
+- issue/26. Commit changes *after* upload succeeds.
+---
+version: 0.0.78
+date:    Sat Jul 19 12:30:28 PDT 2014
 changes:
 - issue/6. Make sure version change is an increase.
 ---
