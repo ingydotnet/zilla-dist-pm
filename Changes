@@ -1,4 +1,9 @@
 ---
+version: 0.0.83
+date:    Sat Jul 19 12:59:18 PDT 2014
+changes:
+- Yet another try for issues/23
+---
 version: 0.0.82
 date:    Sat Jul 19 12:47:21 PDT 2014
 changes:
