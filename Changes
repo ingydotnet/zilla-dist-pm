@@ -1,4 +1,9 @@
 ---
+version: 0.0.89
+date:    Mon Jul 21 16:22:11 PDT 2014
+changes:
+- Fix bugs with no_changes_yaml
+---
 version: 0.0.88
 date:    Sat Jul 19 14:35:34 PDT 2014
 changes:

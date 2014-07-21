@@ -241,6 +241,8 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/lexicals-pm>
 
+=item * L<https://github.com/ingydotnet/orz-pm>
+
 =item * L<https://github.com/ingydotnet/package-pm>
 
 =item * L<https://github.com/ingydotnet/pegex-pm>
@@ -282,6 +284,8 @@ those files, it's OK to commit generated code.
 =item * L<https://github.com/ingydotnet/tiny-yaml-pm>
 
 =item * L<https://github.com/ingydotnet/vroom-pm>
+
+=item * L<https://github.com/ingydotnet/worky-pm>
 
 =item * L<https://github.com/ingydotnet/xxx-pm>
 

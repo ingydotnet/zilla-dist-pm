@@ -10,6 +10,8 @@ ZILD="$PERL -S zild"
   [ -n "$CHANGES_VERSION" ] || CHANGES_VERSION=0
 }
 
+NO_CHANGES_YAML="$($ZILD meta =cpan/no_changes_yaml)"
+
 # Define a error reporting function:
 {
   OK=0
@@ -21,17 +23,21 @@ ZILD="$PERL -S zild"
 
 # Make sure Meta version is also in Changes file:
 {
-  if ! (grep "^version: $META_VERSION" Changes &>/dev/null); then
-    if ! (grep "^- $META_VERSION" Changes &>/dev/null); then
-      error "No Changes entry for version '$META_VERSION'"
+  if [ -z "$NO_CHANGES_YAML" ]; then
+    if ! (grep "^version: $META_VERSION" Changes &>/dev/null); then
+      if ! (grep "^- $META_VERSION" Changes &>/dev/null); then
+        error "No Changes entry for version '$META_VERSION'"
+      fi
     fi
   fi
 }
 
 # Make sure current Meta, Changes and lib/<module> versions match:
 {
-  if [ "$META_VERSION" != "$CHANGES_VERSION" ]; then
-    error "Changes version ($CHANGES_VERSION) and Meta version ($META_VERSION) do not match"
+  if [ -z "$NO_CHANGES_YAML" ]; then
+    if [ "$META_VERSION" != "$CHANGES_VERSION" ]; then
+      error "Changes version ($CHANGES_VERSION) and Meta version ($META_VERSION) do not match"
+    fi
   fi
 
   if [ -z "$(grep -r 'VERSION' lib | grep "$META_VERSION")" ]; then

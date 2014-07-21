@@ -45,6 +45,13 @@ for swim in $(find doc -type f -name '*.swim'); do
   fi
 done
 
+alias="$($PERL -S zild meta =cpan/alias)"
+if [ -n "$alias" ]; then
+  for a in "${alias[@]}"; do
+    $PERL -S zild-render-template
+  done
+fi
+
 if [ -e pkg/make-cpan ]; then
   ./pkg/make-cpan
 fi

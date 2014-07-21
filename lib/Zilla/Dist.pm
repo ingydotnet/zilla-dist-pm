@@ -1,6 +1,6 @@
 use strict;
 package Zilla::Dist;
-our $VERSION = '0.0.88';
+our $VERSION = '0.0.89';
 
 use YAML::XS;
 use File::Share;
@@ -18,6 +18,9 @@ sub run {
     my $cmd = shift @args;
     my $method = "do_$cmd";
     $self->usage unless $self->can($method);
+    $self->{meta} = -f 'Meta'
+      ? YAML::XS::LoadFile('Meta')
+      : {};
     $self->$method(@args);
 }
 
@@ -51,8 +54,8 @@ my $default = {
 };
 sub do_meta {
     my ($self, $key) = @_;
-    my $meta = YAML::XS::LoadFile('Meta');
     my $keys = [ split '/', $key ];
+    my $meta = $self->{meta};
     my $value = $meta;
     for my $k (@$keys) {
         return unless ref($value) eq 'HASH';
@@ -79,6 +82,7 @@ sub do_meta {
 
 sub do_changes {
     my ($self, $key, $value) = @_;
+    return if $self->{meta}{'=cpan'}{no_changes_yaml};
     my @changes = YAML::XS::LoadFile('Changes');
     $self->validate_changes(\@changes);
     return unless @changes;
@@ -98,6 +102,8 @@ sub do_changes {
 
 sub validate_changes {
     my ($self, $changes) = @_;
+    return if $self->{meta}{'=cpan'}{no_changes_yaml};
+
     scalar(@$changes) or error "Changes file is empty";
 
     for (my $i = 1; $i <= @$changes; $i++) {
