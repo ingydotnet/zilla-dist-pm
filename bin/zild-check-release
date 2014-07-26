@@ -40,13 +40,17 @@ NO_CHANGES_YAML="$($ZILD meta =cpan/no_changes_yaml)"
     fi
   fi
 
-  if [ -z "$(grep -r 'VERSION' lib | grep "$META_VERSION")" ]; then
-    error "No '\$VERSION = $META_VERSION' statement in lib/"
-  fi
-
   # Make sure this is a new version:
   git tag | grep -E "^v?${META_VERSION//./\\.}$" &>/dev/null &&
     error "Version '$META_VERSION' already tagged as released"
+
+  if [ "$OK" -ne 0 ] && [ -n "$PERL_ZILLA_DIST_AUTO_VIM_META_CHANGES" ]; then
+    vim Meta Changes -O
+  fi
+
+  if [ -z "$(grep -r 'VERSION' lib | grep "$META_VERSION")" ]; then
+    error "No '\$VERSION = $META_VERSION' statement in lib/"
+  fi
 }
 
 # Make sure we are on the right branch:
