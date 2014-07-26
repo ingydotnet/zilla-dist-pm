@@ -10,23 +10,27 @@ main() {
     echo "Checking: $dir"
     (
       cd "$dir"
-      [ -e Meta ] || exit
+      [ -e Meta ] || exit 0
       branch_name=$(git symbolic-ref -q HEAD)
       branch_name=${branch_name##refs/heads/}
       branch_name=${branch_name:-HEAD}
       release_branch="$($ZILD meta branch)"
       if [ "$branch_name" != "$release_branch" ]; then
         note "Current branch '$branch_name' is not release branch '$release_branch'"
-        exit
+        exit 0
       fi
       make update &> /dev/null || make update &> /dev/null
       if [ -n "$(git status -s)" ]; then
         note "Changes exist. Please review:"
         git diff
         git status
-        bash
+        bash || exit 1
       fi
-    ) || true
+      exit 0
+    ) || {
+      echo "Bailing out!"
+      exit 1
+    }
   done
   echo Done!
 }
