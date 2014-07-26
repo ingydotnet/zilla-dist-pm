@@ -1,4 +1,9 @@
 ---
+version: 0.0.92
+date:    Fri Jul 25 21:23:51 PDT 2014
+changes:
+- Allow for main lib different than package name
+---
 version: 0.0.90
 date:    Thu Jul 24 10:23:28 PDT 2014
 changes:

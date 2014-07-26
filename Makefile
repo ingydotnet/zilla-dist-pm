@@ -11,18 +11,23 @@ PERL ?= $(shell which perl)
 ZILD := $(PERL) -S zild
 
 ifneq (,$(shell which zild))
+    NAMEPATH := $(shell $(ZILD) meta =cpan/libname)
+ifeq (,$(NAMEPATH))
+    NAMEPATH := $(shell $(ZILD) meta name)
+endif
     NAME := $(shell $(ZILD) meta name)
     VERSION := $(shell $(ZILD) meta version)
     RELEASE_BRANCH := $(shell $(ZILD) meta branch)
 else
     NAME := No-Name
+    NAMEPATH := $(NAME)
     VERSION := 0
     RELEASE_BRANCH := master
 endif
 
 DISTDIR := $(NAME)-$(VERSION)
 DIST := $(DISTDIR).tar.gz
-NAMEPATH := $(subst -,/,$(NAME))
+NAMEPATH := $(subst -,/,$(NAMEPATH))
 SUCCESS := "$(DIST) Released!!!"
 
 default: help
