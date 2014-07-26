@@ -1,4 +1,11 @@
 ---
+version: 0.0.96
+date:    Sat Jul 26 11:52:19 PDT 2014
+changes:
+- Fix issue/19
+- Auto edit Meta/Changes for `make release` if not edited.
+- Testing right now :)
+---
 version: 0.0.95
 date:    Sat Jul 26 11:20:01 PDT 2014
 changes:
