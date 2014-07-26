@@ -37,11 +37,13 @@ with C<Dist::Zilla> stuff directly.
 A fully stacked top level CPAN package repository might look like this:
 
     Changes         # History in YAML
+    Contributing    # A generated insruction file for contributing
     Makefile        # Automation of test, dist, publish, etc
     Meta            # Meta info for all metadata needs (including dzil)
     ReadMe.pod      # Generated from `doc/Module.swim`
     bin/            # Scripts
     doc/            # Swim docs
+    ext/            # External repos (subrepos)
     eg/             # Examples
     lib/            # Perl `.pm` code
     note/           # Project notes, todo lists, ideas, specs, etc
@@ -120,10 +122,10 @@ Start by running:
 and you'll get a C<Makefile> and a C<Meta> file template. You need to
 customize the C<Meta> file and leave the C<Makefile> alone.
 
-To do a release, just set the C<version> in the Meta file and add a C<Changes>
-section using the same version. Then run:
+To do a release, just set a new C<version> in the Meta file and add a
+C<Changes> section using the same version. Then run:
 
-    make publish
+    make release
 
 This will:
 
@@ -143,6 +145,13 @@ This will:
 
 =back
 
+=head2 Release in Depth
+
+This section lists all the things that actually happen during the C<make
+release> step.
+
+I<…to be completed…>
+
 =head1 RATIONALE RANTING
 
 I've published a lot of I<packages> in a lot of programming languages. I like
@@ -150,7 +159,7 @@ taking the best ideas and spreading them around. I like reusing ideas and code
 and tools as much as possible between these packages.
 
 I trust dzil to DTRT with regard to the CPAN release process. I use almost the
-exact same C<dist.ini> for some 20 CPAN packages that I've converted so far.
+exact same C<dist.ini> for some 50 CPAN packages that I've converted so far.
 
 I don't like cluttered repos and adding new I<metadata> files for each new
 tool that needs one. The C<dist.ini> file is not bad, but I can generate it
@@ -158,7 +167,7 @@ from metadata easily. So I do.
 
 As much as these great new ideas differ from the norm, I want my CPAN
 publishings to be normal to normal mongers (if there's such a thing). The
-C<make publish> process does just that. End users would have to look hard to
+C<make releasse> process does just that. End users would have to look hard to
 know this wasn't a "normal" dzil release.
 
 I'm packaging this packaging process as L<Zilla::Dist> for others to use. It's
@@ -211,13 +220,21 @@ those files, it's OK to commit generated code.
 
 =over
 
+=item * L<https://github.com/ingydotnet/acme-ybfod-pm>
+
 =item * L<https://github.com/ingydotnet/boolean-pm>
+
+=item * L<https://github.com/ingydotnet/class-field-pm>
 
 =item * L<https://github.com/ingydotnet/dist-zilla-plugin-testbaseincluder-pm>
 
 =item * L<https://github.com/ingydotnet/dist-zilla-plugin-testmlincluder-pm>
 
+=item * L<https://github.com/ingydotnet/error-errors-pm>
+
 =item * L<https://github.com/ingydotnet/file-share-pm>
+
+=item * L<https://github.com/ingydotnet/gloom-pm>
 
 =item * L<https://github.com/ingydotnet/inline-pm>
 
@@ -237,6 +254,12 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/language-snusp-pm>
 
+=item * L<https://github.com/ingydotnet/module-install-ackxxx-pm>
+
+=item * L<https://github.com/ingydotnet/module-install-manifestskip-pm>
+
+=item * L<https://github.com/ingydotnet/module-manifest-skip-pm>
+
 =item * L<https://github.com/ingydotnet/moos-pm>
 
 =item * L<https://github.com/ingydotnet/lexicals-pm>
@@ -251,9 +274,15 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/pegex-cmd-pm>
 
+=item * L<https://github.com/ingydotnet/pegex-cpan-packages-pm>
+
 =item * L<https://github.com/ingydotnet/pegex-crontab-pm>
 
+=item * L<https://github.com/ingydotnet/pegex-forth-pm>
+
 =item * L<https://github.com/ingydotnet/pegex-json-pm>
+
+=item * L<https://github.com/ingydotnet/pegex-vcard-pm>
 
 =item * L<https://github.com/ingydotnet/perl5-pm>
 
@@ -265,9 +294,13 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/pquery-pm>
 
+=item * L<https://github.com/ingydotnet/rosettacode-pm>
+
 =item * L<https://github.com/ingydotnet/spiffy-pm>
 
 =item * L<https://github.com/ingydotnet/stackato-stackrad-pm>
+
+=item * L<https://github.com/ingydotnet/stump-pm>
 
 =item * L<https://github.com/ingydotnet/swim-pm>
 
