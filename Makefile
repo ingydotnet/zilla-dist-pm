@@ -76,7 +76,7 @@ prereqs:
 
 update: makefile
 	@echo '***** Updating/regenerating repo content'
-	make readme contrib travis version
+	make readme contrib travis version webhooks
 
 release: clean update check-release date test disttest
 	@echo '***** Releasing $(DISTDIR)'
@@ -179,3 +179,6 @@ date:
 
 version:
 	$(PERL) -S zild-version-update
+
+webhooks:
+	$(PERL) -S zild webhooks
