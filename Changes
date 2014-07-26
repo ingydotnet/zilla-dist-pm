@@ -1,4 +1,14 @@
 ---
+version: 0.0.93
+date:    Fri Jul 25 22:11:28 PDT 2014
+changes:
+- Merge 0.91 and 0.92 changes
+---
+version: 0.0.92
+date:    Fri Jul 25 21:23:51 PDT 2014
+changes:
+- Allow for main lib different than package name
+---
 version: 0.0.91
 date:    Fri Jul 25 18:11:04 PDT 2014
 changes:
