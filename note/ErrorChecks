@@ -1,0 +1,8 @@
+- Missing badge from doc
+- (c)
+- Missing 2014
+- Copyright years in doc not match meta
+- IRC ingy should be pkg
+- Date range should be first Changes year - current year
+- Copyright first line end with under
+- No \w< ^=\w in doc

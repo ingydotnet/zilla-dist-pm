@@ -37,6 +37,7 @@ A fully stacked top level CPAN package repository might look like this:
   ext/            # External repos (subrepos)
   eg/             # Examples
   lib/            # Perl `.pm` code
+  pkg/            # Packaging related files
   note/           # Project notes, todo lists, ideas, specs, etc
   share/          # Shared files to distribute
   test/           # Test suite
@@ -184,6 +185,7 @@ those files, it's OK to commit generated code.
 == Modules Published to CPAN w/ `zild`
 
 * https://github.com/ingydotnet/acme-ybfod-pm
+* https://github.com/ingydotnet/app-aycabtu-pm
 * https://github.com/ingydotnet/boolean-pm
 * https://github.com/ingydotnet/class-field-pm
 * https://github.com/ingydotnet/dist-zilla-plugin-testbaseincluder-pm
@@ -207,6 +209,7 @@ those files, it's OK to commit generated code.
 * https://github.com/ingydotnet/lexicals-pm
 * https://github.com/ingydotnet/orz-pm
 * https://github.com/ingydotnet/package-pm
+* https://github.com/ingydotnet/parse-sqloutput-pm
 * https://github.com/ingydotnet/pegex-pm
 * https://github.com/ingydotnet/pegex-chess-pm
 * https://github.com/ingydotnet/pegex-cmd-pm

@@ -46,6 +46,7 @@ A fully stacked top level CPAN package repository might look like this:
     ext/            # External repos (subrepos)
     eg/             # Examples
     lib/            # Perl `.pm` code
+    pkg/            # Packaging related files
     note/           # Project notes, todo lists, ideas, specs, etc
     share/          # Shared files to distribute
     test/           # Test suite
@@ -222,6 +223,8 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/acme-ybfod-pm>
 
+=item * L<https://github.com/ingydotnet/app-aycabtu-pm>
+
 =item * L<https://github.com/ingydotnet/boolean-pm>
 
 =item * L<https://github.com/ingydotnet/class-field-pm>
@@ -267,6 +270,8 @@ those files, it's OK to commit generated code.
 =item * L<https://github.com/ingydotnet/orz-pm>
 
 =item * L<https://github.com/ingydotnet/package-pm>
+
+=item * L<https://github.com/ingydotnet/parse-sqloutput-pm>
 
 =item * L<https://github.com/ingydotnet/pegex-pm>
 
