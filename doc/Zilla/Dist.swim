@@ -184,10 +184,14 @@ those files, it's OK to commit generated code.
 
 == Modules Published to CPAN w/ `zild`
 
+* https://github.com/ingydotnet/acme--pm
 * https://github.com/ingydotnet/acme-ybfod-pm
+* https://github.com/ingydotnet/alt-pm
+* https://github.com/ingydotnet/alt-sex-ingy-pm
 * https://github.com/ingydotnet/app-aycabtu-pm
 * https://github.com/ingydotnet/boolean-pm
 * https://github.com/ingydotnet/class-field-pm
+* https://github.com/ingydotnet/convert-base32-crockford-pm
 * https://github.com/ingydotnet/dist-zilla-plugin-testbaseincluder-pm
 * https://github.com/ingydotnet/dist-zilla-plugin-testmlincluder-pm
 * https://github.com/ingydotnet/error-errors-pm
@@ -202,6 +206,7 @@ those files, it's OK to commit generated code.
 * https://github.com/ingydotnet/kwim-pm
 * https://github.com/ingydotnet/kwim-plugin-badge-pm
 * https://github.com/ingydotnet/language-snusp-pm
+* https://github.com/ingydotnet/lexicals-pm
 * https://github.com/ingydotnet/module-install-ackxxx-pm
 * https://github.com/ingydotnet/module-install-manifestskip-pm
 * https://github.com/ingydotnet/module-manifest-skip-pm
@@ -222,6 +227,7 @@ those files, it's OK to commit generated code.
 * https://github.com/ingydotnet/perl5-i-pm
 * https://github.com/ingydotnet/perl5-ingy-pm
 * https://github.com/ingydotnet/plack-middleware-cache-pm
+* https://github.com/ingydotnet/plack-middleware-proxymap-pm
 * https://github.com/ingydotnet/pquery-pm
 * https://github.com/ingydotnet/rosettacode-pm
 * https://github.com/ingydotnet/spiffy-pm

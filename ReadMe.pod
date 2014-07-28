@@ -221,13 +221,21 @@ those files, it's OK to commit generated code.
 
 =over
 
+=item * L<https://github.com/ingydotnet/acme--pm>
+
 =item * L<https://github.com/ingydotnet/acme-ybfod-pm>
+
+=item * L<https://github.com/ingydotnet/alt-pm>
+
+=item * L<https://github.com/ingydotnet/alt-sex-ingy-pm>
 
 =item * L<https://github.com/ingydotnet/app-aycabtu-pm>
 
 =item * L<https://github.com/ingydotnet/boolean-pm>
 
 =item * L<https://github.com/ingydotnet/class-field-pm>
+
+=item * L<https://github.com/ingydotnet/convert-base32-crockford-pm>
 
 =item * L<https://github.com/ingydotnet/dist-zilla-plugin-testbaseincluder-pm>
 
@@ -256,6 +264,8 @@ those files, it's OK to commit generated code.
 =item * L<https://github.com/ingydotnet/kwim-plugin-badge-pm>
 
 =item * L<https://github.com/ingydotnet/language-snusp-pm>
+
+=item * L<https://github.com/ingydotnet/lexicals-pm>
 
 =item * L<https://github.com/ingydotnet/module-install-ackxxx-pm>
 
@@ -296,6 +306,8 @@ those files, it's OK to commit generated code.
 =item * L<https://github.com/ingydotnet/perl5-ingy-pm>
 
 =item * L<https://github.com/ingydotnet/plack-middleware-cache-pm>
+
+=item * L<https://github.com/ingydotnet/plack-middleware-proxymap-pm>
 
 =item * L<https://github.com/ingydotnet/pquery-pm>
 

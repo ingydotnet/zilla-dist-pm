@@ -1,4 +1,9 @@
 ---
+version: 0.0.100
+date:    Mon Jul 28 07:26:50 PDT 2014
+changes:
+- Add metanoindex feature to Meta
+---
 version: 0.0.99
 date:    Sat Jul 26 22:09:09 PDT 2014
 changes:
