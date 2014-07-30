@@ -1,4 +1,9 @@
 ---
+version: 0.0.101
+date:    Wed Jul 30 15:07:37 PDT 2014
+changes:
+- Change commit message to 'CPAN Release x.y.z'
+---
 version: 0.0.100
 date:    Mon Jul 28 07:26:50 PDT 2014
 changes:
