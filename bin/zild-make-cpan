@@ -37,7 +37,7 @@ for swim in $(find doc -type f -name '*.swim'); do
   pod="${swim/doc/cpan/lib}"
   pod="${pod/.swim/.pod}"
   mkdir -p "$(dirname "$pod")"
-  if grep '^====' "$swim" &> /dev/null; then
+  if grep -E '^=+$' "$swim" &> /dev/null; then
     (
       set -x
       swim --to=pod --pod-cpan "$swim" > "$pod"
