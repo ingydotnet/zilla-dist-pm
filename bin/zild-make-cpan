@@ -45,7 +45,7 @@ for swim in $(find doc -type f -name '*.swim'); do
   else
     (
       set -x
-      swim --to=pod --complete --wrap "$swim" > "$pod"
+      swim --to=pod --complete=1 --wrap=1 "$swim" > "$pod"
     )
   fi
 done

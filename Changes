@@ -1,4 +1,9 @@
 ---
+version: 0.0.106
+date:    Thu Jul 31 12:18:42 PDT 2014
+changes:
+- Fix a bad `swim` invocation
+---
 version: 0.0.105
 date:    Thu Jul 31 12:00:30 PDT 2014
 changes:
