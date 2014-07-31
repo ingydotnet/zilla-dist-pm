@@ -79,7 +79,7 @@ update: makefile
 	@echo '***** Updating/regenerating repo content'
 	make readme contrib travis version webhooks
 
-release: clean update check-release date test disttest
+release: self-install clean update check-release date test disttest
 	@echo '***** Releasing $(DISTDIR)'
 	make dist
 	cpan-upload $(DIST)
@@ -168,6 +168,8 @@ check-release:
 ifeq (Zilla-Dist,$(NAME))
 makefile:
 	@echo Skip 'make upgrade'
+
+self-install: install
 else
 makefile:
 	@cp Makefile /tmp/
@@ -177,6 +179,9 @@ makefile:
 	    exit 1; \
 	fi
 	@rm /tmp/Makefile
+
+self-install:
+
 endif
 
 date:

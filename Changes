@@ -1,4 +1,10 @@
 ---
+version: 0.0.104
+date:    Thu Jul 31 11:43:30 PDT 2014
+changes:
+- Make Zilla-Dist install itself before release
+- This was leading to some botched releases
+---
 version: 0.0.103
 date:    Thu Jul 31 11:36:33 PDT 2014
 changes:
