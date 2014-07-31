@@ -79,7 +79,14 @@ update: makefile
 	@echo '***** Updating/regenerating repo content'
 	make readme contrib travis version webhooks
 
-release: self-install clean update check-release date test disttest
+release:
+	make self-install
+	make clean
+	make update
+	make check-release
+	make date
+	make test
+	make disttest
 	@echo '***** Releasing $(DISTDIR)'
 	make dist
 	cpan-upload $(DIST)
@@ -170,6 +177,7 @@ makefile:
 	@echo Skip 'make upgrade'
 
 self-install: install
+	[ -n "which plenv" ] && plenv rehash
 else
 makefile:
 	@cp Makefile /tmp/
@@ -181,7 +189,6 @@ makefile:
 	@rm /tmp/Makefile
 
 self-install:
-
 endif
 
 date:

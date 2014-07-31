@@ -1,4 +1,9 @@
 ---
+version: 0.0.105
+date:    Thu Jul 31 12:00:30 PDT 2014
+changes:
+- Need to try `plenv rehash` after install
+---
 version: 0.0.104
 date:    Thu Jul 31 11:43:30 PDT 2014
 changes:
