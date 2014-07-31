@@ -1,4 +1,9 @@
 ---
+version: 0.0.103
+date:    Thu Jul 31 11:36:33 PDT 2014
+changes:
+- Put last Changes entry into release commit message
+---
 version: 0.0.102
 date:    Thu Jul 31 10:32:54 PDT 2014
 changes:
