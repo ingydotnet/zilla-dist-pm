@@ -325,6 +325,8 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/template-toolkit-simple-pm>
 
+=item * L<https://github.com/ingydotnet/test-base-pm>
+
 =item * L<https://github.com/ingydotnet/testml-pm>
 
 =item * L<https://github.com/ingydotnet/testml-script-pm>

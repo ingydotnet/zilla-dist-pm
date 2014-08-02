@@ -1,6 +1,6 @@
 use strict;
 package Zilla::Dist;
-our $VERSION = '0.0.107';
+our $VERSION = '0.0.108';
 
 use YAML::XS;
 use File::Share;
@@ -191,6 +191,18 @@ sub webhook_command_irc {
     return unless $irc = $self->{meta}{devel}{irc};
     return unless $irc =~ /^(\w\S*)#(\w\S*)$/;
     return "git hub irc-enable $2 $1";
+}
+
+sub do_years {
+    my ($self, $key, $value) = @_;
+    my %hash = eval {
+        map {($_ => 1)} grep {$_} map {
+            $_->{date} =~ /(\d{4})/;
+            $1;
+        } (YAML::XS::LoadFile('Changes'));
+    };
+    return if $@;
+    print join(' ', sort keys %hash) . "\n";
 }
 
 sub usage {
