@@ -4,12 +4,12 @@ set -e
 
 main() {
   setup
-  perl -p0i -e "s/^(version: +).*/\${1}$NEW_VERSION/m" Meta
   version="${NEW_VERSION//\./\\.}"
-  if [ -z "$(grep -E "^version: +$version" Changes)" ]; then
+  if [ -z "$(grep -E "^version: +$version" Meta)" ]; then
+    perl -p0i -e "s/^(version: +).*/\${1}$NEW_VERSION/m" Meta
     cat <<... > tmp
 ---
-version: $NEW_VERSION
+version: $OLD_VERSION
 date:    
 changes:
 - 

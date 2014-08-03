@@ -45,7 +45,7 @@ NO_CHANGES_YAML="$($ZILD meta =cpan/no_changes_yaml)"
     error "Version '$META_VERSION' already tagged as released"
 
   if [ "$OK" -ne 0 ] && [ -n "$PERL_ZILLA_DIST_AUTO_VIM_META_CHANGES" ]; then
-    vim Changes Meta -O -c 'ggjjjA'
+    vim Changes Meta -O -c 'normal ggj$jjj$'
   fi
 
   if [ -z "$(grep -r 'VERSION' lib | grep "$META_VERSION")" ]; then
