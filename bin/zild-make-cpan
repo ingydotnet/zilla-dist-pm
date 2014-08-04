@@ -40,12 +40,12 @@ for swim in $(find doc -type f -name '*.swim'); do
   if grep -E '^=+$' "$swim" &> /dev/null; then
     (
       set -x
-      swim --to=pod --pod-cpan "$swim" > "$pod"
+      swim --to=pod --meta=Meta --pod-cpan "$swim" > "$pod"
     )
   else
     (
       set -x
-      swim --to=pod --complete=1 --wrap=1 "$swim" > "$pod"
+      swim --to=pod --meta=Meta --complete=1 --wrap=1 "$swim" > "$pod"
     )
   fi
 done
