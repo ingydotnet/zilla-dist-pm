@@ -8,6 +8,7 @@
 language: perl
 
 perl:
+- '5.20'
 - '5.18'
 - '5.16'
 - '5.14'
@@ -18,12 +19,14 @@ perl:
 install:
 - cpanm --quiet --notest
   Devel::Cover::Report::Coveralls
+  ExtUtils::MakeMaker
   File::Share
   Hash::Merge
   IO::All
   Swim
   Swim::Plugin::badge
   Template::Toolkit::Simple
+  version
   YAML::XS
 
 #   CPAN::Uploader
@@ -31,6 +34,8 @@ install:
 #   Dist::Zilla::Plugin::ChangesFromYaml
 #   Dist::Zilla::Plugin::GithubMeta
 #   Dist::Zilla::Plugin::ReadmeFromPod
+#   Dist::Zilla::Plugin::TestBaseIncluder
+#   Dist::Zilla::Plugin::TestMLIncluder
 #   Dist::Zilla::PluginBundle::Git
 
 script:
@@ -47,7 +52,6 @@ notifications:
     - irc.freenode.net#pkg
     on_success: change
     on_failure: always
-    use_notice: true
     skip_join: true
 
 # Hack to not run on tag pushes:

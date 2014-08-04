@@ -1,4 +1,9 @@
 ---
+version: 0.0.111
+date:    Sun Aug  3 21:07:15 PDT 2014
+changes:
+- Update travis template for 5.20
+---
 version: 0.0.110
 date:    Sat Aug  2 18:57:31 PDT 2014
 changes:
