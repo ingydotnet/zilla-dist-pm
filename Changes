@@ -1,4 +1,9 @@
 ---
+version: 0.0.116
+date:    Tue Aug  5 10:36:29 PDT 2014
+changes:
+- FIx a couple path nits with '::'
+---
 version: 0.0.115
 date:    Tue Aug  5 10:06:47 PDT 2014
 changes:

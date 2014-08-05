@@ -41,7 +41,8 @@ else {
     if (my $r = $data->{recommends}) {
         push @{$data->{RequiredModules}}, keys %$r;
     }
-    ($data->{namepath} = $data->{libname} || $data->{name}) =~ s/-/\//g;
+    ($data->{namepath} = $data->{libname} || $data->{name})
+        =~ s/(?:-|::)/\//g;
     $data->{sharedir} = 1 if -d 'share';
 
     my $text = tt
