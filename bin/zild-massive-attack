@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  test_function="$1"
+  for repo in *-pm; do
+    [ -e "$repo/Meta" ] || continue
+    local text='' title="$repo"
+    (
+      cd "$repo"
+      $test_function || exit 0
+      echo-line
+      echo "$title"
+      echo-line
+      echo "$text"
+      echo-line
+      git status
+      echo-line
+      echo
+      bash
+      [ $? -eq 9 ] && exit 1
+      :
+    ) || break
+  done
+}
+
+missing-travis-badge() {
+  doc="$(zild meta '=cpan/libname')"
+  doc="${doc:-$(zild meta name)}"
+  doc="doc/${doc//-//}.swim"
+  if [ ! -e "$doc" ]; then
+    echo "$doc not found"
+    exit 1
+  fi
+  badge="$(ack '<badge' "$doc")"
+  [ -z "$badge" ]
+}
+
+has-swim-errors() {
+  :
+}
+
+no-about() {
+  :
+}
+
+meta-mistakes() {
+  text="$(ack 'git@' Meta)"
+  [ -n "$text" ]
+}
+
+irc-goes-to-ingy() {
+  text="$(ack 'irc\..*[\/\#]ingy' Meta)"
+  [ -n "$text" ]
+}
+
+bad-copyright-format() {
+  text="$(ack 'Copyright \(c\)' | grep -v Changes)"
+  [ -n "$text" ]
+}
+
+has-bad-years() {
+  years=(`zild years`)
+  num=${#years[@]}
+  if [ $num -eq 0 ]; then
+    return 1
+  elif [ $num -gt 1 ]; then
+    years="${years[@]}"
+    [[ "$years" =~ ^(.{4}).*(.{4})$ ]] || return 1
+    years="${BASH_REMATCH[1]}-${BASH_REMATCH[2]}"
+  fi
+  text="$(ack -i copyright lib doc Meta | ack '\d{4}' | ack -v "\s$years")"
+  [ -z "$text" ] && return 1
+  printf -v title "%-20s %s" "$repo" "$years"
+  return 0
+}
+
+echo-line() {
+  echo "---------------------------------------------------------------"
+}
+
+[ "$BASH_SOURCE" == "$0" ] && main "$@"
