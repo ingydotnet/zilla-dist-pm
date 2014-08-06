@@ -1,4 +1,9 @@
 ---
+version: 0.0.117
+date:    Wed Aug  6 09:15:21 PDT 2014
+changes:
+- Check $VERSION exists in main library.
+---
 version: 0.0.116
 date:    Tue Aug  5 10:36:29 PDT 2014
 changes:

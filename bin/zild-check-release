@@ -10,6 +10,11 @@ ZILD="$PERL -S zild"
   [ -n "$CHANGES_VERSION" ] || CHANGES_VERSION=0
 }
 
+LIBPATH="$($ZILD meta =cpan/lib name)"
+LIBPATH="${LIBPATH:-"$($ZILD meta name)"}"
+LIBPATH="${LIBPATH//-//}"
+LIBPATH="lib/${LIBPATH//:://}.pm"
+
 NO_CHANGES_YAML="$($ZILD meta =cpan/no_changes_yaml)"
 
 # Define a error reporting function:
@@ -50,6 +55,10 @@ NO_CHANGES_YAML="$($ZILD meta =cpan/no_changes_yaml)"
 
   if [ -z "$(grep -r 'VERSION' lib | grep "$META_VERSION")" ]; then
     error "No '\$VERSION = $META_VERSION' statement in lib/"
+  fi
+
+  if [ -z "$(grep -r 'VERSION' "$LIBPATH" | grep "$META_VERSION")" ]; then
+    error "No '\$VERSION = $META_VERSION' statement in $LIBPATH"
   fi
 }
 
