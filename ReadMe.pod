@@ -151,7 +151,7 @@ This will:
 This section lists all the things that actually happen during the C<make
 release> step.
 
-I<â¦to be completedâ¦>
+I<…to be completed…>
 
 =head1 RATIONALE RANTING
 
@@ -325,7 +325,11 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/template-toolkit-simple-pm>
 
+=item * L<https://github.com/ingydotnet/template-plugin-yamlval-pm>
+
 =item * L<https://github.com/ingydotnet/test-base-pm>
+
+=item * L<https://github.com/ingydotnet/test-yaml-pm>
 
 =item * L<https://github.com/ingydotnet/testml-pm>
 
@@ -353,17 +357,19 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/yaml-shell-pm>
 
+=item * L<https://github.com/ingydotnet/yamltime-pm>
+
 =item * L<https://github.com/ingydotnet/zilla-dist-pm> !!
 
 =back
 
 =head1 AUTHOR
 
-Ingy dÃ¶t Net <ingy@cpan.org>
+Ingy döt Net <ingy@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2014. Ingy dÃ¶t Net.
+Copyright 2014. Ingy döt Net.
 
 This program is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.

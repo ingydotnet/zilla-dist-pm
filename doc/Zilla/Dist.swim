@@ -236,7 +236,9 @@ those files, it's OK to commit generated code.
 * https://github.com/ingydotnet/swim-pm
 * https://github.com/ingydotnet/swim-plugin-badge-pm
 * https://github.com/ingydotnet/template-toolkit-simple-pm
+* https://github.com/ingydotnet/template-plugin-yamlval-pm
 * https://github.com/ingydotnet/test-base-pm
+* https://github.com/ingydotnet/test-yaml-pm
 * https://github.com/ingydotnet/testml-pm
 * https://github.com/ingydotnet/testml-script-pm
 * https://github.com/ingydotnet/testml-tiny-pm
@@ -250,6 +252,7 @@ those files, it's OK to commit generated code.
 * https://github.com/ingydotnet/yaml-old-pm
 * https://github.com/ingydotnet/yaml-pegex-pm
 * https://github.com/ingydotnet/yaml-shell-pm
+* https://github.com/ingydotnet/yamltime-pm
 * https://github.com/ingydotnet/zilla-dist-pm !!
 
 = Author
