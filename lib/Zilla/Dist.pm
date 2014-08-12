@@ -1,6 +1,6 @@
 use strict;
 package Zilla::Dist;
-our $VERSION = '0.0.119';
+our $VERSION = '0.0.120';
 
 use YAML::XS;
 use File::Share;
@@ -174,7 +174,7 @@ sub do_webhooks {
         my $command = $self->$method or next;
         print "Running: '$command'\n";
         system($command) == 0
-            or die "Error: command failed: $!";
+            or die "Error: command failed '$command': $!";
         io->file("$path/$hook")->assert->print($VERSION);
     }
 }

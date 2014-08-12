@@ -1,4 +1,9 @@
 ---
+version: 0.0.120
+date:    Tue Aug 12 12:22:50 PDT 2014
+changes:
+- Print command on failure
+---
 version: 0.0.119
 date:    Tue Aug 12 10:58:21 PDT 2014
 changes:
