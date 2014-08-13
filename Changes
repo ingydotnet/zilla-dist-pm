@@ -1,4 +1,9 @@
 ---
+version: 0.0.121
+date:    Wed Aug 13 11:25:00 PDT 2014
+changes:
+- Don't update $VERSION on a split line
+---
 version: 0.0.120
 date:    Tue Aug 12 12:22:50 PDT 2014
 changes:
