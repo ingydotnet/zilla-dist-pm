@@ -1,4 +1,9 @@
 ---
+version: 0.0.122
+date:    Wed Aug 13 21:50:18 PDT 2014
+changes:
+- Abort any previous rebase
+---
 version: 0.0.121
 date:    Wed Aug 13 11:25:00 PDT 2014
 changes:
