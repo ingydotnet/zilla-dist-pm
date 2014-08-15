@@ -178,7 +178,7 @@ check-release:
 	@echo '***** Checking readiness to release $(DIST)'
 	RELEASE_BRANCH=$(RELEASE_BRANCH) zild-check-release
 	git stash
-	[ -e .git/rebase-apply ] && rm -fr .git/rebase-apply
+	rm -fr .git/rebase-apply
 	git pull --rebase origin $(RELEASE_BRANCH)
 	git stash pop
 

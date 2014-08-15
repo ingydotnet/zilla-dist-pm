@@ -221,9 +221,11 @@ those files, it's OK to commit generated code.
 
 =over
 
-=item * L<https://github.com/ingydotnet/acme--pm>
+=item * L<https://github.com/ingydotnet/acme-pm>
 
 =item * L<https://github.com/ingydotnet/acme-ybfod-pm>
+
+=item * L<https://github.com/ingydotnet/akefile-pm>
 
 =item * L<https://github.com/ingydotnet/alt-pm>
 
@@ -236,6 +238,8 @@ those files, it's OK to commit generated code.
 =item * L<https://github.com/ingydotnet/class-field-pm>
 
 =item * L<https://github.com/ingydotnet/convert-base32-crockford-pm>
+
+=item * L<https://github.com/ingydotnet/devel-local-pm>
 
 =item * L<https://github.com/ingydotnet/dist-zilla-plugin-testbaseincluder-pm>
 
@@ -267,9 +271,15 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/lexicals-pm>
 
+=item * L<https://github.com/ingydotnet/module-compile-pm>
+
 =item * L<https://github.com/ingydotnet/module-install-ackxxx-pm>
 
 =item * L<https://github.com/ingydotnet/module-install-manifestskip-pm>
+
+=item * L<https://github.com/ingydotnet/module-install-requireslist-pm>
+
+=item * L<https://github.com/ingydotnet/module-install-versioncheck-pm>
 
 =item * L<https://github.com/ingydotnet/module-manifest-skip-pm>
 
@@ -323,6 +333,8 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/swim-plugin-badge-pm>
 
+=item * L<https://github.com/ingydotnet/swim-plugin-cpan-pm>
+
 =item * L<https://github.com/ingydotnet/template-toolkit-simple-pm>
 
 =item * L<https://github.com/ingydotnet/template-plugin-yamlval-pm>
@@ -358,6 +370,8 @@ those files, it's OK to commit generated code.
 =item * L<https://github.com/ingydotnet/yaml-shell-pm>
 
 =item * L<https://github.com/ingydotnet/yamltime-pm>
+
+=item * L<https://github.com/ingydotnet/yamltime-git-pm>
 
 =item * L<https://github.com/ingydotnet/zilla-dist-pm> !!
 

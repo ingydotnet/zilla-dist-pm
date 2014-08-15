@@ -1,4 +1,9 @@
 ---
+version: 0.0.123
+date:    Thu Aug 14 17:01:59 PDT 2014
+changes:
+- Makefile bombed if rebase *easn't* in progress
+---
 version: 0.0.122
 date:    Wed Aug 13 21:50:18 PDT 2014
 changes:
