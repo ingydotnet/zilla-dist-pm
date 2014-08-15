@@ -1,4 +1,9 @@
 ---
+version: 0.0.126
+date:    Fri Aug 15 12:14:19 PDT 2014
+changes:
+- Timed Zilla-Dist Massive Attack test
+---
 version: 0.0.125
 date:    Thu Aug 14 23:13:49 PDT 2014
 changes:
