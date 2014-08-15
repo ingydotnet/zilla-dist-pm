@@ -1,4 +1,9 @@
 ---
+version: 0.0.127
+date:    Fri Aug 15 12:48:30 PDT 2014
+changes:
+- Add better messaging to ZILLA_DIST_RELEASE_TIME
+---
 version: 0.0.126
 date:    Fri Aug 15 12:14:19 PDT 2014
 changes:

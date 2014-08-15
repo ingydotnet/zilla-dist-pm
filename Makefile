@@ -101,8 +101,12 @@ release:
 	@echo '***** Releasing $(DISTDIR)'
 	make dist
 ifneq ($(ZILLA_DIST_RELEASE_TIME),)
-	echo $$(( $$ZILLA_DIST_RELEASE_TIME - $$(date +%s) ))
-	sleep $$(( $$ZILLA_DIST_RELEASE_TIME - $$(date +%s) ))
+	@echo $$(( ( $$ZILLA_DIST_RELEASE_TIME - $$(date +%s) ) / 60 )) \
+	minutes, \
+	$$(( ( $$ZILLA_DIST_RELEASE_TIME - $$(date +%s) ) % 60 )) \
+	seconds, until RELEASE TIME!
+	@echo sleep $$(( $$ZILLA_DIST_RELEASE_TIME - $$(date +%s) ))
+	@sleep $$(( $$ZILLA_DIST_RELEASE_TIME - $$(date +%s) ))
 endif
 	cpan-upload $(DIST)
 	make clean
