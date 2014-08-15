@@ -1,4 +1,9 @@
 ---
+version: 0.0.132
+date:    Fri Aug 15 15:05:38 PDT 2014
+changes:
+- Retesting release with PERL_ZILLA_DIST_*
+---
 version: 0.0.131
 date:    Fri Aug 15 15:01:40 PDT 2014
 changes:
