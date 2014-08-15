@@ -7,7 +7,7 @@ sub test {
     -f and /\.pm$/ or return;
     s{^lib[/\\]}{};
     s{\.pm$}{};
-    s{[/\\]}{::};
+    s{[/\\]}{::}g;
     use_ok $_;
 }
 

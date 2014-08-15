@@ -1,4 +1,10 @@
 ---
+version: 0.0.133
+date:    Fri Aug 15 16:42:27 PDT 2014
+changes:
+- Fixed a bug is 000 test.
+- CPAN Day 2014 - 21 Release Salute!
+---
 version: 0.0.132
 date:    Fri Aug 15 15:05:38 PDT 2014
 changes:
