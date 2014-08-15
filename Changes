@@ -1,4 +1,9 @@
 ---
+version: 0.0.128
+date:    Fri Aug 15 13:16:33 PDT 2014
+changes:
+- Add ZILLA_DIST_RELEASE_LOG logging
+---
 version: 0.0.127
 date:    Fri Aug 15 12:48:30 PDT 2014
 changes:

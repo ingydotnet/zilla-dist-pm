@@ -9,6 +9,7 @@
 
 PERL ?= $(shell which perl)
 ZILD := $(PERL) -S zild
+LOG := $(ZILLA_DIST_RELEASE_LOG)
 
 ifneq (,$(shell which zild))
     NAMEPATH := $(shell $(ZILD) meta =cpan/libname)
@@ -91,6 +92,9 @@ update: makefile
 	make readme contrib travis version webhooks
 
 release:
+ifneq ($(LOG),)
+	@echo "$$(date) - Release $(DIST) STARTED" >> $(LOG)
+endif
 	make self-install
 	make clean
 	make update
@@ -109,6 +113,9 @@ ifneq ($(ZILLA_DIST_RELEASE_TIME),)
 	@sleep $$(( $$ZILLA_DIST_RELEASE_TIME - $$(date +%s) ))
 endif
 	cpan-upload $(DIST)
+ifneq ($(LOG),)
+	@echo "$$(date) - Release $(DIST) UPLOADED" >> $(LOG)
+endif
 	make clean
 	[ -z "$$(git status -s)" ] || zild-git-commit
 	git push
@@ -119,6 +126,9 @@ endif
 	@echo
 	@[ -n "$$(which cowsay)" ] && cowsay "$(SUCCESS)" || echo "$(SUCCESS)"
 	@echo
+ifneq ($(LOG),)
+	@echo "$$(date) - Release $(DIST) COMPLETED" >> $(LOG)
+endif
 
 cpan:
 	@echo '***** Creating the `cpan/` directory'
