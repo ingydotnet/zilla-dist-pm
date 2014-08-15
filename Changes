@@ -1,4 +1,9 @@
 ---
+version: 0.0.125
+date:    Thu Aug 14 23:13:49 PDT 2014
+changes:
+- Add support for ZILLA_DIST_RELEASE_TIME (wait for release)
+---
 version: 0.0.124
 date:    Thu Aug 14 17:03:40 PDT 2014
 changes:
