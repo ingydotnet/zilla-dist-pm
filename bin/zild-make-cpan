@@ -30,6 +30,11 @@ fi
   rm -fr cpan/t/misc cpan/t/fail
 
   $PERL -S zild-render-template dist.ini cpan/dist.ini
+
+  # TODO Make this a Meta controlled option
+  $PERL -S zild-render-template \
+    test/000-compile-modules.t \
+    cpan/t/000-compile-modules.t
 )
 [ -x tool/make-cpan ] && tool/make-cpan
 
