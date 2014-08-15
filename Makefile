@@ -9,7 +9,7 @@
 
 PERL ?= $(shell which perl)
 ZILD := $(PERL) -S zild
-LOG := $(ZILLA_DIST_RELEASE_LOG)
+LOG := $(PERL_ZILLA_DIST_RELEASE_LOG)
 
 ifneq (,$(shell which zild))
     NAMEPATH := $(shell $(ZILD) meta =cpan/libname)
@@ -104,13 +104,13 @@ endif
 	make disttest
 	@echo '***** Releasing $(DISTDIR)'
 	make dist
-ifneq ($(ZILLA_DIST_RELEASE_TIME),)
-	@echo $$(( ( $$ZILLA_DIST_RELEASE_TIME - $$(date +%s) ) / 60 )) \
+ifneq ($(PERL_ZILLA_DIST_RELEASE_TIME),)
+	@echo $$(( ( $$PERL_ZILLA_DIST_RELEASE_TIME - $$(date +%s) ) / 60 )) \
 	minutes, \
-	$$(( ( $$ZILLA_DIST_RELEASE_TIME - $$(date +%s) ) % 60 )) \
+	$$(( ( $$PERL_ZILLA_DIST_RELEASE_TIME - $$(date +%s) ) % 60 )) \
 	seconds, until RELEASE TIME!
-	@echo sleep $$(( $$ZILLA_DIST_RELEASE_TIME - $$(date +%s) ))
-	@sleep $$(( $$ZILLA_DIST_RELEASE_TIME - $$(date +%s) ))
+	@echo sleep $$(( $$PERL_ZILLA_DIST_RELEASE_TIME - $$(date +%s) ))
+	@sleep $$(( $$PERL_ZILLA_DIST_RELEASE_TIME - $$(date +%s) ))
 endif
 	cpan-upload $(DIST)
 ifneq ($(LOG),)
