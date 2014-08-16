@@ -103,9 +103,6 @@ NO_CHANGES_YAML="$($ZILD meta =zild/no_changes_yaml)"
   if [[ "$($ZILD meta devel/irc)" =~ / ]]; then
     error "Meta devel/irc contains a /. Please change to #"
   fi
-  if [[ "$($ZILD meta =travis/irc)" =~ / ]]; then
-    error "Meta =travis/irc contains a /. Please change to #"
-  fi
   if [[ "$($ZILD meta author/email)" == "you@your.name" ]]; then
     error "Please update author email"
   fi

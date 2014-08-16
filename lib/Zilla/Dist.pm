@@ -1,6 +1,6 @@
 use strict;
 package Zilla::Dist;
-our $VERSION = '0.0.147';
+our $VERSION = '0.0.148';
 
 use YAML::XS;
 use File::Share;
@@ -181,7 +181,6 @@ sub do_webhooks {
 
 sub webhook_command_travis {
     my ($self) = @_;
-    return unless $self->{meta}{'=travis'};
     return "git hub travis-enable";
 }
 

@@ -26,8 +26,8 @@ else {
     my $cpan = delete($meta->{'=zild'}) || {};
     my $data = merge($cpan, $meta);
     if ($template ne 'dist.ini') {
-        my $travis = delete($meta->{'=travis'}) or exit;
-        $travis = { type => $travis } unless ref $travis;
+        my $travis = delete($meta->{'=travis'}) || {};
+        $travis->{type} ||= $data->{language};
         exit unless $travis->{type} eq 'perl';
         $data = merge($travis, $data);
     }

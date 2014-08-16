@@ -34,6 +34,12 @@ install:
   [% module %]
 [% END -%]
 [% END -%]
+[% IF include_testbase -%]
+  Test::Base
+[% END -%]
+[% IF include_testml -%]
+  TestML
+[% END -%]
 
 script:
 - PERL5OPT=-MDevel::Cover=-coverage,statement,branch,condition,path,subroutine
@@ -46,11 +52,11 @@ script:
 after_success:
 - cover -report coveralls
 
-[% IF irc -%]
+[% IF devel.irc -%]
 notifications:
   irc:
     channels:
-    - [% irc %]
+    - [% devel.irc %]
     on_success: change
     on_failure: always
     skip_join: true
