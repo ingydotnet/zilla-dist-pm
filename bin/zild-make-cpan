@@ -41,6 +41,8 @@ fi
     $PERL -S zild-render-template \
       test/000-require-modules.t \
       cpan/t/000-require-modules.t
+  elif [ "$($ZILD meta test/generate/000-none)" == 1 ]; then
+    true
   else
     $PERL -S zild-render-template \
       test/000-compile-modules.t \

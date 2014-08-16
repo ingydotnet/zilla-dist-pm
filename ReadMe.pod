@@ -217,7 +217,7 @@ those files, it's OK to commit generated code.
 
 =back
 
-=head2 Modules Published to CPAN w/ `zild`
+=head2 Modules Published to CPAN w/ C<zild>
 
 =over
 
