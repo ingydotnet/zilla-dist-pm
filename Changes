@@ -1,4 +1,11 @@
 ---
+version: 0.0.139
+date:    Fri Aug 15 18:56:56 PDT 2014
+changes:
+- Change Makefile target cpantest to test-cpan
+- Change Makefile target disttest to test-dist
+- Remove t/use_ok.t
+---
 version: 0.0.138
 date:    Fri Aug 15 18:38:12 PDT 2014
 changes:
