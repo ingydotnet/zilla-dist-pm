@@ -1,4 +1,9 @@
 ---
+version: 0.0.137
+date:    Fri Aug 15 18:17:28 PDT 2014
+changes:
+- Add Devel::Local to 000 exception list
+---
 version: 0.0.136
 date:    Fri Aug 15 18:04:07 PDT 2014
 changes:
