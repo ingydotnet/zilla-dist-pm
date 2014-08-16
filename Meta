@@ -1,10 +1,13 @@
+=meta: 0.0.2
+
 name: Zilla-Dist
-version: 0.0.146
+version: 0.0.147
 abstract: Dist::Zilla Mixed Up
 homepage: https://metacpan.org/release/Zilla-Dist
 language: perl
 license: perl
 copyright: 2014
+
 author:
   name: Ingy döt Net
   email: ingy@cpan.org
@@ -12,6 +15,11 @@ author:
   twitter: ingydotnet
   freenode: ingy
   homepage: http://ingy.net
+
+devel:
+  git: https://github.com/ingydotnet/zilla-dist-pm
+  bug: https://github.com/ingydotnet/zilla-dist-pm/issues
+  irc: irc.freenode.net#pkg
 
 requires:
   perl: 5.8.1
@@ -32,14 +40,3 @@ requires:
   Template::Toolkit::Simple: 0.19
   version: 0.9908
   YAML::XS: 0.44
-
-devel:
-  git: https://github.com/ingydotnet/zilla-dist-pm
-  bug: https://github.com/ingydotnet/zilla-dist-pm/issues
-  irc: irc.freenode.net#pkg
-
-=travis:
-  type: perl
-  irc: irc.freenode.net#pkg
-
-=meta: 0.0.2
