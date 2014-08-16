@@ -68,7 +68,7 @@ for swim in $(find doc -type f -name '*.swim'); do
   fi
 done
 
-alias="$($PERL -S zild meta =cpan/alias)"
+alias="$($PERL -S zild meta =zild/alias)"
 if [ -n "$alias" ]; then
   for a in "${alias[@]}"; do
     $PERL -S zild-render-template

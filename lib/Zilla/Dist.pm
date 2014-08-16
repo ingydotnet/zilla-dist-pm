@@ -1,6 +1,6 @@
 use strict;
 package Zilla::Dist;
-our $VERSION = '0.0.144';
+our $VERSION = '0.0.145';
 
 use YAML::XS;
 use File::Share;
@@ -82,7 +82,7 @@ sub do_meta {
 
 sub do_changes {
     my ($self, $key, $value) = @_;
-    return if $self->{meta}{'=cpan'}{no_changes_yaml};
+    return if $self->{meta}{'=zild'}{no_changes_yaml};
     my @changes = YAML::XS::LoadFile('Changes');
     $self->validate_changes(\@changes);
     return unless @changes;
@@ -102,7 +102,7 @@ sub do_changes {
 
 sub validate_changes {
     my ($self, $changes) = @_;
-    return if $self->{meta}{'=cpan'}{no_changes_yaml};
+    return if $self->{meta}{'=zild'}{no_changes_yaml};
 
     scalar(@$changes) or error "Changes file is empty";
 

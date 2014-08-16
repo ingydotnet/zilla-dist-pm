@@ -10,12 +10,12 @@ ZILD="$PERL -S zild"
   [ -n "$CHANGES_VERSION" ] || CHANGES_VERSION=0
 }
 
-LIBPATH="$($ZILD meta =cpan/libname)"
+LIBPATH="$($ZILD meta =zild/libname)"
 LIBPATH="${LIBPATH:-"$($ZILD meta name)"}"
 LIBPATH="${LIBPATH//-//}"
 LIBPATH="lib/${LIBPATH//:://}.pm"
 
-NO_CHANGES_YAML="$($ZILD meta =cpan/no_changes_yaml)"
+NO_CHANGES_YAML="$($ZILD meta =zild/no_changes_yaml)"
 
 # Define a error reporting function:
 {

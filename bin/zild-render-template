@@ -23,7 +23,7 @@ if (-e "pkg/$template") {
 }
 else {
     my $meta = Load io->file('Meta')->all;
-    my $cpan = delete($meta->{'=cpan'}) || {};
+    my $cpan = delete($meta->{'=zild'}) || {};
     my $data = merge($cpan, $meta);
     if ($template ne 'dist.ini') {
         my $travis = delete($meta->{'=travis'}) or exit;

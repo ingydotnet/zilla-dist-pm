@@ -6,7 +6,7 @@ use YAML::XS;
 
 my $yaml = YAML::XS::LoadFile('Meta');
 my $version =
-    $yaml->{'=cpan'}{version} ||
+    $yaml->{'=zild'}{version} ||
     $yaml->{version} ||
     die "Can't determine 'version' from 'Meta' file";
 
