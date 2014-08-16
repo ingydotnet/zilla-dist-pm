@@ -56,9 +56,9 @@ Note a few things:
 
 =over
 
-=item * Sane / readable names
+=item * Sane/Readable names
 
-=item * Directories are lowercase / never plural
+=item * Directories are lowercase. Never plural
 
 =item * Files are TitleCase
 

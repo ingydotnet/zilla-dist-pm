@@ -45,8 +45,8 @@ A fully stacked top level CPAN package repository might look like this:
 
 Note a few things:
 
-* Sane / readable names
-* Directories are lowercase / never plural
+* Sane/Readable names
+* Directories are lowercase. Never plural
 * Files are TitleCase
 * No file extensions (if possible)
 * No extra meta files like `dist.ini`, `.travis.yml`, `bower.json` etc
