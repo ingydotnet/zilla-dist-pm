@@ -8,7 +8,7 @@ sub test {
     s{^lib[/\\]}{};
     s{\.pm$}{};
     s{[/\\]}{::}g;
-    if (/^(?:Alt::)/) {
+    if (/^(?:Alt::|Sex$)/) {
         ok eval("require $_; 1"), "require $_; # OK";
     }
     else {
