@@ -1,4 +1,10 @@
 ---
+version: 0.0.141
+date:    Fri Aug 15 19:57:29 PDT 2014
+changes:
+- Add share/test/000-require-modules.t for "special" modules
+- Things that can't 'use_ok'
+---
 version: 0.0.140
 date:    Fri Aug 15 19:17:00 PDT 2014
 changes:

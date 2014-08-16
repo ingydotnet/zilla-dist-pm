@@ -8,7 +8,7 @@ sub test {
     s{^lib[/\\]}{};
     s{\.pm$}{};
     s{[/\\]}{::}g;
-    use_ok $_;
+    ok eval("require $_; 1"), "require $_; # OK";
 }
 
 find {

@@ -1,6 +1,6 @@
 use strict;
 package Zilla::Dist;
-our $VERSION = '0.0.140';
+our $VERSION = '0.0.141';
 
 use YAML::XS;
 use File::Share;
