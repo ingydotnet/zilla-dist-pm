@@ -1,4 +1,9 @@
 ---
+version: 0.0.143
+date:    Fri Aug 15 22:38:49 PDT 2014
+changes:
+-  Fix share/alias.pm
+---
 version: 0.0.142
 date:    Fri Aug 15 22:36:36 PDT 2014
 changes:

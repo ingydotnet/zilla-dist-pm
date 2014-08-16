@@ -1,6 +1,6 @@
 package [% alias %];
 our $VERSION = '[% version %]';
 
-=head See Also
+=head1 See Also
 
 [% name.subst('-', '::') %]
