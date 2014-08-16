@@ -28,7 +28,7 @@ and lets `dzil` do the heavy lifting, but you never need to interact with
 A fully stacked top level CPAN package repository might look like this:
 
   Changes         # History in YAML
-  Contributing    # A generated insruction file for contributing
+  Contributing    # A generated instruction file for contributing
   Makefile        # Automation of test, dist, publish, etc
   Meta            # Meta info for all metadata needs (including dzil)
   ReadMe.pod      # Generated from `doc/Module.swim`
