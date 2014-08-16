@@ -30,8 +30,10 @@ NO_CHANGES_YAML="$($ZILD meta =cpan/no_changes_yaml)"
 {
   if [ -z "$NO_CHANGES_YAML" ]; then
     if ! (grep "^version: $META_VERSION" Changes &>/dev/null); then
-      if ! (grep "^- $META_VERSION" Changes &>/dev/null); then
-        error "No Changes entry for version '$META_VERSION'"
+      if ! (grep "^version: '$META_VERSION'" Changes &>/dev/null); then
+        if ! (grep "^- $META_VERSION" Changes &>/dev/null); then
+          error "No Changes entry for version '$META_VERSION'"
+        fi
       fi
     fi
   fi

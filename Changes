@@ -1,4 +1,10 @@
 ---
+version: 0.0.140
+date:    Fri Aug 15 19:17:00 PDT 2014
+changes:
+- Allow version to be in quotes in Changes
+- For '1.1111111111' in Acme
+---
 version: 0.0.139
 date:    Fri Aug 15 18:56:56 PDT 2014
 changes:
