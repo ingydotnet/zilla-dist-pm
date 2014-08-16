@@ -1,4 +1,9 @@
 ---
+version: 0.0.144
+date:    Fri Aug 15 23:39:47 PDT 2014
+changes:
+- Add RELEASE_TESTING=1 to make test-dist
+---
 version: 0.0.143
 date:    Fri Aug 15 22:38:49 PDT 2014
 changes:
