@@ -8,7 +8,12 @@ sub test {
     s{^lib[/\\]}{};
     s{\.pm$}{};
     s{[/\\]}{::}g;
-    use_ok $_;
+    if (/^(?:Alt::)/) {
+        ok eval("require $_; 1"), "require $_; # OK";
+    }
+    else {
+        use_ok $_;
+    }
 }
 
 find {

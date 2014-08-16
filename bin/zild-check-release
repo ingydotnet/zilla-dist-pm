@@ -10,7 +10,7 @@ ZILD="$PERL -S zild"
   [ -n "$CHANGES_VERSION" ] || CHANGES_VERSION=0
 }
 
-LIBPATH="$($ZILD meta =cpan/lib name)"
+LIBPATH="$($ZILD meta =cpan/libname)"
 LIBPATH="${LIBPATH:-"$($ZILD meta name)"}"
 LIBPATH="${LIBPATH//-//}"
 LIBPATH="lib/${LIBPATH//:://}.pm"
