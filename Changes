@@ -1,4 +1,10 @@
 ---
+version: 0.0.136
+date:    Fri Aug 15 18:04:07 PDT 2014
+changes:
+- Allow no test dir in repo
+- Generated tests only is OK
+---
 version: 0.0.135
 date:    Fri Aug 15 17:56:46 PDT 2014
 changes:
