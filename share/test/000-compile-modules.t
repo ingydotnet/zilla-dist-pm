@@ -11,6 +11,7 @@ sub test {
     if (/^(?:
         Alt:: |
         Devel::Local\b |
+        Inline:: |
         Sex$
     )/x) {
         ok eval("require $_; 1"), "require $_; # OK";
