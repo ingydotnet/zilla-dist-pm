@@ -1,4 +1,9 @@
 ---
+version: 0.0.152
+date:    Sun Aug 17 21:32:45 PDT 2014
+changes:
+- Apply PR/42 @wollmers++
+---
 version: 0.0.151
 date:    Sat Aug 16 17:00:06 PDT 2014
 changes:
