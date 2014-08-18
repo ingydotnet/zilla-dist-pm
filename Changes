@@ -1,4 +1,9 @@
 ---
+version: 0.0.154
+date:    Mon Aug 18 14:07:01 PDT 2014
+changes:
+- Travis accounts for no test/ directory
+---
 version: 0.0.153
 date:    Mon Aug 18 07:54:06 PDT 2014
 changes:
