@@ -1,4 +1,9 @@
 ---
+version: 0.0.153
+date:    Mon Aug 18 07:54:06 PDT 2014
+changes:
+- Simplify 000 tests
+---
 version: 0.0.152
 date:    Sun Aug 17 21:32:45 PDT 2014
 changes:

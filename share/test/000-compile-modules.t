@@ -4,10 +4,8 @@ use Test::More;
 use File::Find;
 
 sub test {
-    -f and /\.pm$/ or return;
-    s{^lib[/\\]}{};
-    s{\.pm$}{};
-    s{[/\\]}{::}g;
+    s{^lib/(.*)\.pm$}{$1} or return;
+    s{/}{::}g;
     use_ok $_;
 }
 

@@ -4,11 +4,9 @@ use Test::More;
 use File::Find;
 
 sub test {
-    -f and /\.pm$/ or return;
-    s{^lib[/\\]}{};
-    s{\.pm$}{};
-    s{[/\\]}{::}g;
-    ok eval("require $_; 1"), "require $_; # OK";
+    s{^lib/(.*)\.pm$}{$1} or return;
+    s{/}{::}g;
+    ok eval("require $_; 1"), "require $_;$@";
 }
 
 find {
