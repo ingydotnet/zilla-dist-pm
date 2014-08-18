@@ -39,7 +39,7 @@ install:
 #   Dist::Zilla::PluginBundle::Git
 
 script:
-- [ -e test ] &&
+- test -e test &&
   PERL5OPT=-MDevel::Cover=-coverage,statement,branch,condition,path,subroutine
   prove -lv test/
   || true
