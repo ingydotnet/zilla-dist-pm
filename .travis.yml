@@ -43,7 +43,7 @@ script:
   PERL5OPT=-MDevel::Cover=-coverage,statement,branch,condition,path,subroutine
   prove -lv test/
   || true
-- cover
+- test -e test && cover || true
 
 after_success:
 - cover -report coveralls
