@@ -149,7 +149,7 @@ endif
 	@echo
 ifneq ($(PERL_ZILLA_DIST_AUTO_INSTALL),)
 	@echo "***** Installing after release"
-        make install
+	make install
 endif
 	@[ -n "$$(which cowsay)" ] && cowsay "$(SUCCESS)" || echo "$(SUCCESS)"
 	@echo
