@@ -1,4 +1,10 @@
 ---
+version: 0.0.155
+date:    Thu Aug 21 11:17:50 PDT 2014
+changes:
+- Fix for issue/41
+- Honor PERL_ZILLA_DIST_AUTO_INSTALL=1 and install after release
+---
 version: 0.0.154
 date:    Mon Aug 18 14:07:01 PDT 2014
 changes:

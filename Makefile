@@ -147,6 +147,10 @@ endif
 	make clean
 	git status
 	@echo
+ifneq ($(PERL_ZILLA_DIST_AUTO_INSTALL),)
+	@echo "***** Installing after release"
+        make install
+endif
 	@[ -n "$$(which cowsay)" ] && cowsay "$(SUCCESS)" || echo "$(SUCCESS)"
 	@echo
 ifneq ($(LOG),)
