@@ -1,4 +1,9 @@
 ---
+version: 0.0.157
+date:    Thu Aug 21 11:22:35 PDT 2014
+changes:
+- Move 'git status' after the auto 'make install'
+---
 version: 0.0.156
 date:    Thu Aug 21 11:20:15 PDT 2014
 changes:
