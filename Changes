@@ -1,4 +1,9 @@
 ---
+version: 0.0.158
+date:    Fri Aug 22 21:01:14 PDT 2014
+changes:
+- Add cpantest and disttest targets back into Makefile.
+---
 version: 0.0.157
 date:    Thu Aug 21 11:22:35 PDT 2014
 changes:
