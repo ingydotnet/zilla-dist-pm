@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
 
-use lib 'lib';
 use Zilla::Dist;
 
 Zilla::Dist->new->run(@ARGV);

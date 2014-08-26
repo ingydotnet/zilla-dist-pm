@@ -1,4 +1,10 @@
 ---
+version: 0.0.159
+date:    Tue Aug 26 14:21:15 PDT 2014
+changes:
+- Remove 'use lib "lib"' from `zild`.
+- Was causing issues to release Alt-IO-All
+---
 version: 0.0.158
 date:    Fri Aug 22 21:01:14 PDT 2014
 changes:
