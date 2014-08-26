@@ -1,0 +1,5 @@
+- Switch .git/zilla-dist/ to .git/tmp/zild/
+- Meta 0.0.3
+  - Move requires and test under =cpan?
+  - Make a set of =zild feature switches
+- Add a msg_without_join option to git-hub travis

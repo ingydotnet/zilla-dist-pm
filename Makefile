@@ -38,31 +38,32 @@ help:
 	@echo ''
 	@echo 'Makefile targets:'
 	@echo ''
-	@echo '    make test      - Run the repo tests'
-	@echo '    make test-dev  - Run the developer only tests'
-	@echo '    make test-all  - Run all tests'
-	@echo '    make test-cpan - Make cpan/ dir and run tests in it'
-	@echo '    make test-dist - Run the dist tests'
+	@echo '    make test       - Run the repo tests'
+	@echo '    make test-dev   - Run the developer only tests'
+	@echo '    make test-all   - Run all tests'
+	@echo '    make test-cpan  - Make cpan/ dir and run tests in it'
+	@echo '    make test-dist  - Run the dist tests'
+	@echo '    make test-clean - Run the dist tests on clean perls'
 	@echo ''
-	@echo '    make install   - Install the dist from this repo'
-	@echo '    make prereqs   - Install the CPAN prereqs'
-	@echo '    make update    - Update generated files'
-	@echo '    make release   - Release the dist to CPAN'
+	@echo '    make install    - Install the dist from this repo'
+	@echo '    make prereqs    - Install the CPAN prereqs'
+	@echo '    make update     - Update generated files'
+	@echo '    make release    - Release the dist to CPAN'
 	@echo ''
-	@echo '    make cpan      - Make cpan/ dir with dist.ini'
-	@echo '    make cpanshell - Open new shell into new cpan/'
+	@echo '    make cpan       - Make cpan/ dir with dist.ini'
+	@echo '    make cpanshell  - Open new shell into new cpan/'
 	@echo ''
-	@echo '    make dist      - Make CPAN distribution tarball'
-	@echo '    make distdir   - Make CPAN distribution directory'
-	@echo '    make distshell - Open new shell into new distdir'
+	@echo '    make dist       - Make CPAN distribution tarball'
+	@echo '    make distdir    - Make CPAN distribution directory'
+	@echo '    make distshell  - Open new shell into new distdir'
 	@echo ''
-	@echo '    make upgrade   - Upgrade the build system (Makefile)'
-	@echo '    make readme    - Make the ReadMe.pod file'
-	@echo '    make travis    - Make a travis.yml file'
-	@echo '    make uninstall - Uninstall the dist from this repo'
+	@echo '    make upgrade    - Upgrade the build system (Makefile)'
+	@echo '    make readme     - Make the ReadMe.pod file'
+	@echo '    make travis     - Make a travis.yml file'
+	@echo '    make uninstall  - Uninstall the dist from this repo'
 	@echo ''
-	@echo '    make clean     - Clean up build files'
-	@echo '    make help      - Show this help'
+	@echo '    make clean      - Clean up build files'
+	@echo '    make help       - Show this help'
 	@echo ''
 
 #------------------------------------------------------------------------------
@@ -96,6 +97,15 @@ test-dist disttest: cpan
 	@echo '***** Running tests in `$(DISTDIR)` directory'
 	(cd cpan; dzil test) && make clean
 
+test-clean disttestclean: cpan
+ifneq ($(PERL_ZILLA_DIST_TEST_CLEAN),)
+	@echo '***** Running clean tests in `$(DISTDIR)` directory'
+	zild-test-clean "$(DISTDIR)"
+else
+	@echo 'PERL_ZILLA_DIST_TEST_CLEAN not set'
+	@exit 1
+endif
+
 #------------------------------------------------------------------------------
 # Installation Targets:
 #------------------------------------------------------------------------------
@@ -125,6 +135,9 @@ endif
 	make date
 	make test-all
 	RELEASE_TESTING=1 make test-dist
+ifneq ($(PERL_ZILLA_DIST_TEST_CLEAN),)
+	make test-clean
+endif
 	@echo '***** Releasing $(DISTDIR)'
 	make dist
 ifneq ($(PERL_ZILLA_DIST_RELEASE_TIME),)

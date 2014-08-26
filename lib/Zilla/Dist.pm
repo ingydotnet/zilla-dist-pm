@@ -7,6 +7,8 @@ use File::Share;
 use IO::All;
 use version;
 
+our $TEMP = '.git/tmp/zild';
+
 sub new {
     my $class = shift;
     bless {@_}, $class;
@@ -158,7 +160,7 @@ sub do_webhooks {
     my ($self) = @_;
     return unless $ENV{PERL_ZILLA_DIST_GIT_HUB_WEBHOOKS};
     return unless -d '.git';
-    my $path = '.git/zilla-dist/webhooks';
+    my $path = "$TEMP/webhooks";
     my $travis = io->file("$path/travis");
     my $irc = io->file("$path/irc");
     for my $hook (qw(travis irc)) {

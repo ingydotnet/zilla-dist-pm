@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+set -ex
+
+die() { echo "$@"; exit 1; }
+
+TEMP=../.git/tmp/zild
+[ -n "$PERL_ZILLA_DIST_TEST_CLEAN" ] ||
+  die "'PERL_ZILLA_DIST_TEST_CLEAN' is not set"
+PERLS=( $PERL_ZILLA_DIST_TEST_CLEAN )
+PERL="$(which perl)"
+
+main() {
+  distdir="${1:?distdir argument required}"
+  export PERL5LIB="$TEMP/lib/perl5"
+  make distdir &> /dev/null
+  (
+    cd "$distdir"
+    for perl in ${PERLS[@]}; do
+      echo "***** Testing with clean perl '$perl':"
+      unset PLENV_VERSION
+      plenv local "$perl"
+      bash; exit 1
+      cpanm --installdeps . -L "$TEMP"
+      perl Makefile.PL
+      make test
+      make clean
+    done
+  )
+}
+
+[ "${BASH_SOURCE[0]}" == "$0" ] && main "$@"
+
+true
+
+# vim: set ft=sh sw=2 lisp:
