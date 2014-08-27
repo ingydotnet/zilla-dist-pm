@@ -2,8 +2,6 @@
 
 use strict;
 use Cwd;
-use FindBin;
-use lib Cwd::abs_path "$FindBin::Bin/../lib";
 use File::Share;
 use Hash::Merge 'merge';
 use IO::All;

@@ -1,4 +1,9 @@
 ---
+version: 0.0.160
+date:    Tue Aug 26 17:15:23 PDT 2014
+changes:
+- Remove the usage of lib 'lib'
+---
 version: 0.0.159
 date:    Tue Aug 26 14:21:15 PDT 2014
 changes:
