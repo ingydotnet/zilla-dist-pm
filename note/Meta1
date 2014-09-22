@@ -1,0 +1,36 @@
+=meta: 0.0.2
+
+name: Package-Name
+version: 0.1.2
+abstract: <abstract text>
+homepage: <url>
+language: perl
+license: <license type>
+copyright: 2014
+
+author:
+  name: …
+  email: …
+
+devel:
+  git: <url>
+  bug: <url>
+  irc: <url>
+
+requires:
+  perl: 5.8.1
+  <module>: <version>
+
+test:
+  requires:
+    <module>: <version>
+  generate:
+    000-require-modules.t: true
+
+=zild:
+  libname: <module name>
+  inc: testml
+  generate:
+  - About
+  badge: [ travis, coveralls ]
+  dzil: true
