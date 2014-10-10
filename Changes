@@ -1,4 +1,9 @@
 ---
+version: 0.0.163
+date:    Fri Oct 10 20:47:33 CEST 2014
+changes:
+- Fixed a couple version bumping errors.
+---
 version: 0.0.162
 date:    Mon Sep 22 12:17:21 PDT 2014
 changes:

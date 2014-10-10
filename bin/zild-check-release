@@ -39,6 +39,13 @@ NO_CHANGES_YAML="$($ZILD meta =zild/no_changes_yaml)"
   fi
 }
 
+# Make sure Changes doesn't have empty entry:
+{
+  if (grep "^- $" Changes &>/dev/null); then
+    error "Changes has empty message"
+  fi
+}
+
 # Make sure current Meta, Changes and lib/<module> versions match:
 {
   if [ -z "$NO_CHANGES_YAML" ]; then
@@ -52,7 +59,7 @@ NO_CHANGES_YAML="$($ZILD meta =zild/no_changes_yaml)"
     error "Version '$META_VERSION' already tagged as released"
 
   if [ "$OK" -ne 0 ] && [ -n "$PERL_ZILLA_DIST_AUTO_VIM_META_CHANGES" ]; then
-    vim Changes Meta -O -c 'normal ggj$jjj$'
+    vim Changes Meta -O -c 'normal gg4j'
   fi
 
   if [ -z "$(grep -r 'VERSION' lib | grep "$META_VERSION")" ]; then

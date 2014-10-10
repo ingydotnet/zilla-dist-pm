@@ -9,7 +9,7 @@ main() {
     perl -p0i -e "s/^(version: +).*/\${1}$NEW_VERSION/m" Meta
     cat <<... > tmp
 ---
-version: $OLD_VERSION
+version: $NEW_VERSION
 date:    
 changes:
 - 
