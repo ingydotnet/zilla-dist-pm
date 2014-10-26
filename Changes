@@ -1,4 +1,9 @@
 ---
+version: 0.0.164
+date:    Sun Oct 26 22:51:19 UTC 2014
+changes:
+- Remove blib on clean
+---
 version: 0.0.163
 date:    Fri Oct 10 20:47:33 CEST 2014
 changes:
