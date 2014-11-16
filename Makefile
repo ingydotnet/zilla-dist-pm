@@ -202,8 +202,10 @@ uninstall: distdir
 	(cd $(DISTDIR); perl Makefile.PL; make uninstall)
 	make clean
 
-clean purge:
+clean:
 	rm -fr blib cpan .build $(DIST) $(DISTDIR)
+
+distclean purge: clean
 	@git ls-files Makefile --error-unmatch 2>/dev/null >/dev/null || \
 	    (set -x; rm -f Makefile)
 
