@@ -1,4 +1,9 @@
-
+---
+version: 0.0.167
+date:    Sun Nov 16 08:53:48 PST 2014
+changes:
+- Add rudimentary Inline::Module support
+---
 version: 0.0.166
 date:    Sun Nov 16 08:21:14 PST 2014
 changes:
