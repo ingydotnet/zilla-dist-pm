@@ -1,6 +1,6 @@
 use strict; use warnings;
 package Zilla::Dist;
-our $VERSION = '0.0.165';
+our $VERSION = '0.0.166';
 
 use YAML::XS;
 use File::Share;
@@ -33,15 +33,23 @@ sub do_setup {
 
     my $sharedir = $self->find_sharedir;
 
+    my $existed = -e 'Makefile';
     my $makefile_content = io->file("$sharedir/Makefile")->all;
     io->file('Makefile')->print($makefile_content);
 
-    my $meta_content = io->file("$sharedir/Meta")->all;
-    io->file('Meta')->print($meta_content);
+    if ($existed) {
+        print "Zilla::Dist updated your Makefile\n";
+    }
+    else {
+        print "Zilla::Dist created a Makefile\n";
+    }
 
-    print <<'...';
-Zilla::Dist created files: Makefile and Meta.
-...
+#     my $meta_content = io->file("$sharedir/Meta")->all;
+#     io->file('Meta')->print($meta_content);
+
+#     print <<'...';
+# Zilla::Dist created files: Makefile and Meta.
+# ...
 }
 
 sub do_sharedir {

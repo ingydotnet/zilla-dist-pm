@@ -204,6 +204,8 @@ uninstall: distdir
 
 clean purge:
 	rm -fr blib cpan .build $(DIST) $(DISTDIR)
+	@git ls-files Makefile --error-unmatch 2>/dev/null >/dev/null || \
+	    (set -x; rm -f Makefile)
 
 #------------------------------------------------------------------------------
 # Non-pulic-facing targets:

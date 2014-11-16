@@ -1,3 +1,10 @@
+
+version: 0.0.166
+date:    Sun Nov 16 08:21:14 PST 2014
+changes:
+- Try changing ZD to not commit Makefiles
+- Set up `zild` to just create Makefile (not Meta)
+- Have `make clean` remove a non-git-tracked Makefile
 ---
 version: 0.0.165
 date:    Sat Nov  8 10:46:10 EST 2014
