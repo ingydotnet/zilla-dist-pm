@@ -1,4 +1,9 @@
 ---
+version: 0.0.171
+date:    Sun Nov 16 22:39:46 PST 2014
+changes:
+- Try removing Makefile again. Something messed up.
+---
 version: 0.0.170
 date:    Sun Nov 16 22:37:52 PST 2014
 changes:
