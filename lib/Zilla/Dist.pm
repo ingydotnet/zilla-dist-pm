@@ -1,6 +1,6 @@
 use strict; use warnings;
 package Zilla::Dist;
-our $VERSION = '0.0.171';
+our $VERSION = '0.0.172';
 
 use YAML::XS;
 use File::Share;
@@ -26,11 +26,9 @@ sub run {
 
 sub do_make {
     my ($self, @args) = @_;
-    my $existed = -e 'Makefile';
-    $self->update_makefile;
-    system("make @args") == 0
-        or die "'make @args' failed: $!\n";
-    unlink 'Makefile' unless $existed;
+    my @cmd = ('make', '-f', $self->find_sharefile('Makefile'), @args);
+    system(@cmd) == 0
+        or die "'@cmd' failed: $!\n";
 }
 
 sub do_makefile {
@@ -38,7 +36,7 @@ sub do_makefile {
 
     my $existed = -e 'Makefile';
 
-    $self->update_makefile;
+    $self->update_makefile('Makefile');
 
     print $existed
         ? "Zilla::Dist updated your Makefile\n"
@@ -50,20 +48,17 @@ sub do_meta {
 
     die "Meta file already exists\n" if -e 'Meta';
 
-    my $sharedir = $self->find_sharedir;
-    my $metafile_content = io->file("$sharedir/Meta")->all;
+    my $metafile_content = io->file($self->find_sharefile('Meta'))->all;
     io->file('Meta')->print($metafile_content);
 
     print "Zilla::Dist created a Meta file\n";
 }
 
 sub update_makefile {
-    my ($self) = @_;
-    my $sharedir = $self->find_sharedir;
-    my $makefile_content = io->file("$sharedir/Makefile")->all;
-    io->file('Makefile')->print($makefile_content);
+    my ($self, $makefile_path) = @_;
+    my $makefile_content = io->file($self->find_sharefile('Makefile'))->all;
+    io->file($makefile_path)->print($makefile_content);
 }
-
 
 sub do_sharedir {
     my ($self, @args) = @_;
@@ -172,8 +167,15 @@ sub validate_changes {
     }
 }
 
+sub find_sharefile {
+    my ($self, $file) = @_;
+    my $path = $self->find_sharedir . '/' . $file;
+    -e $path or die "Can't find shared Zilla::Dist file '$file'";
+    return $path;
+}
+
 sub find_sharedir {
-    my ($self, @args) = @_;
+    my ($self) = @_;
     my $sharedir = File::Share::dist_dir('Zilla-Dist');
     -d $sharedir or die "Can't find Zilla::Dist share dir";
     return $sharedir;
@@ -235,8 +237,8 @@ sub usage {
 Usage:
 
     zild make <rule>    # Add a Makefile, run `make`, remove Makefile
-    zild makefile       # Add or update Zilla::Dist 'Makefile'
-    zild meta           # Add a template Zilla::Dist 'Meta' file
+    zild makefile       # Create or update Zilla::Dist 'Makefile'
+    zild meta           # Create a template Zilla::Dist 'Meta' file
 
 Internal commands issued by the Makefile:
 

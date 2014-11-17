@@ -7,9 +7,9 @@ Dist::Zilla Mixed Up
 
 = Synopsis
 
-  > zild
+  > zild Meta
   > # Edit the Meta file.
-  > make release
+  > zild make release
 
 = Description
 
@@ -29,9 +29,9 @@ A fully stacked top level CPAN package repository might look like this:
 
   Changes         # History in YAML
   Contributing    # A generated instruction file for contributing
-  Makefile        # Automation of test, dist, publish, etc
   Meta            # Meta info for all metadata needs (including dzil)
   ReadMe.pod      # Generated from `doc/Module.swim`
+  .travis.yml     # Travis file (generated)
   bin/            # Scripts
   doc/            # Swim docs
   ext/            # External repos (subrepos)
@@ -41,7 +41,6 @@ A fully stacked top level CPAN package repository might look like this:
   note/           # Project notes, todo lists, ideas, specs, etc
   share/          # Shared files to distribute
   test/           # Test suite
-  .travis.yml     # Travis file (generated)
 
 Note a few things:
 
@@ -56,40 +55,37 @@ happy, and not tied to poor legacy standards.
 
 == Zilla::Dist
 
-Zilla::Dist provides a Makefile to do everything. You get a new Makefile with:
+Zilla::Dist uses a Makefile to do everything, but you never see it. You run
+commands like:
 
-  > zild [setup]
+  zild make test
 
-And you can refresh it later with:
+Run `zild make help` to get a list of all the targets. Here are the most
+important targets:
 
-  > make update
-
-Run `make help` to get a list of all the targets. Here are the most important
-targets:
-
-- `make release`
+- `zild make release`
 
   Build the dist, then `cpan-upload` it.
 
-- `make test`
+- `zild make test`
 
   Run the test suite.
 
-- `make install`
+- `zild make install`
 
   Build and install the software. Same as install from CPAN.
 
-- `make prereqs`
+- `zild make prereqs`
 
   Install the prereqs from CPAN that are listed in the `Meta` file's
   `requires:` field.
 
-- `make cpan`
+- `zild make cpan`
 
   Turn repo into a `Dist::Zilla` ready subdirectory called `./cpan/`. This
   directory has a `dist.ini` file.
 
-- `make dist`
+- `zild make dist`
 
   Basically the same as `make cpan; cd cpan; dzil build`.
 
@@ -97,10 +93,10 @@ targets:
 
 Start by running:
 
-  zild
+  zild Meta
 
-and you'll get a `Makefile` and a `Meta` file template. You need to customize
-the `Meta` file and leave the `Makefile` alone.
+and you'll get a `Meta` file template. You need to customize the `Meta` file
+with information specific to your project.
 
 To do a release, just set a new `version` in the Meta file and add a `Changes`
 section using the same version. Then run:
@@ -138,17 +134,13 @@ metadata easily. So I do.
 
 As much as these great new ideas differ from the norm, I want my CPAN
 publishings to be normal to normal mongers (if there's such a thing). The
-`make releasse` process does just that. End users would have to look hard to
-know this wasn't a "normal" dzil release.
+`zild make releasse` process does just that. End users would have to look hard
+to know this wasn't a "normal" dzil release.
 
 I'm packaging this packaging process as [Zilla::Dist] for others to use. It's
 also a decent example of a CPAN package packaged with itself.
 
 = Notes
-
-Unlike `dzil`, the only `zild` command you ever use is `zild` (with no
-arguments) to get the Zilla::Dist `Makefile` and `Meta` file. After that, all
-Zilla::Dist commands are `make` targets.
 
 Some of the tools in Zilla::Dist are Bash, some are Perl. I'm doing a lot in
 the area of Bash Package packaging. See [http://bpan.org].
@@ -201,6 +193,7 @@ those files, it's OK to commit generated code.
 * https://github.com/ingydotnet/gloom-pm
 * https://github.com/ingydotnet/inline-pm
 * https://github.com/ingydotnet/inline-c-pm
+* https://github.com/ingydotnet/inline-module-pm
 * https://github.com/ingydotnet/io-all-pm
 * https://github.com/ingydotnet/jsony-pm
 * https://github.com/ingydotnet/js-pm

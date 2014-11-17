@@ -7,6 +7,7 @@
 
 .PHONY: cpan test
 
+MAKE := make -f $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
 PERL ?= $(shell which perl)
 ZILD := $(PERL) -S zild
 LOG := $(PERL_ZILLA_DIST_RELEASE_LOG)
@@ -35,7 +36,6 @@ SUCCESS := "$(DIST) Released!!!"
 default: help
 
 help:
-	@echo ''
 	@echo 'Makefile targets:'
 	@echo ''
 	@echo '    make test      - Run the repo tests'
@@ -94,7 +94,7 @@ endif
 
 test-dist disttest: cpan
 	@echo '***** Running tests in `$(DISTDIR)` directory'
-	(cd cpan; dzil test) && make clean
+	(cd cpan; dzil test) && $(MAKE) clean
 
 #------------------------------------------------------------------------------
 # Installation Targets:
@@ -102,14 +102,14 @@ test-dist disttest: cpan
 install: distdir
 	@echo '***** Installing $(DISTDIR)'
 	(cd $(DISTDIR); perl Makefile.PL; make install)
-	make clean
+	$(MAKE) clean
 
 prereqs:
 	cpanm `$(ZILD) metaval requires`
 
-update: makefile
+update:
 	@echo '***** Updating/regenerating repo content'
-	make readme contrib travis version webhooks
+	$(MAKE) readme contrib travis version webhooks
 
 #------------------------------------------------------------------------------
 # Release and Build Targets:
@@ -118,15 +118,14 @@ release:
 ifneq ($(LOG),)
 	@echo "$$(date) - Release $(DIST) STARTED" >> $(LOG)
 endif
-	make self-install
-	make clean
-	make update
-	make check-release
-	make date
-	make test-all
-	RELEASE_TESTING=1 make test-dist
+	$(MAKE) clean
+	$(MAKE) update
+	$(MAKE) check-release
+	$(MAKE) date
+	$(MAKE) test-all
+	RELEASE_TESTING=1 $(MAKE) test-dist
 	@echo '***** Releasing $(DISTDIR)'
-	make dist
+	$(MAKE) dist
 ifneq ($(PERL_ZILLA_DIST_RELEASE_TIME),)
 	@echo $$(( ( $$PERL_ZILLA_DIST_RELEASE_TIME - $$(date +%s) ) / 60 )) \
 	minutes, \
@@ -139,15 +138,15 @@ endif
 ifneq ($(LOG),)
 	@echo "$$(date) - Release $(DIST) UPLOADED" >> $(LOG)
 endif
-	make clean
+	$(MAKE) clean
 	[ -z "$$(git status -s)" ] || zild-git-commit
 	git push
 	git tag $(VERSION)
 	git push --tag
-	make clean
+	$(MAKE) clean
 ifneq ($(PERL_ZILLA_DIST_AUTO_INSTALL),)
 	@echo "***** Installing after release"
-	make install
+	$(MAKE) install
 endif
 	@echo
 	git status
@@ -165,7 +164,7 @@ cpan:
 cpanshell: cpan
 	@echo '***** Starting new shell in `cpan/` directory'
 	(cd cpan; $$SHELL)
-	make clean
+	$(MAKE) clean
 
 dist: clean cpan
 	@echo '***** Creating new dist: $(DIST)'
@@ -183,7 +182,7 @@ distdir: clean cpan
 distshell: distdir
 	@echo '***** Starting new shell in `$(DISTDIR)` directory'
 	(cd $(DISTDIR); $$SHELL)
-	make clean
+	$(MAKE) clean
 
 upgrade:
 	@echo '***** Checking that Zilla-Dist Makefile is up to date'
@@ -200,14 +199,12 @@ travis:
 
 uninstall: distdir
 	(cd $(DISTDIR); perl Makefile.PL; make uninstall)
-	make clean
+	$(MAKE) clean
 
 clean:
-	rm -fr blib cpan .build $(DIST) $(DISTDIR)
+	rm -fr blib cpan .build Makefile $(DIST) $(DISTDIR)
 
 distclean purge: clean
-	@git ls-files Makefile --error-unmatch 2>/dev/null >/dev/null || \
-	    (set -x; rm -f Makefile)
 
 #------------------------------------------------------------------------------
 # Non-pulic-facing targets:
@@ -219,27 +216,6 @@ check-release:
 	rm -fr .git/rebase-apply
 	git pull --rebase origin $(RELEASE_BRANCH)
 	git stash pop
-
-# We don't want to update the Makefile in Zilla::Dist since it is the real
-# source, and would be reverting to whatever was installed.
-ifeq (Zilla-Dist,$(NAME))
-makefile:
-	@echo Skip 'make upgrade'
-
-self-install: install
-	[ -n "which plenv" ] && plenv rehash
-else
-makefile:
-	@cp Makefile /tmp/
-	make upgrade
-	@if [ -n "`diff Makefile /tmp/Makefile`" ]; then \
-	    echo "ATTENTION: Dist-Zilla Makefile updated. Please re-run the command."; \
-	    exit 1; \
-	fi
-	@rm /tmp/Makefile
-
-self-install:
-endif
 
 date:
 	$(ZILD) changes date "`date`"

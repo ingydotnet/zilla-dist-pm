@@ -1,4 +1,10 @@
 ---
+version: 0.0.172
+date:    Mon Nov 17 08:17:18 PST 2014
+changes:
+- Use Makefile directly from sharedir
+- Updated docs to reflect new API better
+---
 version: 0.0.171
 date:    Sun Nov 16 22:39:46 PST 2014
 changes:
