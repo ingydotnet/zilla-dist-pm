@@ -14,7 +14,6 @@ module repository. A project in this style looks like this at the top level:
 
 - `Changes`      :: A YAML changelog history
 - `Contributing` :: Instructions for contributing to the project
-- `Makefile`     :: All the automation for developing and shipping
 - `Meta`         :: A YAML file of all metadata needed
 - `ReadMe.pod`   :: Top level doc in a format for GitHub
 - `.travis.yml`  :: A generated Travis-CI instruction file
@@ -47,31 +46,35 @@ then invokes `dzil build` to create the CPAN ready tarball.
 
 To see the `cpan/` directory, run:
 
-  make cpan
+  zild make cpan
 
 To see the distribution directory, run:
 
-  make distdir
+  zild make distdir
 
 To see all the other Makefile targets, run:
 
-  make help
+  zild make help
 
 == Testing
 
-The `bin`, `lib` and `test` directories contain normal code. Make your changes and test them with:
+The `bin`, `lib` and `test` directories contain normal code. Make your changes
+and test them with:
 
-  make test
+  zild make test
 
 which simply runs:
 
   prove -lv test/
 
+If you don't have Zilla::Dist installed yet, you can still run the tests with
+that `prove` command.
+
 == Installing Dependencies
 
 Even though this Project is managed by [Zilla::Dist], you probably don't need
-to install it. Many `Makefile` targets require it, but things like `make test`
-do not. If you do need `Zilla::Dist` to be installed, this is the best command to use:
+to install it. Just use `prove` to run tests. If you do need `Zilla::Dist` to
+be installed, this is the best command to use:
 
   cpanm --notest Zilla::Dist
 
@@ -80,4 +83,4 @@ should only be slow once.
 
 To install the other Project specific dependencies, just run this command:
 
-  make install-deps
+  zild make install-deps
