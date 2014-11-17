@@ -12,14 +12,14 @@ ZILD := $(PERL) -S zild
 LOG := $(PERL_ZILLA_DIST_RELEASE_LOG)
 
 ifneq (,$(shell which zild))
-    NAMEPATH := $(shell $(ZILD) meta =zild/libname)
+    NAMEPATH := $(shell $(ZILD) metaval =zild/libname)
     NAMEPATH := $(subst ::,/,$(NAMEPATH))
 ifeq (,$(NAMEPATH))
-    NAMEPATH := $(shell $(ZILD) meta name)
+    NAMEPATH := $(shell $(ZILD) metaval name)
 endif
-    NAME := $(shell $(ZILD) meta name)
-    VERSION := $(shell $(ZILD) meta version)
-    RELEASE_BRANCH := $(shell $(ZILD) meta branch)
+    NAME := $(shell $(ZILD) metaval name)
+    VERSION := $(shell $(ZILD) metaval version)
+    RELEASE_BRANCH := $(shell $(ZILD) metaval branch)
 else
     NAME := No-Name
     NAMEPATH := $(NAME)
@@ -105,7 +105,7 @@ install: distdir
 	make clean
 
 prereqs:
-	cpanm `$(ZILD) meta requires`
+	cpanm `$(ZILD) metaval requires`
 
 update: makefile
 	@echo '***** Updating/regenerating repo content'

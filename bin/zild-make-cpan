@@ -60,11 +60,11 @@ add-standard-files() {
 }
 
 add-test-000() {
-  if [ "$($ZILD meta =zild/test-000)" == require ]; then
+  if [ "$($ZILD metaval =zild/test-000)" == require ]; then
     $PERL -S zild-render-template \
       test/000-require-modules.t \
       cpan/t/000-require-modules.t
-  elif [ "$($ZILD meta =zild/test-000)" == none ]; then
+  elif [ "$($ZILD metaval =zild/test-000)" == none ]; then
     true  # Nothing
   else
     $PERL -S zild-render-template \
@@ -97,7 +97,7 @@ make-doc() {
 }
 
 make-alias() {
-  alias="$($PERL -S zild meta =zild/alias)"
+  alias="$($PERL -S zild metaval =zild/alias)"
   if [ -n "$alias" ]; then
     for a in "${alias[@]}"; do
       $PERL -S zild-render-template

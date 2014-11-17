@@ -1,4 +1,9 @@
 ---
+version: 0.0.168
+date:    Sun Nov 16 22:22:05 PST 2014
+changes:
+- Change how `zild` command works
+---
 version: 0.0.167
 date:    Sun Nov 16 08:53:48 PST 2014
 changes:

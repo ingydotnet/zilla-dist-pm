@@ -1,6 +1,6 @@
 use strict; use warnings;
 package Zilla::Dist;
-our $VERSION = '0.0.167';
+our $VERSION = '0.0.168';
 
 use YAML::XS;
 use File::Share;
@@ -14,43 +14,56 @@ sub new {
 
 sub run {
     my ($self, @args) = @_;
-    @args = ('setup') unless @args;
-    my $cmd = shift @args;
+    @args = ('help') unless @args;
+    my $cmd = lc(shift @args);
     my $method = "do_$cmd";
-    $self->usage unless $self->can($method);
+    $self->usage, return unless $self->can($method);
     $self->{meta} = -f 'Meta'
       ? YAML::XS::LoadFile('Meta')
       : {};
     $self->$method(@args);
 }
 
-sub error {
-    die "Error: $_[0]\n";
+sub do_make {
+    my ($self, @args) = @_;
+    my $existed = -e 'Makefile';
+    $self->update_makefile;
+    system("make @args") == 0
+        or die "'make @args' failed: $!\n";
+    unlink 'Makefile' unless $existed;
 }
 
-sub do_setup {
+sub do_makefile {
     my ($self, @args) = @_;
 
-    my $sharedir = $self->find_sharedir;
-
     my $existed = -e 'Makefile';
+
+    $self->update_makefile;
+
+    print $existed
+        ? "Zilla::Dist updated your Makefile\n"
+        : "Zilla::Dist created a Makefile\n";
+}
+
+sub do_meta {
+    my ($self, @args) = @_;
+
+    die "Meta file already exists\n" if -e 'Meta';
+
+    my $sharedir = $self->find_sharedir;
+    my $metafile_content = io->file("$sharedir/Meta")->all;
+    io->file('Meta')->print($metafile_content);
+
+    print "Zilla::Dist created a Meta file\n";
+}
+
+sub update_makefile {
+    my ($self) = @_;
+    my $sharedir = $self->find_sharedir;
     my $makefile_content = io->file("$sharedir/Makefile")->all;
     io->file('Makefile')->print($makefile_content);
-
-    if ($existed) {
-        print "Zilla::Dist updated your Makefile\n";
-    }
-    else {
-        print "Zilla::Dist created a Makefile\n";
-    }
-
-#     my $meta_content = io->file("$sharedir/Meta")->all;
-#     io->file('Meta')->print($meta_content);
-
-#     print <<'...';
-# Zilla::Dist created files: Makefile and Meta.
-# ...
 }
+
 
 sub do_sharedir {
     my ($self, @args) = @_;
@@ -60,7 +73,7 @@ sub do_sharedir {
 my $default = {
     branch => 'master',
 };
-sub do_meta {
+sub do_metaval {
     my ($self, $key) = @_;
     my $keys = [ split '/', $key ];
     my $meta = $self->{meta};
@@ -106,6 +119,10 @@ sub do_changes {
         $value = $changes[0]{$key} or return;
         print "$value\n";
     }
+}
+
+sub error {
+    die "Error: $_[0]\n";
 }
 
 sub validate_changes {
@@ -213,17 +230,19 @@ sub do_years {
 }
 
 sub usage {
-    die <<'...';
+    print <<'...';
 
 Usage:
-        zild            # Make the directory be Zilla::Dist enabled;
-                        # Creates new Zilla::Dist Makefile and Meta files.
+
+    zild make <rule>    # Add a Makefile, run `make`, remove Makefile
+    zild makefile       # Add or update Zilla::Dist 'Makefile'
+    zild meta           # Add a template Zilla::Dist 'Meta' file
 
 Internal commands issued by the Makefile:
 
-        zild sharedir   # Print the location of the Zilla::Dist share dir
-        zild meta <key> # Print Meta value for a key
-        zild changes <key> [<value>]
+    zild sharedir       # Print the location of the Zilla::Dist share dir
+    zild metaval <key>  # Print Meta value for a key
+    zild changes <key> [<value>]
 
 ...
 }
