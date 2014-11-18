@@ -1,4 +1,10 @@
 ---
+version: 0.0.173
+date:    Tue Nov 18 08:52:48 PST 2014
+changes:
+- Change `zild makefile` to just show location of Zilla::Dist Makefile
+- Add `zild version`
+---
 version: 0.0.172
 date:    Mon Nov 17 08:17:18 PST 2014
 changes:

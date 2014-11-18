@@ -1,6 +1,6 @@
 use strict; use warnings;
 package Zilla::Dist;
-our $VERSION = '0.0.172';
+our $VERSION = '0.0.173';
 
 use YAML::XS;
 use File::Share;
@@ -15,6 +15,7 @@ sub new {
 sub run {
     my ($self, @args) = @_;
     @args = ('help') unless @args;
+    @args = ('version') if "@args" =~ /^(-v|--version)$/;
     my $cmd = lc(shift @args);
     my $method = "do_$cmd";
     $self->usage, return unless $self->can($method);
@@ -33,14 +34,7 @@ sub do_make {
 
 sub do_makefile {
     my ($self, @args) = @_;
-
-    my $existed = -e 'Makefile';
-
-    $self->update_makefile('Makefile');
-
-    print $existed
-        ? "Zilla::Dist updated your Makefile\n"
-        : "Zilla::Dist created a Makefile\n";
+    print $self->find_sharefile('Makefile'), "\n";
 }
 
 sub do_meta {
@@ -52,6 +46,11 @@ sub do_meta {
     io->file('Meta')->print($metafile_content);
 
     print "Zilla::Dist created a Meta file\n";
+}
+
+sub do_version {
+    my ($self, @args) = @_;
+    print "$VERSION\n";
 }
 
 sub update_makefile {
@@ -236,13 +235,14 @@ sub usage {
 
 Usage:
 
-    zild make <rule>    # Add a Makefile, run `make`, remove Makefile
-    zild makefile       # Create or update Zilla::Dist 'Makefile'
+    zild make <rule>    # Run `make <rule>` with Zilla::Dist Makefile
     zild meta           # Create a template Zilla::Dist 'Meta' file
+    zild version        # Print Zilla::Dist version
 
 Internal commands issued by the Makefile:
 
     zild sharedir       # Print the location of the Zilla::Dist share dir
+    zild makefile       # Print the location of the Zilla::Dist 'Makefile'
     zild metaval <key>  # Print Meta value for a key
     zild changes <key> [<value>]
 
