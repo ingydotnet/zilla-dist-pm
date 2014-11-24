@@ -1,4 +1,9 @@
 ---
+version: 0.0.174
+date:    Mon Nov 24 10:17:15 PST 2014
+changes:
+- Replace top level repo Contributing with About file
+---
 version: 0.0.173
 date:    Tue Nov 18 08:52:48 PST 2014
 changes:

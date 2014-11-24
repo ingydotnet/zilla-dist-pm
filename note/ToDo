@@ -1,0 +1,7 @@
+- ReadMe.pod titles should be titlecase
+- Meta 'language' should be 'perl5'
+- Create a MetaSpec module
+  - Load and validate Meta files
+- Meta scalar values should expand:
+  - copyright: 2014 → {copyright: {year: 2014}}
+  - =meta: 0.0.2 → {meta: {spec: {version: 0.0.2}}}

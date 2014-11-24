@@ -15,6 +15,7 @@ my ($template, $target, $json) = @ARGV;
 $target ||= $template;
 $json ||= '{}';
 
+
 if (-e "pkg/$template") {
     my $text = io->file("pkg/$template")->all;
     io->file($target)->print($text);
@@ -23,6 +24,16 @@ else {
     my $meta = Load io->file('Meta')->all;
     my $cpan = delete($meta->{'=zild'}) || {};
     my $data = merge($cpan, $meta);
+    $data->{zilla_dist}{version} = $Zilla::Dist::VERSION;
+    $data->{layout} = +{
+        map {
+            my $name = $_->name;
+            $name =~ s!./!!;
+            $name =~ s![^\w]!_!g;
+            $name =~ s!^_+!!;
+            ($name, 1);
+        } io('.')->all
+    };
     if ($template ne 'dist.ini') {
         my $travis = delete($meta->{'=travis'}) || {};
         $travis->{type} ||= $data->{language};

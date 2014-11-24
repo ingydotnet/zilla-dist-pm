@@ -109,7 +109,7 @@ prereqs:
 
 update:
 	@echo '***** Updating/regenerating repo content'
-	$(MAKE) readme contrib travis version webhooks
+	$(MAKE) readme about travis version webhooks
 
 #------------------------------------------------------------------------------
 # Release and Build Targets:
@@ -191,8 +191,8 @@ upgrade:
 readme:
 	swim --pod-cpan doc/$(NAMEPATH).swim > ReadMe.pod
 
-contrib:
-	$(PERL) -S zild-render-template Contributing
+about:
+	$(PERL) -S zild-render-template About
 
 travis:
 	$(PERL) -S zild-render-template travis.yml .travis.yml

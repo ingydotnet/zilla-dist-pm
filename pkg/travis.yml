@@ -1,5 +1,5 @@
 #
-#   This file copied from zilla-dist-pm/share/travis.yml
+#   This file copied from zilla-dist-pm/pkg/travis.yml
 #
 
 language: perl
