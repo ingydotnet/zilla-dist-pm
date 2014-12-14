@@ -36,11 +36,11 @@ install:
 #   Dist::Zilla::PluginBundle::Git
 
 script:
-- test -e test &&
+- if [ -e test ]; then
   PERL5OPT=-MDevel::Cover=-coverage,statement,branch,condition,path,subroutine
-  prove -lv test/
-  || true
-- test -e test && cover || true
+  prove -lv test/;
+  fi
+- if [ -e test ]; then cover; fi
 
 after_success:
 - cover -report coveralls
