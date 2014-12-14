@@ -1,4 +1,9 @@
 ---
+version: 0.0.175
+date:    Sun Dec 14 12:52:10 PST 2014
+changes:
+- Set an env var in 000compile.t
+---
 version: 0.0.174
 date:    Mon Nov 24 10:17:15 PST 2014
 changes:
