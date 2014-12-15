@@ -1,4 +1,9 @@
 ---
+version: 0.0.176
+date:    Sun Dec 14 16:25:06 PST 2014
+changes:
+- Fix .travis.yml file to fail when tests fail. frew++
+---
 version: 0.0.175
 date:    Sun Dec 14 12:52:10 PST 2014
 changes:

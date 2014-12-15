@@ -44,14 +44,13 @@ install:
 [% END -%]
 
 script:
-- test -e test &&
+- true && [ ! -e test/ ] ||
   PERL5OPT=-MDevel::Cover=-coverage,statement,branch,condition,path,subroutine
 [% IF testbase -%]
   PERL5LIB=../test-base-pm/lib
 [% END -%]
   prove -lv test/
-  || true
-- test -e test && cover || true
+- true && [ ! -e test/ ] || cover
 
 after_success:
 - cover -report coveralls
