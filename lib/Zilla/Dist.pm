@@ -1,6 +1,6 @@
 use strict; use warnings;
 package Zilla::Dist;
-our $VERSION = '0.0.176';
+our $VERSION = '0.0.177';
 
 use YAML::XS;
 use File::Share;
@@ -17,6 +17,14 @@ sub run {
     @args = ('help') unless @args;
     @args = ('version') if "@args" =~ /^(-v|--version)$/;
     my $cmd = lc(shift @args);
+    if ($cmd =~ /^(?:
+        test|install|release|update|clean|
+        dist|distdir|distshell|disttest|
+        cpan|cpanshell
+    )$/x) {
+        unshift @args, $cmd;
+        $cmd = 'make';
+    }
     my $method = "do_$cmd";
     $self->usage, return unless $self->can($method);
     $self->{meta} = -f 'Meta'
@@ -236,14 +244,29 @@ sub usage {
 Usage:
 
     zild make <rule>    # Run `make <rule>` with Zilla::Dist Makefile
-    zild meta           # Create a template Zilla::Dist 'Meta' file
+    zild meta <key>     # Print Meta value for a key
+    zild copy <file> <dest>  # Copy a shared file
     zild version        # Print Zilla::Dist version
+
+The following commands are aliases for `zild make <cmd>`
+
+    zild test
+    zild install
+    zild release
+    zild update
+    zild clean
+
+    zild dist
+    zild distdir
+    zild distshell
+    zild disttest
+    zild cpan
+    zild cpanshell
 
 Internal commands issued by the Makefile:
 
     zild sharedir       # Print the location of the Zilla::Dist share dir
     zild makefile       # Print the location of the Zilla::Dist 'Makefile'
-    zild metaval <key>  # Print Meta value for a key
     zild changes <key> [<value>]
 
 ...
