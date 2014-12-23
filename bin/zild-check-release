@@ -5,17 +5,17 @@ ZILD="$PERL -S zild"
 
 # Setup variables:
 {
-  META_VERSION="$($ZILD metaval version)"
+  META_VERSION="$($ZILD meta version)"
   CHANGES_VERSION="$($ZILD changes version)"
   [ -n "$CHANGES_VERSION" ] || CHANGES_VERSION=0
 }
 
-LIBPATH="$($ZILD metaval =zild/libname)"
-LIBPATH="${LIBPATH:-"$($ZILD metaval name)"}"
+LIBPATH="$($ZILD meta =zild/libname)"
+LIBPATH="${LIBPATH:-"$($ZILD meta name)"}"
 LIBPATH="${LIBPATH//-//}"
 LIBPATH="lib/${LIBPATH//:://}.pm"
 
-NO_CHANGES_YAML="$($ZILD metaval =zild/no_changes_yaml)"
+NO_CHANGES_YAML="$($ZILD meta =zild/no_changes_yaml)"
 
 # Define a error reporting function:
 {
@@ -95,22 +95,22 @@ NO_CHANGES_YAML="$($ZILD metaval =zild/no_changes_yaml)"
 
 # Check for common Meta errors:
 {
-  if [[ "$($ZILD metaval name)" =~ :: ]]; then
+  if [[ "$($ZILD meta name)" =~ :: ]]; then
     error "Meta name contains '::'. Change to '-'"
   fi
-  if [[ "$($ZILD metaval devel/git)" =~ ^git@ ]]; then
+  if [[ "$($ZILD meta devel/git)" =~ ^git@ ]]; then
     error "Meta devel/git begins with git@. Change to https://"
   fi
-  if [[ "$($ZILD metaval devel/git)" =~ github\.org ]]; then
+  if [[ "$($ZILD meta devel/git)" =~ github\.org ]]; then
     error "Meta devel/git has github.ORG. Change to .com"
   fi
-  if [[ "$($ZILD metaval devel/bug)" =~ /$ ]]; then
+  if [[ "$($ZILD meta devel/bug)" =~ /$ ]]; then
     error "Meta devel/bug ends with a /. Please remove"
   fi
-  if [[ "$($ZILD metaval devel/irc)" =~ / ]]; then
+  if [[ "$($ZILD meta devel/irc)" =~ / ]]; then
     error "Meta devel/irc contains a /. Please change to #"
   fi
-  if [[ "$($ZILD metaval author/email)" == "you@your.name" ]]; then
+  if [[ "$($ZILD meta author/email)" == "you@your.name" ]]; then
     error "Please update author email"
   fi
 }

@@ -1,6 +1,6 @@
 use strict; use warnings;
 package Zilla::Dist;
-our $VERSION = '0.0.177';
+our $VERSION = '0.0.178';
 
 use YAML::XS;
 use File::Share;
@@ -45,15 +45,14 @@ sub do_makefile {
     print $self->find_sharefile('Makefile'), "\n";
 }
 
-sub do_meta {
-    my ($self, @args) = @_;
+sub do_copy {
+    my ($self, $file, $target) = @_;
+    $target ||= $file;
 
-    die "Meta file already exists\n" if -e 'Meta';
+    my $file_content = io->file($self->find_sharefile($file))->all;
+    io->file($target)->print($file_content);
 
-    my $metafile_content = io->file($self->find_sharefile('Meta'))->all;
-    io->file('Meta')->print($metafile_content);
-
-    print "Zilla::Dist created a Meta file\n";
+    print "Zilla::Dist copied shared '$file' to '$target'\n";
 }
 
 sub do_version {
@@ -75,7 +74,7 @@ sub do_sharedir {
 my $default = {
     branch => 'master',
 };
-sub do_metaval {
+sub do_meta {
     my ($self, $key) = @_;
     my $keys = [ split '/', $key ];
     my $meta = $self->{meta};

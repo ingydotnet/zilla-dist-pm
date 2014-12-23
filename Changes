@@ -1,4 +1,9 @@
 ---
+version: 0.0.178
+date:    Tue Dec 23 11:58:48 PST 2014
+changes:
+- Change `metaval` command to `meta`
+---
 version: 0.0.177
 date:    Tue Dec 23 11:00:32 PST 2014
 changes:
