@@ -1,4 +1,9 @@
 ---
+version: 0.0.179
+date:    Tue Dec 23 12:04:59 PST 2014
+changes:
+- Prettier zild help output
+---
 version: 0.0.178
 date:    Tue Dec 23 11:58:48 PST 2014
 changes:

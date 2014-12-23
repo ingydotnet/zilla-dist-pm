@@ -1,6 +1,6 @@
 use strict; use warnings;
 package Zilla::Dist;
-our $VERSION = '0.0.178';
+our $VERSION = '0.0.179';
 
 use YAML::XS;
 use File::Share;
@@ -249,18 +249,11 @@ Usage:
 
 The following commands are aliases for `zild make <cmd>`
 
-    zild test
-    zild install
-    zild release
-    zild update
+    zild test           zild dist           zild cpan
+    zild install        zild distdir        zild cpanshell
+    zild release        zild distshell
+    zild update         zild disttest
     zild clean
-
-    zild dist
-    zild distdir
-    zild distshell
-    zild disttest
-    zild cpan
-    zild cpanshell
 
 Internal commands issued by the Makefile:
 
