@@ -101,7 +101,7 @@ test-dist disttest: cpan
 #------------------------------------------------------------------------------
 install: distdir
 	@echo '***** Installing $(DISTDIR)'
-	(cd $(DISTDIR); perl Makefile.PL; make install)
+	(cd $(DISTDIR); $(PERL) Makefile.PL; make install)
 	$(MAKE) clean
 
 prereqs:
@@ -198,7 +198,7 @@ travis:
 	$(PERL) -S zild-render-template travis.yml .travis.yml
 
 uninstall: distdir
-	(cd $(DISTDIR); perl Makefile.PL; make uninstall)
+	(cd $(DISTDIR); $(PERL) Makefile.PL; make uninstall)
 	$(MAKE) clean
 
 clean:

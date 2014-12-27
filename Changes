@@ -1,4 +1,9 @@
 ---
+version: 0.0.180
+date:    Fri Dec 26 21:47:54 PST 2014
+changes:
+- Support win32.requires in Meta
+---
 version: 0.0.179
 date:    Tue Dec 23 12:04:59 PST 2014
 changes:
