@@ -1,4 +1,9 @@
 ---
+version: 0.0.181
+date:    Mon Dec 29 17:11:39 PST 2014
+changes:
+- Add AltInstall support
+---
 version: 0.0.180
 date:    Fri Dec 26 21:47:54 PST 2014
 changes:
