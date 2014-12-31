@@ -18,7 +18,7 @@ Zilla::Dist - Dist::Zilla Mixed Up
 
     > zild Meta
     > # Edit the Meta file.
-    > zild make release
+    > zild release
 
 =head1 DESCRIPTION
 
@@ -77,36 +77,46 @@ commands like:
 
     zild make test
 
-Run C<zild make help> to get a list of all the targets. Here are the most
-important targets:
+Run C<zild make help> to get a list of all the targets.
+
+The most common targets don't require you to type C<make>. For instance, you
+can simply:
+
+    zild test
+
+Here are the most important targets:
 
 =over
 
-=item C<zild make release>
+=item C<zild release>
 
 Build the dist, then C<cpan-upload> it.
 
-=item C<zild make test>
+=item C<zild test>
 
 Run the test suite.
 
-=item C<zild make install>
+=item C<zild install>
 
 Build and install the software. Same as install from CPAN.
 
-=item C<zild make prereqs>
+=item C<zild update>
+
+Rebuild the ReadMe.pod and other generated files.
+
+=item C<zild prereqs>
 
 Install the prereqs from CPAN that are listed in the C<Meta> file's
 C<requires:> field.
 
-=item C<zild make cpan>
+=item C<zild cpan>
 
 Turn repo into a C<Dist::Zilla> ready subdirectory called C<./cpan/>. This
 directory has a C<dist.ini> file.
 
-=item C<zild make dist>
+=item C<zild dist>
 
-Basically the same as C<make cpan; cd cpan; dzil build>.
+Basically the same as C<zild cpan; cd cpan; dzil build>.
 
 =back
 
@@ -114,7 +124,7 @@ Basically the same as C<make cpan; cd cpan; dzil build>.
 
 Start by running:
 
-    zild Meta
+    cp `zild sharedir`/Meta .
 
 and you'll get a C<Meta> file template. You need to customize the C<Meta> file
 with information specific to your project.
@@ -122,13 +132,15 @@ with information specific to your project.
 To do a release, just set a new C<version> in the Meta file and add a
 C<Changes> section using the same version. Then run:
 
-    make release
+    zild release
 
 This will:
 
 =over
 
 =item * Make sure things are ready for release.
+
+=item * Update the modules with C<$VERSION> to the new version.
 
 =item * Make a dzil ready directory of your stuff called C<./cpan/>.
 
@@ -144,7 +156,7 @@ This will:
 
 =head2 Release in Depth
 
-This section lists all the things that actually happen during the C<make
+This section lists all the things that actually happen during the C<zild
 release> step.
 
 I<…to be completed…>
@@ -164,8 +176,8 @@ from metadata easily. So I do.
 
 As much as these great new ideas differ from the norm, I want my CPAN
 publishings to be normal to normal mongers (if there's such a thing). The
-C<zild make releasse> process does just that. End users would have to look
-hard to know this wasn't a "normal" dzil release.
+C<zild release> process does just that. End users would have to look hard to
+know this wasn't a "normal" dzil release.
 
 I'm packaging this packaging process as L<Zilla::Dist> for others to use. It's
 also a decent example of a CPAN package packaged with itself.
@@ -200,14 +212,6 @@ so no need to commit that.
 
 In general, when an external tool requires files, and it's easiest to generate
 those files, it's OK to commit generated code.
-
-=head1 SEE ALSO
-
-=over
-
-=item * L<Dist::Zilla>
-
-=back
 
 =head2 Modules Published to CPAN w/ C<zild>
 
@@ -368,6 +372,14 @@ those files, it's OK to commit generated code.
 =item * L<https://github.com/ingydotnet/yamltime-git-pm>
 
 =item * L<https://github.com/ingydotnet/zilla-dist-pm> !!
+
+=back
+
+=head1 SEE ALSO
+
+=over
+
+=item * L<Dist::Zilla>
 
 =back
 

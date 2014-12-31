@@ -1,4 +1,9 @@
 ---
+version: 0.0.183
+date:    Wed Dec 31 15:08:14 PST 2014
+changes:
+- Fix doc references to `make`, to `zild`.
+---
 version: 0.0.182
 date:    Wed Dec 31 14:28:35 PST 2014
 changes:

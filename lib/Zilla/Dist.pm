@@ -1,6 +1,6 @@
 use strict; use warnings;
 package Zilla::Dist;
-our $VERSION = '0.0.182';
+our $VERSION = '0.0.183';
 
 use YAML::XS;
 use File::Share;
@@ -18,7 +18,7 @@ sub run {
     @args = ('version') if "@args" =~ /^(-v|--version)$/;
     my $cmd = lc(shift @args);
     if ($cmd =~ /^(?:
-        test|install|release|update|clean|
+        test|install|release|update|prereqs|clean|
         dist|distdir|distshell|disttest|
         cpan|cpanshell
     )$/x) {

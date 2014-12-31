@@ -4,7 +4,7 @@
 #
 # To update it, run:
 #
-#   > zild make update
+#   > zild update
 #
 
 language: perl
