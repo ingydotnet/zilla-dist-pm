@@ -1,9 +1,16 @@
-# DO NOT EDIT.
+# The Zilla::Dist Makefile
 #
-# This Makefile came from Zilla::Dist. To upgrade it, run:
+# This is the shared Zilla::Dist Makefile. Most of the `zild` commands simply
+# invoke this Makefile from the installed share directory for Zilla::Dist.
 #
-#   > make upgrade
+# For instance, both of these commands:
 #
+#   zild update
+#   zild make update
+#
+# just invoke:
+#
+#   make -f `zild makefile` update
 
 .PHONY: cpan test
 
@@ -12,21 +19,15 @@ PERL ?= $(shell which perl)
 ZILD := $(PERL) -S zild
 LOG := $(PERL_ZILLA_DIST_RELEASE_LOG)
 
-ifneq (,$(shell which zild))
-    NAMEPATH := $(shell $(ZILD) meta =zild/libname)
-    NAMEPATH := $(subst ::,/,$(NAMEPATH))
+# XXX Change to `metaspec =zild libname`
+NAMEPATH := $(shell $(ZILD) meta =zild/libname)
+NAMEPATH := $(subst ::,/,$(NAMEPATH))
 ifeq (,$(NAMEPATH))
-    NAMEPATH := $(shell $(ZILD) meta name)
+NAMEPATH := $(shell $(ZILD) meta name)
 endif
-    NAME := $(shell $(ZILD) meta name)
-    VERSION := $(shell $(ZILD) meta version)
-    RELEASE_BRANCH := $(shell $(ZILD) meta branch)
-else
-    NAME := No-Name
-    NAMEPATH := $(NAME)
-    VERSION := 0
-    RELEASE_BRANCH := master
-endif
+NAME := $(shell $(ZILD) meta name)
+VERSION := $(shell $(ZILD) meta version)
+RELEASE_BRANCH := $(shell $(ZILD) meta branch)
 
 DISTDIR := $(NAME)-$(VERSION)
 DIST := $(DISTDIR).tar.gz
@@ -189,7 +190,7 @@ upgrade:
 	cp `$(ZILD) sharedir`/Makefile ./
 
 readme:
-	swim --pod-cpan doc/$(NAMEPATH).swim > ReadMe.pod
+	swim --pod-cpan --meta=Meta doc/$(NAMEPATH).swim > ReadMe.pod
 
 about:
 	$(PERL) -S zild-render-template About

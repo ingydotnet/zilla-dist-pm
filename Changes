@@ -1,4 +1,10 @@
 ---
+version: 0.0.182
+date:    Wed Dec 31 14:28:35 PST 2014
+changes:
+- Pass --meta=Meta to swim
+- Clean up Makefile a bit
+---
 version: 0.0.181
 date:    Mon Dec 29 17:11:39 PST 2014
 changes:
