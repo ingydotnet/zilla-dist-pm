@@ -1,7 +1,7 @@
 =meta: 0.0.2
 
 name: Zilla-Dist
-version: 0.0.183
+version: 0.0.184
 abstract: Dist::Zilla Mixed Up
 homepage: https://metacpan.org/release/Zilla-Dist
 language: perl
@@ -35,10 +35,13 @@ requires:
   File::Share: 0.15
   Hash::Merge: 0.200
   IO::All: 0.66
-  Swim: 0.1.15
-  Swim::Plugin::badge: 0.1.3
+  Swim: 0.1.32
+  Swim::Plugin::badge: 0.1.7
   Swim::Plugin::cpan: 0.0.1
   Template::Toolkit::Simple: 0.19
   Test::Pod: 0
   version: 0.9908
   YAML::XS: 0.44
+
+badge: travis
+see: Dist::Zilla

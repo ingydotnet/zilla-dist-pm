@@ -46,11 +46,11 @@ then invokes `dzil build` to create the CPAN ready tarball.
 
 To see the `cpan/` directory, run:
 
-  zild make cpan
+  zild cpan
 
 To see the distribution directory, run:
 
-  zild make distdir
+  zild distdir
 
 To see all the other Makefile targets, run:
 
@@ -61,7 +61,7 @@ To see all the other Makefile targets, run:
 The `bin`, `lib` and `test` directories contain normal code. Make your changes
 and test them with:
 
-  zild make test
+  zild test
 
 which simply runs:
 
@@ -83,4 +83,4 @@ should only be slow once.
 
 To install the other Project specific dependencies, just run this command:
 
-  zild make install-deps
+  zild prereqs

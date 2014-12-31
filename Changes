@@ -1,4 +1,9 @@
 ---
+version: 0.0.184
+date:    Wed Dec 31 15:52:34 PST 2014
+changes:
+- Convert doc to swim-plugin-cpan
+---
 version: 0.0.183
 date:    Wed Dec 31 15:08:14 PST 2014
 changes:

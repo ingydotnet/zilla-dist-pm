@@ -1,9 +1,4 @@
-Zilla::Dist
-===========
-
-Dist::Zilla Mixed Up
-
-<badge travis coveralls ingydotnet/zilla-dist-pm>
+<<<cpan-head>>>
 
 = Synopsis
 
@@ -262,19 +257,4 @@ those files, it's OK to commit generated code.
 * https://github.com/ingydotnet/yamltime-git-pm
 * https://github.com/ingydotnet/zilla-dist-pm !!
 
-= See Also
-
-* [Dist::Zilla]
-
-= Author
-
-Ingy döt Net <ingy@cpan.org>
-
-= Copyright and License
-
-Copyright 2014. Ingy döt Net.
-
-This program is free software; you can redistribute it and/or modify it under
-the same terms as Perl itself.
-
-See http://www.perl.com/perl/misc/Artistic.html
+<<<cpan-tail>>>
