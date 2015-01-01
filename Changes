@@ -1,4 +1,10 @@
 ---
+version: 0.0.186
+date:    Thu Jan  1 00:00:27 PST 2015
+changes:
+- Add copright year check
+- Happy New Year 2015
+---
 version: 0.0.185
 date:    Wed Dec 31 21:24:14 PST 2014
 changes:

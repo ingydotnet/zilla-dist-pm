@@ -1,12 +1,12 @@
 =meta: 0.0.2
 
 name: Zilla-Dist
-version: 0.0.185
+version: 0.0.186
 abstract: Dist::Zilla Mixed Up
 homepage: https://metacpan.org/release/Zilla-Dist
 language: perl
 license: perl
-copyright: 2014
+copyright: 2014-2015
 
 author:
   name: Ingy döt Net
