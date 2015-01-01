@@ -1,4 +1,9 @@
 ---
+version: 0.0.185
+date:    Wed Dec 31 21:24:14 PST 2014
+changes:
+- Work with new `swim` commandline args
+---
 version: 0.0.184
 date:    Wed Dec 31 15:52:34 PST 2014
 changes:

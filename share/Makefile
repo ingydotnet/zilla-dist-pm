@@ -190,7 +190,8 @@ upgrade:
 	cp `$(ZILD) sharedir`/Makefile ./
 
 readme:
-	swim --pod-cpan --meta=Meta doc/$(NAMEPATH).swim > ReadMe.pod
+	swim --to=pod --complete --wrap --meta=Meta \
+	  doc/$(NAMEPATH).swim > ReadMe.pod
 
 about:
 	$(PERL) -S zild-render-template About

@@ -84,7 +84,9 @@ make-doc() {
     pod="${swim/doc/cpan/lib}"
     pod="${pod/.swim/.pod}"
     mkdir -p "$(dirname "$pod")"
-    if grep -E '^=+$' "$swim" &> /dev/null; then
+    if (grep -E '^=+$' "$swim" &> /dev/null) ||
+       (grep -E '^<<<cpan-head>>>$' "$swim" &> /dev/null)
+    then
       (
         set -x
         swim --to=pod --meta=Meta --pod-cpan "$swim" > "$pod"
@@ -92,7 +94,7 @@ make-doc() {
     else
       (
         set -x
-        swim --to=pod --meta=Meta --complete=1 --wrap=1 "$swim" > "$pod"
+        swim --to=pod --meta=Meta --complete --wrap "$swim" > "$pod"
       )
     fi
   done
