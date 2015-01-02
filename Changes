@@ -1,4 +1,9 @@
 ---
+version: 0.0.187
+date:    Thu Jan  1 19:02:33 PST 2015
+changes:
+- Update prereq versions
+---
 version: 0.0.186
 date:    Thu Jan  1 00:00:27 PST 2015
 changes:

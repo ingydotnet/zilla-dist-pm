@@ -5,9 +5,9 @@ This repository contains the source code for the Perl 5 module distribution:
 
   [%name%] — "[%abstract%]"
 
-    by [%author.name%]
+    by [%author.0.name%]
 
-  Copyright [%copyright%]. [%author.name%].
+  Copyright [%copyright%]. [%author.0.name%].
 
 License
 -------
