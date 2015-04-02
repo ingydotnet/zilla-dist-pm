@@ -1,4 +1,9 @@
 ---
+version: 0.0.191
+date:    Thu Apr  2 12:26:25 PDT 2015
+changes:
+- make clean no longer removes Makefile
+---
 version: 0.0.190
 date:    Thu Apr  2 12:22:16 PDT 2015
 changes:

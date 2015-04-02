@@ -204,7 +204,7 @@ uninstall: distdir
 	$(MAKE) clean
 
 clean:
-	rm -fr blib cpan .build .inline Makefile $(DIST) $(DISTDIR)
+	rm -fr blib cpan .build .inline $(DIST) $(DISTDIR)
 
 distclean purge: clean
 
