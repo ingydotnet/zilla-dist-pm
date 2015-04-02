@@ -1,3 +1,6 @@
+- Add Dist::Zilla::Plugin::MetaResources support
+
+
 - ReadMe.pod titles should be titlecase
 - Meta 'language' should be 'perl5'
 - Create a MetaSpec module
