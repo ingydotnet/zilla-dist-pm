@@ -1,4 +1,9 @@
 ---
+version: 0.0.192
+date:    Sat Apr 18 13:50:29 CEST 2015
+changes:
+- Rewrite `#!/usr/bin/env perl` in `zild cpan`
+---
 version: 0.0.191
 date:    Thu Apr  2 12:26:25 PDT 2015
 changes:

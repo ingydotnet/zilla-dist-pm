@@ -7,6 +7,7 @@ main() {
   (
     set -x
     add-standard-files
+    fix-hashbangs
     add-test
     add-test-000
     add-dist-ini
@@ -58,6 +59,12 @@ add-standard-files() {
   cp -r lib cpan
   if [ -e share ]; then
     $CP_RL share cpan
+  fi
+}
+
+fix-hashbangs() {
+  if [ "`echo cpan/bin/*`" != 'cpan/bin/*' ]; then
+    $PERL -spi -e 's{^#!/usr/bin/env perl}{#!/usr/bin/perl}' cpan/bin/*
   fi
 }
 
