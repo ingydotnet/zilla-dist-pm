@@ -1,10 +1,11 @@
 use strict; use warnings;
 package Zilla::Dist;
-our $VERSION = '0.0.192';
+our $VERSION = '0.0.192_01';
 
 use YAML::XS;
 use File::Share;
 use IO::All;
+use Config;
 use version;
 
 sub new {
@@ -23,14 +24,15 @@ sub run {
         cpan|cpanshell
     )$/x) {
         unshift @args, $cmd;
-        $cmd = 'make';
+        $cmd = $Config{make} || 'make';
     }
     my $method = "do_$cmd";
     $self->usage, return unless $self->can($method);
     $self->{meta} = -f 'Meta'
       ? YAML::XS::LoadFile('Meta')
       : {};
-    $self->$method(@args);
+    my $PERL = $^X =~ m/ / ? "\"$^X\"" : $^X;
+    $self->$method(@args, "PERL=$PERL");
 }
 
 sub do_make {
