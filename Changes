@@ -1,4 +1,9 @@
 ---
+version: 0.0.193
+date:    Tue Mar 29 14:18:40 PDT 2016
+changes:
+- Make version updating mst++ approved
+---
 version: 0.0.192
 date:    Sat Apr 18 13:50:29 CEST 2015
 changes:
