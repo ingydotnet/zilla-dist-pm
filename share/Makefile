@@ -47,6 +47,7 @@ help:
 	@echo ''
 	@echo '    make install   - Install the dist from this repo'
 	@echo '    make prereqs   - Install the CPAN prereqs'
+	@echo '    make local     - Install the CPAN prereqs into ./local/'
 	@echo '    make update    - Update generated files'
 	@echo '    make release   - Release the dist to CPAN'
 	@echo ''
@@ -107,6 +108,10 @@ install: distdir
 
 prereqs:
 	cpanm `$(ZILD) meta requires`
+
+local:
+	@echo 'To make this faster, try: PERL_CPANM_OPT="-n"'
+	cpanm -l local `$(ZILD) meta requires`
 
 update:
 	@echo '***** Updating/regenerating repo content'

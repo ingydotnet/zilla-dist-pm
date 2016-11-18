@@ -18,7 +18,7 @@ sub run {
     @args = ('version') if "@args" =~ /^(-v|--version)$/;
     my $cmd = lc(shift @args);
     if ($cmd =~ /^(?:
-        test|install|release|update|prereqs|clean|
+        test|install|release|update|prereqs|local|clean|
         dist|distdir|distshell|disttest|
         cpan|cpanshell
     )$/x) {
