@@ -1,4 +1,9 @@
 ---
+version: 0.0.194
+date:    Fri Dec 23 17:49:01 CET 2016
+changes:
+- Fixed typo in About template
+---
 version: 0.0.193
 date:    Tue Mar 29 14:18:40 PDT 2016
 changes:

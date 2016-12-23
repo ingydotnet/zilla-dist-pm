@@ -83,7 +83,7 @@ This repoository contains the following top level files and directories:
   doc/        - Documentation directory.
 [%END-%]
 [%IF layout.eg-%]
-  ext/        - External dependency repos.
+  eg/         - Example files.
 [%END-%]
 [%IF layout.ext-%]
   ext/        - External dependency repos.

@@ -15,7 +15,7 @@ Zilla::Dist - Dist::Zilla Mixed Up
 
 =head1 Version
 
-This document describes L<Zilla::Dist> version B<0.0.193>.
+This document describes L<Zilla::Dist> version B<0.0.194>.
 
 =head1 Synopsis
 
