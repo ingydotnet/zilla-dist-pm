@@ -1,4 +1,9 @@
 ---
+version: 0.0.195
+date:    Wed Jan  4 21:34:29 CET 2017
+changes:
+- Exclude 5.8 5.10 and 5.12 in travis template
+---
 version: 0.0.194
 date:    Fri Dec 23 17:49:01 CET 2016
 changes:
