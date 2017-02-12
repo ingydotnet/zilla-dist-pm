@@ -1,4 +1,9 @@
 ---
+version: 0.0.196
+date:    Sun Feb 12 13:26:51 PST 2017
+changes:
+- Release after pause-cleanup screwed up
+---
 version: 0.0.195
 date:    Wed Jan  4 21:34:29 CET 2017
 changes:
