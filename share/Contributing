@@ -40,8 +40,30 @@ This Project uses Zilla::Dist to prepare it for publishing to CPAN. Read:
 
 for up-to-date instructions on what contributors like yourself need to know to
 use it.
-[% IF devel.irc -%]
+[%- IF devel.requires.Swim %]
 
+Swim
+----
+
+The documentation for this project, such as the C-Cookbook, is written in the
+Swim format. When working with `.swim` format files we recommend installing
+the Swim CPAN module.
+
+  perldoc Swim
+
+gives you a detailed description of the Swim format.
+
+To generate a preview of a Swim document, you can convert it to POD format
+using the `swim` utility program, then view it with `perldoc`:
+
+  swim --to=pod --wrap --complete file.swim > file.pod
+  perldoc file.pod
+
+The Zilla::Dist command `zild update` will update all the files in the repo
+that use Swim.
+
+[% END -%]
+[% IF devel.irc -%]
 IRC
 ---
 
