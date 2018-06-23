@@ -6,7 +6,7 @@ abstract: Dist::Zilla Mixed Up
 homepage: https://metacpan.org/release/Zilla-Dist
 language: perl
 license: perl
-copyright: 2014-2017
+copyright: 2014-2018
 
 author:
   name: Ingy döt Net
