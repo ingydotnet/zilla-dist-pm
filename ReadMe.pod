@@ -244,6 +244,8 @@ those files, it's OK to commit generated code.
 
 =item * L<https://github.com/ingydotnet/dist-zilla-plugin-testmlincluder-pm>
 
+=item * L<https://github.com/ingydotnet/dist-zilla-plugin-testml1includer-pm>
+
 =item * L<https://github.com/ingydotnet/error-errors-pm>
 
 =item * L<https://github.com/ingydotnet/file-share-pm>

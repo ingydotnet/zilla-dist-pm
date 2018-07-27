@@ -190,6 +190,7 @@ those files, it's OK to commit generated code.
 * https://github.com/ingydotnet/devel-local-pm
 * https://github.com/ingydotnet/dist-zilla-plugin-testbaseincluder-pm
 * https://github.com/ingydotnet/dist-zilla-plugin-testmlincluder-pm
+* https://github.com/ingydotnet/dist-zilla-plugin-testml1includer-pm
 * https://github.com/ingydotnet/error-errors-pm
 * https://github.com/ingydotnet/file-share-pm
 * https://github.com/ingydotnet/gloom-pm

@@ -1,4 +1,10 @@
 ---
+version: 0.0.198
+date:    Fri Jul 27 11:00:45 PDT 2018
+changes:
+- Dist::Zilla::Plugin::TestML1Includer
+- Add 5.28 to travis perl versions
+---
 version: 0.0.197
 date:    Fri Jun 22 21:15:15 MDT 2018
 changes:

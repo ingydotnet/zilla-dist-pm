@@ -33,6 +33,7 @@ install:
 #   Dist::Zilla::Plugin::ReadmeFromPod
 #   Dist::Zilla::Plugin::TestBaseIncluder
 #   Dist::Zilla::Plugin::TestMLIncluder
+#   Dist::Zilla::Plugin::TestML1Includer
 #   Dist::Zilla::PluginBundle::Git
 
 script:
