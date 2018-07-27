@@ -1,9 +1,10 @@
 ---
 version: 0.0.198
-date:    Fri Jul 27 11:00:45 PDT 2018
+date:    Fri Jul 27 11:36:54 PDT 2018
 changes:
 - Dist::Zilla::Plugin::TestML1Includer
 - Add 5.28 to travis perl versions
+- Update copyright year
 ---
 version: 0.0.197
 date:    Fri Jun 22 21:15:15 MDT 2018
@@ -65,7 +66,7 @@ changes:
 version: 0.0.186
 date:    Thu Jan  1 00:00:27 PST 2015
 changes:
-- Add copright year check
+- Add copyright year check
 - Happy New Year 2015
 ---
 version: 0.0.185
