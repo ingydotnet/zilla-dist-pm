@@ -1,7 +1,7 @@
 =meta: 0.0.2
 
 name: Zilla-Dist
-version: 0.0.198
+version: 0.0.199
 abstract: Dist::Zilla Mixed Up
 homepage: https://metacpan.org/release/Zilla-Dist
 language: perl
@@ -24,7 +24,7 @@ devel:
 requires:
   perl: 5.8.1
   CPAN::Uploader: 0.103007
-  Dist::Zilla: 5.029
+  Dist::Zilla: 6.012
   Dist::Zilla::PluginBundle::Git: 2.029
   Dist::Zilla::Plugin::ChangesFromYaml: 0.004
   Dist::Zilla::Plugin::GithubMeta: 0.46

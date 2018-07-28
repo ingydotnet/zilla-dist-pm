@@ -42,11 +42,8 @@ install:
 [% IF include_testbase -%]
   Test::Base
 [% END -%]
-[% IF include_testml -%]
-  TestML
-[% END -%]
 [% IF include_testml1 -%]
-  TestML
+  TestML1
 [% END -%]
 
 script:
