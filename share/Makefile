@@ -205,6 +205,7 @@ uninstall: distdir
 
 clean:
 	rm -fr blib cpan .build .inline $(DIST) $(DISTDIR)
+	find . -type d | grep '\.testml' | xargs rm -fr
 
 distclean purge: clean
 
