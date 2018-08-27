@@ -27,7 +27,7 @@ NAMEPATH := $(shell $(ZILD) meta name)
 endif
 NAME := $(shell $(ZILD) meta name)
 VERSION := $(shell $(ZILD) meta version)
-RELEASE_BRANCH := $(shell $(ZILD) meta branch)
+RELEASE_BRANCH ?= $(shell $(ZILD) meta branch)
 
 DISTDIR := $(NAME)-$(VERSION)
 DIST := $(DISTDIR).tar.gz
