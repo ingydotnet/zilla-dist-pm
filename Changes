@@ -1,4 +1,9 @@
 ---
+version: 0.0.202
+date:    Sun Nov 11 11:05:21 PST 2018
+changes:
+- Set up environment for releaseing modules with TestML tests
+---
 version: 0.0.201
 date:    Mon Aug 27 08:03:52 PDT 2018
 changes:
