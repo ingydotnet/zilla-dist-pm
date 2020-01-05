@@ -1,4 +1,9 @@
 ---
+version: 0.1.2
+date:    Sun Jan  5 14:31:23 PST 2020
+changes:
+- Do coverage on perl 5.30 (latest)
+---
 version: 0.1.1
 date:    Sun Jan  5 13:58:06 PST 2020
 changes:

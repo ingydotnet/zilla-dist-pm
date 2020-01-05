@@ -6,10 +6,8 @@ language: perl
 
 matrix:
   include:
-    # first as slowest
-    - perl: '5.26'
-      env: COVERAGE=1
     - perl: '5.30'
+      env: COVERAGE=1
     - perl: '5.28'
     - perl: '5.26'
     - perl: '5.24'
