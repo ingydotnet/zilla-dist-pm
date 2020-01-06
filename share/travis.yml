@@ -37,7 +37,7 @@ install:
   git://github.com/ingydotnet/test-base-pm ../test-base-pm
 [% END -%]
 [% IF include_testml -%]
-- git clone --depth=1
+- git clone
   git://github.com/testml-lang/testml ../testml
 [% END -%]
 [% IF testml1 -%]
