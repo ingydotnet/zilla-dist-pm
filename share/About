@@ -55,7 +55,7 @@ NOTE: If you just want to run the tests without installing Zilla::Dist, use:
 Repository Layout
 -----------------
 
-This repoository contains the following top level files and directories:
+This repository contains the following top level files and directories:
 
 [%IF layout.About-%]
   About       - This file describing the repository. (generated)
