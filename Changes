@@ -1,4 +1,9 @@
 ---
+version: 0.1.4
+date:    Thu Jan  9 09:39:27 PST 2020
+changes:
+- Fix to add versions to CPAN requirements
+---
 version: 0.1.3
 date:    Sun Jan  5 23:31:00 PST 2020
 changes:
