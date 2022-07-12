@@ -1,7 +1,7 @@
 =meta: 0.0.2
 
 name: Zilla-Dist
-version: 0.1.5
+version: 0.1.6
 abstract: Dist::Zilla Mixed Up
 homepage: https://metacpan.org/release/Zilla-Dist
 language: perl
