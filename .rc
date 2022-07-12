@@ -1,0 +1,8 @@
+# shellcheck shell=bash
+
+ZILD_ROOT=$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)
+PATH=$ZILD_ROOT/bin:$PATH
+PERL5LIB=$ZILD_ROOT/lib:$PERL5LIB
+MANPATH=$(IFS=:; set -- "$ZILD_ROOT/man" "$MANPATH"; echo "$*")
+
+export PATH PERL5LIB MANPATH ZILD_ROOT

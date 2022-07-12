@@ -1,4 +1,9 @@
 ---
+version: 0.1.6
+date:    Tue 12 Jul 2022 04:26:55 PM PDT
+changes:
+- Support Markdown docs in doc/
+---
 version: 0.1.5
 date:    Tue Jun  9 07:58:41 PDT 2020
 changes:
