@@ -67,9 +67,9 @@ sub fmt {
 sub fmt_header {
     my ($self, $args) = @_;
     my ($level, $x, $list) = @$args;
-    return "=head$level " .
-        $self->fmt($list) .
-        "\n\n";
+    my $heading = $self->fmt($list);
+    $heading = uc $heading if $level <= 2;
+    return "=head$level $heading\n\n";
 }
 
 sub fmt_str {
