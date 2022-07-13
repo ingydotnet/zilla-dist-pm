@@ -175,7 +175,7 @@ sub fmt_horizontalrule {
 }
 
 sub fmt_softbreak {
-    '';
+    ' ';
 }
 
 $o->run(@ARGV);
