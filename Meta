@@ -23,6 +23,7 @@ devel:
 
 requires:
   perl: 5.8.1
+  Archive::Tar::Wrapper: 0.38
   Capture::Tiny: 0.48
   CPAN::Uploader: 0.103007
   Dist::Zilla: 6.025
