@@ -1,7 +1,7 @@
 =meta: 0.0.2
 
 name: Zilla-Dist
-version: 0.1.6
+version: 0.1.7
 abstract: Dist::Zilla Mixed Up
 homepage: https://metacpan.org/release/Zilla-Dist
 language: perl
@@ -23,27 +23,28 @@ devel:
 
 requires:
   perl: 5.8.1
+  Capture::Tiny: 0.48
   CPAN::Uploader: 0.103007
-  Dist::Zilla: 6.012
-  Dist::Zilla::PluginBundle::Git: 2.029
-  Dist::Zilla::Plugin::ChangesFromYaml: 0.004
-  Dist::Zilla::Plugin::GithubMeta: 0.46
-  Dist::Zilla::Plugin::ReadmeFromPod: 0.30
+  Dist::Zilla: 6.025
+  Dist::Zilla::PluginBundle::Git: 2.048
+  Dist::Zilla::Plugin::ChangesFromYaml: 0.005
+  Dist::Zilla::Plugin::GithubMeta: 0.58
+  Dist::Zilla::Plugin::ReadmeFromPod: 0.37
   Dist::Zilla::Plugin::TestBaseIncluder: 0.09
-  Dist::Zilla::Plugin::TestMLIncluder: 0.12
-  Dist::Zilla::Plugin::TestML1Includer: 0.0.1
+  Dist::Zilla::Plugin::TestMLIncluder: 0.19
+  Dist::Zilla::Plugin::TestML1Includer: 0.0.2
   ExtUtils::MakeMaker: 6.98
   File::Share: 0.25
-  Hash::Merge: 0.200
-  IO::All: 0.86
-  JSON: 2.90
-  Swim: 0.1.35
+  Hash::Merge: 0.302
+  IO::All: 0.87
+  JSON::PP: 4.10
+  Swim: 0.1.48
   Swim::Plugin::badge: 0.1.8
-  Swim::Plugin::cpan: 0.0.5
+  Swim::Plugin::cpan: 0.0.7
   Template::Toolkit::Simple: 0.31
-  Test::Pod: 1.48
-  version: 0.9908
-  YAML::XS: 0.55
+  Test::Pod: 1.52
+  version: 0.9929
+  YAML::PP: 0.034
 
 badge: travis
 see: Dist::Zilla
