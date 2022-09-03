@@ -1,4 +1,9 @@
 ---
+version: 0.1.11
+date:    Sat Sep  3 10:33:43 AM PDT 2022
+changes:
+- Simpler way for shared Makefile to find its path
+---
 version: 0.1.10
 date:    Sat Sep  3 10:28:26 AM PDT 2022
 changes:
