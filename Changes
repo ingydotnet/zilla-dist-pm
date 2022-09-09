@@ -1,4 +1,9 @@
 ---
+version: 0.1.13
+date:    Fri Sep  9 03:02:55 PM EDT 2022
+changes:
+- Generate special functions in markdown (badges)
+---
 version: 0.1.12
 date:    Sat Sep  3 10:53:33 AM PDT 2022
 changes:
