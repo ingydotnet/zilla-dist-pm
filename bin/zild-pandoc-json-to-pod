@@ -132,11 +132,9 @@ sub badge {
     $text = $text->[0]{c}[1][0]{c};
     $link = $link->[0];
 
-    return <<"...";
-=for html
-<a href="$link"><img src="$image" alt="$text"></a>
-
-...
+    return
+        "=for html\n" .
+        qq(<a href="$link"><img src="$image" alt="$text"></a>\n\n);
 }
 
 sub fmt_rawblock {
@@ -147,14 +145,10 @@ sub fmt_rawblock {
 
     chomp $text;
 
-    return <<"...";
-=begin html
-
-$text
-
-=end html
-
-...
+    return
+        "=begin html\n\n" .
+        "$text\n\n" .
+        "=end html\n\n";
 }
 
 sub fmt_code {
