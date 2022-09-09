@@ -8,8 +8,6 @@ use Hash::Merge 'merge';
 use IO::All;
 use YAML::PP;
 
-use XXX;
-
 sub new {
     my $class = shift;
     bless {@_}, $class;

@@ -5,7 +5,6 @@ use warnings;
 
 use Zilla::Dist;
 use IO::All;
-use XXX;
 
 my $o = Zilla::Dist->get_meta;
 $o->{name_underline} = '=' x length($o->{name});

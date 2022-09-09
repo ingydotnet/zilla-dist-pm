@@ -207,11 +207,7 @@ sub fmt_orderedlist {
 
 sub fmt_image {
     my ($self, $image) = @_;
-    require XXX;
-    XXX::XXX [
-        "'fmt_image' not yet implemented",
-        $image,
-    ];
+    die "'fmt_image' not yet implemented";
 }
 
 sub fmt_plain {
