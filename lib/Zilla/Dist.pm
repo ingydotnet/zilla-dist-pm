@@ -1,6 +1,6 @@
 use strict; use warnings;
 package Zilla::Dist;
-our $VERSION = '0.1.11';
+our $VERSION = '0.1.12';
 
 use version;
 use File::Share;
@@ -37,7 +37,7 @@ sub run {
 sub get_meta {
     my ($self) = @_;
     my $meta = -f 'Meta'
-      ? YAML::PP::LoadFile('Meta')
+      ? eval { YAML::PP::LoadFile('Meta') } || {}
       : {};
     if (my $base_file = delete($meta->{base})) {
         my $base = YAML::PP::LoadFile($base_file);
