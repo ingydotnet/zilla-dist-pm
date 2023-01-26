@@ -1,4 +1,9 @@
 ---
+version: 0.1.15
+date:    Wed Jan 25 09:51:39 PM EST 2023
+changes:
+- 'Allow explicit modules name in {doc-head: <name>}'
+---
 version: 0.1.14
 date:    Fri Sep  9 04:07:04 PM EDT 2022
 changes:
