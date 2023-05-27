@@ -8,6 +8,8 @@ use Hash::Merge 'merge';
 use IO::All;
 use YAML::PP;
 
+Hash::Merge::set_behavior('RIGHT_PRECEDENT');
+
 sub new {
     my $class = shift;
     bless {@_}, $class;
