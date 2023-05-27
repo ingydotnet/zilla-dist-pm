@@ -1,4 +1,9 @@
 ---
+version: 0.1.16
+date:    Fri May 26 09:57:53 PM PDT 2023
+changes:
+- Make Meta merge be RIGHT_PRECEDENT
+---
 version: 0.1.15
 date:    Wed Jan 25 09:51:39 PM EST 2023
 changes:
