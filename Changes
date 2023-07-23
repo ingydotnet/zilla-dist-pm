@@ -1,4 +1,9 @@
 ---
+version: 0.1.18
+date:    Sat Jul 22 07:39:03 PM PDT 2023
+changes:
+- Add Dist::Zilla::Plugin::MakeMaker::Awesome to requires
+---
 version: 0.1.17
 date:    Tue Jun 27 09:29:55 AM EDT 2023
 changes:
