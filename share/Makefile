@@ -156,15 +156,17 @@ endif
 ifneq ($(LOG),)
 	@echo "$$(date) - Release $(DIST) UPLOADED" >> $(LOG)
 endif
+ifeq (1,$(shell grep -q skip_tag_check: Meta || echo 1))
 	$(MAKE) clean
 	[ -z "$$(git status -s)" ] || zild-git-commit
 	git push
-	grep -q skip_tag_check: Meta || git tag $(VERSION)
-	grep -q skip_tag_check: Meta || git push --tag
+	git tag $(VERSION)
+	git push --tag
 	$(MAKE) clean
 ifneq ($(PERL_ZILLA_DIST_AUTO_INSTALL),)
 	@echo "***** Installing after release"
 	$(MAKE) install
+endif
 endif
 	@echo
 	git status
