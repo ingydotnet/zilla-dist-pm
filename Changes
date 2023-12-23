@@ -1,4 +1,9 @@
 ---
+version: 0.1.19
+date:    Sat Dec 23 06:11:24 AM PST 2023
+changes:
+- Fix Makefile bug with NAMEPATH
+---
 version: 0.1.18
 date:    Sat Jul 22 07:39:03 PM PDT 2023
 changes:
