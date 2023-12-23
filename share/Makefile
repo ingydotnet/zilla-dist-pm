@@ -159,8 +159,8 @@ endif
 	$(MAKE) clean
 	[ -z "$$(git status -s)" ] || zild-git-commit
 	git push
-	git tag $(VERSION)
-	git push --tag
+	grep -q skip_tag_check: Meta || git tag $(VERSION)
+	grep -q skip_tag_check: Meta || git push --tag
 	$(MAKE) clean
 ifneq ($(PERL_ZILLA_DIST_AUTO_INSTALL),)
 	@echo "***** Installing after release"
