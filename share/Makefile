@@ -26,10 +26,10 @@ export PATH := $(BASE)/bin:$(PATH)
 
 # XXX Change to `metaspec =zild libname`
 NAMEPATH := $(shell $(ZILD) meta =zild/libname)
-NAMEPATH := $(subst ::,/,$(NAMEPATH))
 ifeq (,$(NAMEPATH))
 NAMEPATH := $(shell $(ZILD) meta name)
 endif
+NAMEPATH := $(subst ::,/,$(NAMEPATH))
 NAME := $(shell $(ZILD) meta name)
 VERSION := $(shell $(ZILD) meta version)
 RELEASE_BRANCH ?= $(shell $(ZILD) meta branch)
