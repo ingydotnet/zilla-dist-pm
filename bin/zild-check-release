@@ -17,6 +17,8 @@ LIBPATH="lib/${LIBPATH//:://}.pm"
 
 NO_CHANGES_YAML="$($ZILD meta =zild/no_changes_yaml)"
 
+SKIP_TAG_CHECK=$($ZILD meta =zild/skip_tag_check)
+
 # Define a error reporting function:
 {
   OK=0
@@ -55,8 +57,10 @@ NO_CHANGES_YAML="$($ZILD meta =zild/no_changes_yaml)"
   fi
 
   # Make sure this is a new version:
-  git tag | grep -E "^v?${META_VERSION//./\\.}$" &>/dev/null &&
-    error "Version '$META_VERSION' already tagged as released"
+  if [[ ! $SKIP_TAG_CHECK ]]; then
+    git tag | grep -E "^v?${META_VERSION//./\\.}$" &>/dev/null &&
+      error "Version '$META_VERSION' already tagged as released"
+  fi
 
   if [ "$OK" -ne 0 ] && [ -n "$PERL_ZILLA_DIST_AUTO_VIM_META_CHANGES" ]; then
     vim Changes Meta -O -c 'normal gg4j'
