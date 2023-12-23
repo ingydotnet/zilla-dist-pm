@@ -1,4 +1,9 @@
 ---
+version: 0.1.22
+date:    Sat Dec 23 07:28:59 AM PST 2023
+changes:
+- Don't do any git stuff when skip_tag_check
+---
 version: 0.1.21
 date:    Sat Dec 23 07:09:37 AM PST 2023
 changes:
