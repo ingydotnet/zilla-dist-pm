@@ -156,7 +156,7 @@ endif
 ifneq ($(LOG),)
 	@echo "$$(date) - Release $(DIST) UPLOADED" >> $(LOG)
 endif
-ifeq (1,$(shell grep -q skip_tag_check: Meta || echo 1))
+ifeq (1,$(shell grep -q no-git-update: Meta || echo 1))
 	$(MAKE) clean
 	[ -z "$$(git status -s)" ] || zild-git-commit
 	git push

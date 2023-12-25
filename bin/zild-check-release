@@ -17,7 +17,7 @@ LIBPATH="lib/${LIBPATH//:://}.pm"
 
 NO_CHANGES_YAML="$($ZILD meta =zild/no_changes_yaml)"
 
-SKIP_TAG_CHECK=$($ZILD meta =zild/skip_tag_check)
+NO_GIT_UPDATE=$($ZILD meta =zild/no-git-update)
 
 # Define a error reporting function:
 {
@@ -57,7 +57,7 @@ SKIP_TAG_CHECK=$($ZILD meta =zild/skip_tag_check)
   fi
 
   # Make sure this is a new version:
-  if [[ ! $SKIP_TAG_CHECK ]]; then
+  if [[ ! $NO_GIT_UPDATE ]]; then
     git tag | grep -E "^v?${META_VERSION//./\\.}$" &>/dev/null &&
       error "Version '$META_VERSION' already tagged as released"
   fi
