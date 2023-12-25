@@ -1,4 +1,9 @@
 ---
+version: 0.1.23
+date:    Mon Dec 25 06:29:32 AM PST 2023
+changes:
+- Change skip-tag-check to no-git-update
+---
 version: 0.1.22
 date:    Sat Dec 23 07:28:59 AM PST 2023
 changes:
